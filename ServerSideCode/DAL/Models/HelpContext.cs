@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Models;
 
-public partial class AcademyContext : DbContext
+public partial class HelpContext : DbContext
 {
-    public AcademyContext(DbContextOptions<AcademyContext> options)
+    public HelpContext(DbContextOptions<HelpContext> options)
         : base(options)
     {
     }
