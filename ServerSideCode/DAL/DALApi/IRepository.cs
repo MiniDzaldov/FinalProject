@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.DALApi
+namespace DAL.DALApi;
+
+public interface IRepository<T>
 {
-    internal interface IRepository
-    {
-    }
+    Task<List<T>> GetAllAsync();
+    Task<T> GetSingleAsync(int id);
+    Task<T> AddAsync(T entity);
+    Task<T> UpdateAsync(T entity);
+    Task<T> DeleteAsync(int id);
 }

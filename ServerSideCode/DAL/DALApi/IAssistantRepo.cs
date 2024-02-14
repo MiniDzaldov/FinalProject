@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace DAL.DALApi;
 
-public interface IAssistRepo:IRepository<Assist>
+public interface IAssistantRepo:IRepository<Assistant>
 {
 }
