@@ -6,11 +6,14 @@ namespace DAL.Models;
 
 public partial class HelpContext : DbContext
 {
-    public HelpContext(DbContextOptions<HelpContext> options)
+    /*public HelpContext(DbContextOptions<HelpContext> options)
         : base(options)
     {
+    }*/
+    public HelpContext()
+      
+    {
     }
-
     public virtual DbSet<Adress> Adresses { get; set; }
 
     public virtual DbSet<Assist> Assists { get; set; }

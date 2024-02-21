@@ -11,10 +11,14 @@ namespace DAL.DALImplementation;
 
 public class AssistRepo : IAssistRepo
 {
-    HelpContext helpContext;
-    public AssistRepo(HelpContext helpContext)
+    HelpContext helpContext = new HelpContext();
+    /*public AssistRepo(HelpContext helpContext)
     {
         this.helpContext = helpContext;   
+    }*/
+    public AssistRepo()
+    {
+        
     }
     public async Task<Assist> AddAsync(Assist entity)
     {
