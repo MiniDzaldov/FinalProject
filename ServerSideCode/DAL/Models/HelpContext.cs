@@ -11,6 +11,10 @@ public partial class HelpContext : DbContext
         : base(options)
     {
     }
+    public HelpContext()
+      
+    {
+    }
   
     public virtual DbSet<Adress> Adresses { get; set; }
 

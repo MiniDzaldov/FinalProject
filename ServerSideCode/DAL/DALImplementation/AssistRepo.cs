@@ -15,6 +15,8 @@ public class AssistRepo : IAssistRepo
     HelpContext helpContext = new HelpContext(new DbContextOptions<HelpContext>());
     
     
+    /*HelpContext helpContext = new HelpContext();*/
+
     /*public AssistRepo(HelpContext helpContext)
     {
         this.helpContext = helpContext;   

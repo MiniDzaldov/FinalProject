@@ -13,6 +13,8 @@ namespace BLL.BLLImplementation;
 public class AssistDetailsRepo : IAssistDetailsRepo
 {
     AssistRepo assistRepo = new AssistRepo();
+
+
     public async Task<List<AssistDetails>> GetAllAssistDetailsAsync()
     {
         var assistList = await assistRepo.GetAllAsync();
