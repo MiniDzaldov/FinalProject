@@ -14,16 +14,15 @@ public class AssistDetailsRepo : IAssistDetailsRepo
 {
     AssistRepo assistRepo = new AssistRepo();
 
-
     public async Task<List<AssistDetails>> GetAllAssistDetailsAsync()
     {
         var assistList = await assistRepo.GetAllAsync();
         var assistDetailList = new List<AssistDetails>();
         foreach (var ad in assistList)
         {
-            assistDetailList.Add(new AssistDetails(ad.FirstName + " " + ad.LastName, ad.PhoneNumber, ad.Email));
+            assistDetailList.Add(new AssistDetails(ad.FirstName + " " + ad.LastName, ad.PhoneNumber, ad.Email , ad.CategoryCode));
         }
-        assistDetailList.Add(new AssistDetails("sar", "4576", "a@b"));
+        assistDetailList.Add(new AssistDetails("sari", "4576", "a@b", 3));
         return assistDetailList;
     }
 }

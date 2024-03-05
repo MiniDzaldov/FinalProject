@@ -11,6 +11,7 @@ var connString = actions.GetConnectionString("AssistanceDB");*/
 
 
 builder.Services.AddScoped<IAssistDetailsRepo, AssistDetailsRepo>();
+builder.Services.AddScoped<IAssistantDetailsRepo, AssistantDetailsRepo>();
 builder.Services.AddControllers();
 var app = builder.Build();
 
