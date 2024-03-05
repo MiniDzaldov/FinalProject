@@ -1,15 +1,19 @@
+using BLL.BLLApi;
+using BLL.BLLImplementation;
 using DAL;
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-DBActions actions = new DBActions(builder.Configuration);
-var connString = actions.GetConnectionString("AssistanceDB");
-builder.Services.AddDbContext<HelpContext>(opt => opt.UseSqlServer(connString));
+/*DBActions actions = new DBActions(builder.Configuration);
+var connString = actions.GetConnectionString("AssistanceDB");*/
 
+
+builder.Services.AddScoped<IAssistDetailsRepo, AssistDetailsRepo>();
+builder.Services.AddControllers();
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapControllers();
 
 app.Run();

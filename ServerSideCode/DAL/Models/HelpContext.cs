@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DAL.Models;
 
@@ -10,7 +11,7 @@ public partial class HelpContext : DbContext
         : base(options)
     {
     }
-
+  
     public virtual DbSet<Adress> Adresses { get; set; }
 
     public virtual DbSet<Assist> Assists { get; set; }
@@ -20,6 +21,9 @@ public partial class HelpContext : DbContext
     public virtual DbSet<HelpCategory> HelpCategories { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=H:\\FinalProject\\DB\\DataBase.mdf;Integrated Security=True;Connect Timeout=30");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
