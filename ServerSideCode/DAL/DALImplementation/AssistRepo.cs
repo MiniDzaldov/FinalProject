@@ -19,9 +19,9 @@ public class AssistRepo : IAssistRepo
     }
     public async Task<List<Assist>> GetAllAsync()
     {
-        return await helpContext.Assists.ToListAsync();
+        var assists = helpContext.Assists.Include(x => x.CategoryCodeNavigation);
+        return await assists.ToListAsync();
     }
-
     public async Task<Assist> GetSingleAsync(string id)
     {
         return await helpContext.Assists.FirstOrDefaultAsync(ga => ga.Id == id);

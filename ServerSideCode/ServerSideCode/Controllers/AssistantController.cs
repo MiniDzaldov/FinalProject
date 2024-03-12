@@ -1,4 +1,5 @@
-﻿using BLL.BLLApi;
+﻿using BLL;
+using BLL.BLLApi;
 using BLL.BLLModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,9 @@ namespace ServerSideCode.Controllers;
 public class AssistantController : ControllerBase
 {
     IAssistantDetailsRepo assistantDetailsRepo;
-    public AssistantController(IAssistantDetailsRepo assistantDetailsRepo)
+    public AssistantController(BlManager blManager)
     {
-        this.assistantDetailsRepo = assistantDetailsRepo;
+        this.assistantDetailsRepo = blManager.AssistantDetailsRepo;
     }
     [HttpGet]
     public async Task<ActionResult<List<AssistantDetails>>> GetAllAssistantDetails()

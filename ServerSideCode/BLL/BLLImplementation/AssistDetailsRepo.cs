@@ -1,4 +1,4 @@
-﻿using BLL.BLLApi;
+﻿    using BLL.BLLApi;
 using BLL.BLLModels;
 using DAL;
 using DAL.DALApi;
@@ -26,9 +26,25 @@ public class AssistDetailsRepo : IAssistDetailsRepo
         var assistDetailList = new List<AssistDetails>();
         foreach (var ad in assistList)
         {
-            assistDetailList.Add(new AssistDetails(ad.FirstName + " " + ad.LastName, ad.PhoneNumber, ad.Email , ad.Email));
+            assistDetailList.Add(new AssistDetails(ad.FirstName + " " + ad.LastName, ad.PhoneNumber, ad.Email , ad.CategoryCodeNavigation.Type));
         }
-        assistDetailList.Add(new AssistDetails("sari", "4576", "a@b", "3"));
+        assistDetailList.Add(new AssistDetails("sari", "4576", "a@b", "bake"));
         return assistDetailList;
+    }
+
+    public async Task<AssistDetails> GetSingleAssistDetailsAsync(string id)
+    {
+        var assist = await assistRepo.GetSingleAsync(id);
+        if (assist == null)
+        {
+            throw new Exception("this id does not exist");
+        }
+        var assistDetails = new AssistDetails(assist.FirstName + " " + assist.LastName, assist.PhoneNumber, assist.Email, assist.CategoryCodeNavigation.Type);
+        return assistDetails;
+
+    }
+    public Task<AssistDetails> AddAssistDetailsAsync(AssistDetails assistDetails)
+    {
+        throw new NotImplementedException();
     }
 }
