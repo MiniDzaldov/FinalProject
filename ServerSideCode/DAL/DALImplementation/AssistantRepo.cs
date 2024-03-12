@@ -12,29 +12,53 @@ namespace DAL.DALImplementation;
 public class AssistantRepo : IAssistantRepo
 
 {
-    HelpContext helpContext = new HelpContext(new DbContextOptions<HelpContext>());
-
-    public async Task<Assistant> AddAsync(Assistant entity)
+    HelpContext helpContext;
+    public AssistantRepo(HelpContext helpContext)
     {
-        throw new NotImplementedException();
-    }
-
-    public async Task<Assistant> DeleteAsync(int id)
-    {
-        throw new NotImplementedException();
+        this.helpContext = helpContext;
     }
 
     public async Task<List<Assistant>> GetAllAsync()
     {
         return await helpContext.Assistants.ToListAsync();
     }
-    public async Task<Assistant> GetSingleAsync(int id)
+    public async Task<Assistant> GetSingleAsync(string id)
     {
-        throw new NotImplementedException();
+        return await helpContext.Assistants.FirstOrDefaultAsync(ga => ga.Id == id);
     }
 
-    public async Task<Assistant> UpdateAsync(Assistant entity)
+    public async Task<Assistant> AddAsync(Assistant entity)
     {
-        throw new NotImplementedException();
+        helpContext.Assistants.Add(entity);
+        await helpContext.SaveChangesAsync();
+        return entity;
     }
+
+    public async Task<Assistant> DeleteAsync(string id)
+    {
+        Assistant removeAssistant = helpContext.Assistants.FirstOrDefault(ra => ra.Id == id);
+        if (removeAssistant != null)
+        {
+            helpContext.Assistants.Remove(removeAssistant);
+            await helpContext.SaveChangesAsync();
+        }
+        return removeAssistant;
+    }
+
+    public async Task<Assistant> UpdateAsync(Assistant entity, string id)
+    {
+        Assistant a = helpContext.Assistants.FirstOrDefault(a => a.Id == id);
+        if (a != null)
+        {
+            a.FirstName = entity.FirstName;
+            a.LastName = entity.LastName;
+            a.Email = entity.Email;
+            a.AddressCode = entity.AddressCode;
+            a.PhoneNumber = entity.PhoneNumber;
+            a.CategoryCode = entity.CategoryCode;
+            await helpContext.SaveChangesAsync();
+        }
+        return a;
+    }
+
 }

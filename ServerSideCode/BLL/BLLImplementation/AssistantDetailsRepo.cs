@@ -1,5 +1,6 @@
 ﻿using BLL.BLLApi;
 using BLL.BLLModels;
+using DAL;
 using DAL.DALApi;
 using DAL.DALImplementation;
 using System;
@@ -12,7 +13,12 @@ namespace BLL.BLLImplementation;
 
 public class AssistantDetailsRepo : IAssistantDetailsRepo
 {
-    AssistantRepo assistantRepo = new AssistantRepo();
+    IAssistantRepo assistantRepo;
+    public AssistantDetailsRepo(DalManager dalmanagerInstance)
+    {
+        this.assistantRepo = dalmanagerInstance.AssistantRepo;
+    }
+
     public async Task<List<AssistantDetails>> GetAllAssistantDetailsAsync()
     {
         var assistantList = await assistantRepo.GetAllAsync();
@@ -24,5 +30,7 @@ public class AssistantDetailsRepo : IAssistantDetailsRepo
         assistantDetailList.Add(new AssistantDetails("Chana", "0548744154", "c@gmail.com", 111, 3));
         return assistantDetailList;
     }
+
+
 
 }
