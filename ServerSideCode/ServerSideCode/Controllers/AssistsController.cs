@@ -28,13 +28,19 @@ public class AssistsController : ControllerBase
     public async Task<ActionResult<AssistDetails>> GetSingleAssistDetails(string id)
     {
         try
-        { 
+        {
             return await assistDetailsRepo.GetSingleAssistDetailsAsync(id);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            return  BadRequest(ex.Message);
+            return BadRequest(ex.Message);
         }
     }
-}
+/*    [HttpPost]
+*/    /*public async Task<ActionResult<BLAssist>> AddAssistAsync(BLAssist assist)
+    {
+        return await 
+    } */
 
+
+}

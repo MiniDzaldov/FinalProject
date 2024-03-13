@@ -23,3 +23,4 @@ public class AssistantDetails
         this.CategoryCode = categoryCode;
     }
 }
+

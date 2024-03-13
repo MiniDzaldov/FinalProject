@@ -28,7 +28,7 @@ public class AssistDetailsRepo : IAssistDetailsRepo
         {
             assistDetailList.Add(new AssistDetails(ad.FirstName + " " + ad.LastName, ad.PhoneNumber, ad.Email , ad.CategoryCodeNavigation.Type));
         }
-        assistDetailList.Add(new AssistDetails("sari", "4576", "a@b", "bake"));
+        assistDetailList.Add(new AssistDetails("sari", "4576", "a@b", ""));
         return assistDetailList;
     }
 
@@ -42,9 +42,5 @@ public class AssistDetailsRepo : IAssistDetailsRepo
         var assistDetails = new AssistDetails(assist.FirstName + " " + assist.LastName, assist.PhoneNumber, assist.Email, assist.CategoryCodeNavigation.Type);
         return assistDetails;
 
-    }
-    public Task<AssistDetails> AddAssistDetailsAsync(AssistDetails assistDetails)
-    {
-        throw new NotImplementedException();
     }
 }
