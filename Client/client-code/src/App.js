@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Fetch from './Fetch';
+import AssistsDetailsFetch from './AssistsDetailsFetch';
+import AssistantDetailsFetch from './AssistantDetailsFetch';
 
 function App() {
   return (
@@ -12,7 +13,11 @@ function App() {
         {/* <p>
           Edit <code>src/App.js</code> and save to reload.
         </p> */}
-        <Fetch></Fetch>
+        <p>AssistsDetailsFetch</p>
+        <AssistsDetailsFetch></AssistsDetailsFetch>
+
+        <p>AssistantDetailsFetch</p>
+        <AssistantDetailsFetch></AssistantDetailsFetch>
         <a
           className="App-link"
           href="https://reactjs.org"

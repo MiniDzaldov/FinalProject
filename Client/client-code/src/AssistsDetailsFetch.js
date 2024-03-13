@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-const Fetch = () => {
+
+const AssistsDetailsFetch = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch('https://localhost:7189/api/Assists')
+    fetch('http://localhost:5089/api/Assists')
       .then((res) => {
         return res.json();
       })
@@ -12,7 +13,7 @@ const Fetch = () => {
       });
   }, []);
   return (
-    users.map(user => (<div>{user.firstName}: {user.email}</div>))
+    users.map(user => (<div>name: {user.name},  email: {user.email}, phoneNumber: {user.phoneNumber}, category: {user.categoryCode}</div>))
   );
 };
-export default Fetch;
+export default AssistsDetailsFetch;

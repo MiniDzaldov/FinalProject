@@ -23,6 +23,7 @@ public class AssistsController : ControllerBase
     {
         return await assistDetailsRepo.GetAllAssistDetailsAsync();
     }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<AssistDetails>> GetSingleAssistDetails(string id)
     {

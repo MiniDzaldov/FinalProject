@@ -20,7 +20,10 @@ public class AssistantRepo : IAssistantRepo
 
     public async Task<List<Assistant>> GetAllAsync()
     {
-        return await helpContext.Assistants.ToListAsync();
+        var assistant = helpContext.Assistants.Include(x => x.AddressCodeNavigation).Include(x => x.CategoryCodeNavigation);
+        return await assistant.ToListAsync();
+
+        //return await helpContext.Assistants.ToListAsync();
     }
     public async Task<Assistant> GetSingleAsync(string id)
     {

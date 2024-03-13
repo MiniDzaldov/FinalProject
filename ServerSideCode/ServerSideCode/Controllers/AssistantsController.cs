@@ -9,10 +9,10 @@ namespace ServerSideCode.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class AssistantController : ControllerBase
+public class AssistantsController : ControllerBase
 {
     IAssistantDetailsRepo assistantDetailsRepo;
-    public AssistantController(BlManager blManager)
+    public AssistantsController(BlManager blManager)
     {
         this.assistantDetailsRepo = blManager.AssistantDetailsRepo;
     }
