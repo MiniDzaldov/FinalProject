@@ -1,8 +1,4 @@
-﻿using DAL.DALApi;
-using DAL.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace DAL.DALImplementation;
+﻿namespace DAL.DALImplementation;
 
 public class CategoryRepo : ICategoryRepo
 {

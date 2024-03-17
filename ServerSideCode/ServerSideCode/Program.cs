@@ -1,10 +1,3 @@
-using BLL;
-using BLL.BLLApi;
-using BLL.BLLImplementation;
-using DAL;
-using DAL.Models;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<BlManager>();

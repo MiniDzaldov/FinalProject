@@ -1,15 +1,4 @@
-﻿using BLL.BLLApi;
-using BLL.BLLModels;
-using DAL;
-using DAL.DALApi;
-using DAL.DALImplementation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BLL.BLLImplementation;
+﻿namespace BLL.BLLImplementation;
 
 public class AssistantDetailsRepo : IAssistantDetailsRepo
 {

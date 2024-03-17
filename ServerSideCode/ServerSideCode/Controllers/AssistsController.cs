@@ -1,12 +1,4 @@
-﻿using BLL;
-using BLL.BLLApi;
-using BLL.BLLModels;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics.Metrics;
-
-namespace ServerSideCode.Controllers;
+﻿namespace ServerSideCode.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

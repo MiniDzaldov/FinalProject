@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace DAL.Models;
+﻿namespace DAL.Models;
 
 public partial class HelpContext : DbContext
 {

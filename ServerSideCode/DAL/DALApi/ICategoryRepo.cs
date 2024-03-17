@@ -1,5 +1,4 @@
-﻿using DAL.Models;
-namespace DAL.DALApi;
+﻿namespace DAL.DALApi;
 
 public interface ICategoryRepo
 {

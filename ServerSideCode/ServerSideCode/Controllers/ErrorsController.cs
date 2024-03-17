@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Paging.Controllers
+﻿namespace Paging.Controllers
 {
     //[Route("/[controller]")]
     [ApiController]

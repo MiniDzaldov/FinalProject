@@ -1,11 +1,4 @@
-﻿using BLL;
-using BLL.BLLApi;
-using BLL.BLLImplementation;
-using BLL.BLLModels;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ServerSideCode.Controllers
+﻿namespace ServerSideCode.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
