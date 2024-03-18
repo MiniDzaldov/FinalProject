@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const AssistsDetailsFetch = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5089/api/Assists')
+    fetch('https://localhost:7189/api/Assists')
       .then((res) => {
         return res.json();
       })
