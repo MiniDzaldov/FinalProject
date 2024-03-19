@@ -4,13 +4,13 @@
 [ApiController]
 public class AssistantsController : ControllerBase
 {
-    IAssistantDetailsRepo assistantDetailsRepo;
+    IAssistantService assistantDetailsRepo;
     public AssistantsController(BlManager blManager)
     {
         this.assistantDetailsRepo = blManager.AssistantDetailsRepo;
     }
     [HttpGet]
-    public async Task<ActionResult<List<AssistantDetails>>> GetAllAssistantDetails()
+    public async Task<ActionResult<List<AssistantDTO>>> GetAllAssistantDetails()
     {
         return await assistantDetailsRepo.GetAllAssistantDetailsAsync();
     }

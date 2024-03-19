@@ -4,18 +4,18 @@
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        ICategoryDetailsRepo categoryDetailsRepo;
+        ICategoryService categoryDetailsRepo;
         public CategoriesController(BlManager blManager)
         {
             this.categoryDetailsRepo = blManager.CategoryDetailsRepo;
         }
         [HttpGet]
-        public async Task<ActionResult<List<CategoryDetails>>> GetAllCategoryDetails()
+        public async Task<ActionResult<List<CategoryDTO>>> GetAllCategoryDetails()
         {
             return await categoryDetailsRepo.GetAllCategoryDetailsAsync();
         }
         [HttpGet ("{code}")]
-        public async Task<ActionResult<CategoryDetails>> GetSingleCategoryDetails(int code)
+        public async Task<ActionResult<CategoryDTO>> GetSingleCategoryDetails(int code)
         {
             try
             {

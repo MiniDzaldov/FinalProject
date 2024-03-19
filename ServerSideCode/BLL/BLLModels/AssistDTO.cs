@@ -1,6 +1,6 @@
 ﻿namespace BLL.BLLModels;
 
-public class BLAssist
+public class AssistDTO
 {
     public string Id { get; set; }
 
@@ -18,11 +18,14 @@ public class BLAssist
 
     public int CategoryCode { get; set; }
 
-    public virtual Adress AddressCodeNavigation { get; set; }
+    public virtual AdressDTO AddressCodeNavigation { get; set; }
 
     public virtual HelpCategory CategoryCodeNavigation { get; set; }
-    public BLAssist()
+    public AssistDTO(string firstName, string lastName, string phoneNumber, string email)
     {
-        
+        this.FirstName = firstName;
+        this.LastName = lastName;   
+        this.PhoneNumber = phoneNumber;
+        this.Email = email;
     }
 }

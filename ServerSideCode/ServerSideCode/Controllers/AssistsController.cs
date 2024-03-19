@@ -4,20 +4,20 @@
 [ApiController]
 public class AssistsController : ControllerBase
 {
-    IAssistDetailsRepo assistDetailsRepo;
+    IAssistService assistDetailsRepo;
     public AssistsController(BlManager blManager)
     {
         this.assistDetailsRepo = blManager.AssistDetailsRepo;
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<AssistDetails>>> GetAllAssistsDetails()
+    public async Task<ActionResult<List<AssistDTO>>> GetAllAssistsDetails()
     {
         return await assistDetailsRepo.GetAllAssistDetailsAsync();
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<AssistDetails>> GetSingleAssistDetails(string id)
+    public async Task<ActionResult<AssistDTO>> GetSingleAssistDetails(string id)
     {
         try
         {
