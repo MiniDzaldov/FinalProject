@@ -4,7 +4,10 @@ export default function HomePage() {
     const navigate = useNavigate();
     return (
         <>
-        <button >I am interested in helping</button>
+        <button onClick={() => navigate("/assist_form")} >I need help</button>
+        
+        <button onClick={() => navigate("/assistant_form")} >I want to help</button>
+
         <br></br>
         <button  onClick={() => navigate("/assist_details")}>Show Assist Details</button>
         
