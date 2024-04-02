@@ -41,7 +41,6 @@ export default function AssistForm() {
         <Form.Control type="phoneNumber" placeholder="Enter your phoneNumber" />
     </Form.Group>
 
-    
     <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label> Email</Form.Label> */}
         <Form.Control type="email" placeholder="Enter your email" />
@@ -51,10 +50,30 @@ export default function AssistForm() {
         {/* <Form.Label> Email</Form.Label> */}
         <Form.Control type="city" placeholder="Enter your city" />
     </Form.Group>
-    
 
-    
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+        {/* <Form.Label> Email</Form.Label> */}
+        <Form.Control type="street" placeholder="Enter your street" />
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+        {/* <Form.Label> Email</Form.Label> */}
+        <Form.Control type="numOfBuilding" placeholder="Enter your numOfBuilding" />
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+        {/* <Form.Label> Email</Form.Label> */}
+        <Form.Control type="apartmentNumber" placeholder="Enter your apartmentNumber" />
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+        {/* <Form.Label> Email</Form.Label> */}
+        <Form.Control type="zipCode" placeholder="Enter your zipCode" />
+    </Form.Group>
+
+
     <h3> check how to do the address and category......</h3>
+    <h3>good luck!!!!!</h3>
 
 
       {/* <InputGroup className="mb-3">
