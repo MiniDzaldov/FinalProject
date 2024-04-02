@@ -28,11 +28,12 @@ public class AssistsController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-/*    [HttpPost]
-*/    /*public async Task<ActionResult<BLAssist>> AddAssistAsync(BLAssist assist)
+    [HttpPost]
+    public async Task<ActionResult<AssistDTO>> AddAssistAsync(AssistDTO assist)
     {
-        return await 
-    } */
+        //return await
+        return null;
+    } 
 
 
 }
