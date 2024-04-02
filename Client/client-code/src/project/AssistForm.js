@@ -41,10 +41,18 @@ export default function AssistForm() {
         <Form.Control type="phoneNumber" placeholder="Enter your phoneNumber" />
     </Form.Group>
 
+    
     <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label> Email</Form.Label> */}
         <Form.Control type="email" placeholder="Enter your email" />
     </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+        {/* <Form.Label> Email</Form.Label> */}
+        <Form.Control type="city" placeholder="Enter your city" />
+    </Form.Group>
+    
+
     
     <h3> check how to do the address and category......</h3>
 
