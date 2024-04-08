@@ -71,9 +71,20 @@ export default function AssistForm() {
         <Form.Control type="zipCode" placeholder="Enter your zipCode" />
     </Form.Group>
 
+    <Form.Group>
+    <select>
+      <option value="someOption">help category</option>
+      <option value="otherOption">Babysiting</option>
+      <option value="otherOption">Meals</option>
+      <option value="otherOption">Cleaning</option>
+
+    </select>
+    </Form.Group>
+
 
     <h3> check how to do the address and category......</h3>
-    <h3>good luck!!!!!</h3>
+    <h3>08/04/2024</h3>
+    
 
 
       {/* <InputGroup className="mb-3">
