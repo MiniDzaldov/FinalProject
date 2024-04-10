@@ -3,10 +3,14 @@
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Nav from './Nav';
+// import Nav2 from './Nav2';
 
 export default function AssistantForm() {
   return (
     <>
+    <Nav></Nav>
+    {/* <Nav2></Nav2> */}
     <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label>ID</Form.Label> */}
         <Form.Control type="ID" placeholder="Enter your ID" />

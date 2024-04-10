@@ -1,11 +1,15 @@
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import Nav from './Nav';
+// import Nav2 from './Nav2';
 
 export default function AssistForm() {
 
 
   return (
     <>
+    <Nav></Nav>
+    {/* <Nav2></Nav2> */}
     <Form>
     <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label>ID</Form.Label> */}

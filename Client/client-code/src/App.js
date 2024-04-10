@@ -3,7 +3,8 @@ import './App.css';
 import AssistsDetailsFetch from './AssistsDetailsFetch';
 import AssistantDetailsFetch from './AssistantDetailsFetch';
 import Navigators from './project/Navigators';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './project/HomePage';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
 
         {/* <Provider store={store}> */}
             <BrowserRouter>
+            <Routes> 
+            {/* <Route exact path="/" element={< HomePage/>} /> */}
+            </Routes>
               <Navigators></Navigators>
             </BrowserRouter>
 
