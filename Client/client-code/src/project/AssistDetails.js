@@ -16,6 +16,8 @@ const AssistsDetailsFetch = () => {
 
   const txt = {"textAlign": "center"}
   return (
+<>
+    <button onClick={() => navigate("/assistant_details")}>Show Assistant Details</button>
     <center>
     <table class="table table-striped" style={{"width": "50rem", "alignContent":"center"}}>
         <tr>
@@ -34,6 +36,7 @@ const AssistsDetailsFetch = () => {
        ))}
     </table>
 </center>
+</>
 );
 };
 export default AssistsDetailsFetch;

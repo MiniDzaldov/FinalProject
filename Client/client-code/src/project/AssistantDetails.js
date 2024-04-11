@@ -14,7 +14,11 @@ const AssistantDetailsFetch = () => {
       });
   }, []);
   return (
-    users.map(user => (<div>name: {user.name},  email: {user.email}, phoneNumber: {user.phoneNumber}, category: {user.categoryCode}, address: {user.addressCode}</div>))
+    <>
+    <button  onClick={() => navigate("/assist_details")}>Show Assist Details</button>
+
+   {/*fix the data to table show....  */}
+   { users.map(user => (<div>name: {user.name},  email: {user.email}, phoneNumber: {user.phoneNumber}, category: {user.categoryCode}, address: {user.addressCode}</div>))} </>
   );
 };
 export default AssistantDetailsFetch;
