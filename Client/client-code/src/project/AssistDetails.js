@@ -7,7 +7,7 @@ const AssistsDetailsFetch = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://localhost:7189/api/Assists')
+    fetch('http://localhost:5089/api/Assists')
       .then((res) => {
         return res.json();
       })

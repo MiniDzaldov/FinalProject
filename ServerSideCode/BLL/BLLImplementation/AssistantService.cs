@@ -17,8 +17,8 @@ public class AssistantService : IAssistantService
         {
             assistantDetailList.Add(new AssistantDTO(ad.FirstName , ad.LastName, ad.PhoneNumber, ad.Email));
         }
-        assistantDetailList.Add(new AssistantDTO("Chana", "Levi", "0548744154", "c@gmail.com"));
-        return assistantDetailList;
+/*        assistantDetailList.Add(new AssistantDTO("Chana", "Levi", "0548744154", "c@gmail.com"));
+*/        return assistantDetailList;
     }
 
 
