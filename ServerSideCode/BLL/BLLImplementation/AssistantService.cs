@@ -4,9 +4,11 @@ namespace BLL.BLLImplementation;
 public class AssistantService : IAssistantService
 {
     IAssistantRepo assistantRepo;
-    public AssistantService(DalManager dalmanagerInstance)
+    IMapper mapper;
+    public AssistantService(DalManager dalmanagerInstance, IMapper mapper)
     {
         this.assistantRepo = dalmanagerInstance.AssistantRepo;
+        this.mapper = mapper;
     }
 
     public async Task<List<AssistantDTO>> GetAllAssistantDetailsAsync()
@@ -20,6 +22,8 @@ public class AssistantService : IAssistantService
         assistantDetailList.Add(new AssistantDTO("Chana", "Levi", "0548744154", "c@gmail.com"));
         return assistantDetailList;
     }
+
+  
 
 
 
