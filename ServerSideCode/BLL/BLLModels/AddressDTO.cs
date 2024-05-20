@@ -1,6 +1,6 @@
 ﻿namespace BLL.BLLModels;
 
-public class AdressDTO
+public class AddressDTO
 {
     public int Code { get; set; }
 
