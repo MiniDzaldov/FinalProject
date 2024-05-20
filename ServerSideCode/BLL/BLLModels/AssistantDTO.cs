@@ -10,21 +10,21 @@ public class AssistantDTO
 
     public string LastName { get; set; }
 
-    public int? Age { get; set; }
+    public int Age { get; set; }
 
     public string PhoneNumber { get; set; }
 
     public string Email { get; set; }
 
-    /*public int AddressCode { get; set; }
+    public int AddressCode { get; set; }
 
-    public int CategoryCode { get; set; }*/
+    public int CategoryCode { get; set; }
 
-    public virtual Adress AddressCode { get; set; }
+    public virtual Adress AddressCodeNavigation { get; set; }
 
-    public virtual HelpCategory CategoryCode { get; set; }
+    public virtual HelpCategory CategoryCodeNavigation { get; set; }
 
-    public AssistantDTO(string firstName, string lastName, string phoneNumber, string email, Adress addressCode, HelpCategory categoryCode)
+    public AssistantDTO(string firstName, string lastName, string phoneNumber, string email, int addressCode, int categoryCode, int age)
     {
         this.FirstName = firstName;
         this.LastName = lastName;
@@ -32,6 +32,7 @@ public class AssistantDTO
         this.Email = email;
         this.AddressCode = addressCode;
         this.CategoryCode = categoryCode;
+        this.Age = age; 
     }
     public AssistantDTO(string firstName, string lastName, string phoneNumber, string email)
     {

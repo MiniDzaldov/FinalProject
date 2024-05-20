@@ -17,8 +17,6 @@ public class CategoryService : ICategoryService
         {
             categoryDetailsList.Add(new CategoryDTO(c.Code, c.Type));
         }
-        categoryDetailsList.Add(new CategoryDTO(1, "Cook"));
-        categoryDetailsList.Add(new CategoryDTO(2, "Babysitting"));
         return categoryDetailsList;
     }
 
