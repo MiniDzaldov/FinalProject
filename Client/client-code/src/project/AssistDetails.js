@@ -5,9 +5,11 @@ import { useNavigate } from 'react-router-dom';
 const AssistsDetailsFetch = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const txt = {"textAlign": "center"}
+
 
   useEffect(() => {
-    fetch('https://localhost:7189/api/Assists')
+    fetch('http://localhost:5089/api/Assists')
       .then((res) => {
         return res.json();
       })
@@ -17,7 +19,6 @@ const AssistsDetailsFetch = () => {
       });
   }, []);
 
-  const txt = {"textAlign": "center"}
   return (
 <>
     <button onClick={() => navigate("/assistant_details")}>Show Assistant Details</button>
@@ -27,7 +28,7 @@ const AssistsDetailsFetch = () => {
     </center>
     <br></br>
     <center>
-    <table class="table table-striped" style={{"width": "50rem", "alignContent":"center"}}>
+    <table class="table table-striped" style={{"width": "90rem", "alignContent":"center"}}>
         <tr>
             <th style={txt}>Name</th>
             <th style={txt}>Email</th>
@@ -36,10 +37,10 @@ const AssistsDetailsFetch = () => {
         </tr>
         {users.map((user) =>(
         <tr>
-            <td style={txt}>{user.name}</td>
-            <td style={txt}>{user.Email}</td>
-            <td style={txt}>{user.PhoneNumber}</td>
-            <td style={txt}>{user.CategoryCode}</td>
+            <td style={txt}>{user.firstName + " " + user.lastName}</td>
+            <td style={txt}>{user.email}</td>
+            <td style={txt}>{user.phoneNumber}</td>
+            <td style={txt}>{user.categoryCode}</td>
         </tr>
        ))}
     </table>

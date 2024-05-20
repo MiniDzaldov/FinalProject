@@ -5,9 +5,11 @@ import { useNavigate } from 'react-router-dom';
 const AssistantDetailsFetch = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const txt = {"textAlign": "center"}
+
 
   useEffect(() => {
-    fetch('https://localhost:7189/api/Assistant')
+    fetch('http://localhost:5089/api/Assistants')
       .then((res) => {
         return res.json();
       })
@@ -25,7 +27,29 @@ const AssistantDetailsFetch = () => {
     </center>
     <br></br>
    {/*fix the data to table show....  */}
-   { users.map(user => (<div>name: {user.name},  email: {user.email}, phoneNumber: {user.phoneNumber}, category: {user.categoryCode}, address: {user.addressCode}</div>))} </>
+   {/* { users.map(user => (<div>name: {user.firstName},  email: {user.email}, phoneNumber: {user.phoneNumber}, category: {user.categoryCode}, address: {user.addressCode}</div>))}  */}
+
+   <center>
+    <table class="table table-striped" style={{"width": "90rem", "alignContent":"center"}}>
+        <tr>
+            <th style={txt}>Name</th>
+            <th style={txt}>Email</th>
+            <th style={txt}>PhoneNumber</th>
+            <th style={txt}>Category</th>
+        </tr>
+        {users.map((user) =>(
+        <tr>
+            <td style={txt}>{user.firstName + " " + user.lastName}</td>
+            <td style={txt}>{user.email}</td>
+            <td style={txt}>{user.phoneNumber}</td>
+            <td style={txt}>{user.categoryCode}</td>
+        </tr>
+       ))}
+    </table>
+</center>
+
+
+   </>
   );
 };
 export default AssistantDetailsFetch;
