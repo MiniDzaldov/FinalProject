@@ -9,11 +9,13 @@ public class CategoriesController : ControllerBase
     {
         this.categoryDetailsRepo = blManager.CategoryDetailsRepo;
     }
+
     [HttpGet]
     public async Task<ActionResult<List<CategoryDTO>>> GetAllCategoryDetails()
     {
         return await categoryDetailsRepo.GetAllCategoryDetailsAsync();
     }
+
     [HttpGet ("{code}")]
     public async Task<ActionResult<CategoryDTO>> GetSingleCategoryDetails(int code)
     {
@@ -26,5 +28,23 @@ public class CategoriesController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-}
 
+    [HttpDelete("{code}")]
+    public async Task<ActionResult<CategoryDTO>> DeleteCategoryDetailsAsync(int code)
+    {
+        try
+        {
+            return await categoryDetailsRepo.DeleteCategoryDetailsAsync(code);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<CategoryDTO>> AddCategoryDetailsAsync(CategoryDTO categoryDTO)
+    {
+        return await categoryDetailsRepo.AddCategoryDetailsAsync(categoryDTO);
+    }
+}

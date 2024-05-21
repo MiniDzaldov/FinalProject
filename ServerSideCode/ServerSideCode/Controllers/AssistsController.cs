@@ -33,6 +33,7 @@ public class AssistsController : ControllerBase
     {
         return await assistDetailsRepo.AddAssistDetailsAsync(assist);
     }
+
     [HttpDelete("{id}")]
     public async Task<ActionResult<AssistDTO>> DeleteAssistDetailsAsync(string id)
     {

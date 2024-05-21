@@ -13,12 +13,13 @@ public class AssistantRepo : IAssistantRepo
     {
         var assistant = helpContext.Assistants.Include(x => x.AddressCodeNavigation).Include(x => x.CategoryCodeNavigation);
         return await assistant.ToListAsync();
-
-        //return await helpContext.Assistants.ToListAsync();
     }
+
     public async Task<Assistant> GetSingleAsync(string id)
     {
-        return await helpContext.Assistants.FirstOrDefaultAsync(ga => ga.Id == id);
+        Assistant assistant = await helpContext.Assistants.Include(a => a.AddressCodeNavigation)
+           .Include(a => a.CategoryCodeNavigation).FirstOrDefaultAsync(ga => ga.Id == id);
+        return assistant;
     }
 
     public async Task<Assistant> AddAsync(Assistant entity)
