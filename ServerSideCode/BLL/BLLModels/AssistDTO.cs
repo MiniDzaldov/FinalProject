@@ -18,9 +18,10 @@ public class AssistDTO
 
     public int CategoryCode { get; set; }
 
-    //public virtual AddressDTO AddressCodeNavigation { get; set; }
+    public virtual AddressDTO AddressCodeNavigation { get; set; }
 
-    //public virtual HelpCategory CategoryCodeNavigation { get; set; }
+    public virtual CategoryDTO CategoryCodeNavigation { get; set; }
+
     public AssistDTO(string firstName, string lastName, string phoneNumber, string email)
     {
         this.FirstName = firstName;

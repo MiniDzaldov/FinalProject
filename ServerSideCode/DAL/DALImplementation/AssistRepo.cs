@@ -9,14 +9,18 @@ public class AssistRepo : IAssistRepo
     }
     public async Task<List<Assist>> GetAllAsync()
     {
-        var assists = helpContext.Assists.Include(x => x.CategoryCodeNavigation);
+        var assists = helpContext.Assists.Include(a => a.AddressCodeNavigation)
+            .Include(x => x.CategoryCodeNavigation);
         return await assists.ToListAsync();
     }
     public async Task<Assist> GetSingleAsync(string id)
     {
-        return await helpContext.Assists.FirstOrDefaultAsync(ga => ga.Id == id);
+        Assist assist = await helpContext.Assists.Include(a => a.AddressCodeNavigation)
+            .Include(a => a.CategoryCodeNavigation).FirstOrDefaultAsync(ga => ga.Id == id);
+        return assist;
     }
 
+    //doesn't work 😒
     public async Task<Assist> AddAsync(Assist entity)
     {
         helpContext.Assists.Add(entity);

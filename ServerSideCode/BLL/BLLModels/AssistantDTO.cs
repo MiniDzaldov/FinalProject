@@ -1,6 +1,4 @@
-﻿
-
-namespace BLL.BLLModels;
+﻿namespace BLL.BLLModels;
 
 public class AssistantDTO
 {

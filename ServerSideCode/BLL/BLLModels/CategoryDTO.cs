@@ -1,12 +1,14 @@
-﻿namespace BLL.BLLModels;
+﻿
+namespace BLL.BLLModels;
 
 public class CategoryDTO
 {
     public int Code { get; set; }
 
     public string Type { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Assistant> Assistants { get; set; } = new List<Assistant>();
+    [JsonIgnore]
 
     public virtual ICollection<Assist> Assists { get; set; } = new List<Assist>();
 

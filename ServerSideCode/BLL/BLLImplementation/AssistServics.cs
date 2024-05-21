@@ -15,6 +15,7 @@ public class AssistServics : IAssistService
     }
 
     public async Task<List<AssistDTO>> GetAllAssistDetailsAsync()
+    
     {
         try
         {
@@ -22,7 +23,8 @@ public class AssistServics : IAssistService
             var assists = await assistRepo.GetAllAsync() ?? throw new ArgumentNullException("The action failed, please try again later");
             foreach (var assist in assists)
             {
-                AssistDTO a = ConvertionClass.SimpleAutoMapper<AssistDTO, Assist>(assist);
+                //AssistDTO a = ConvertionClass.SimpleAutoMapper<AssistDTO, Assist>(assist);
+                AssistDTO a = mapper.Map<AssistDTO>(assist);
                 assistsBL.Add(a);
             }
             return assistsBL;
@@ -36,10 +38,8 @@ public class AssistServics : IAssistService
     {
         try
         {
-            Assist a = await assistRepo.GetSingleAsync(id);
-            if (a == null)
-                throw new ArgumentNullException("The assist doesn't exist in our system");
-            AssistDTO ass = mapper.Map<Assist, AssistDTO>(a);
+            Assist a = await assistRepo.GetSingleAsync(id) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+            AssistDTO ass = mapper.Map<AssistDTO>(a);
             return ass;
         }
         catch (ArgumentNullException ex) { throw ex; }
@@ -47,16 +47,33 @@ public class AssistServics : IAssistService
         catch (Exception) { throw; }
 
     }
-    public async Task<AssistDTO> AddAssitantDetailsAsync(AssistDTO assist)
+    //doesn't work 😢😢😢
+    public async Task<AssistDTO> AddAssistDetailsAsync(AssistDTO assist)
     {
         try
         {
-            var assistData = mapper.Map<AssistDTO, Assist>(assist) ?? throw new ArgumentNullException("assist details are null");
+            var assistData = mapper.Map<Assist>(assist) ?? throw new ArgumentNullException("assist details are null");
             var result = await assistRepo.AddAsync(assistData);
-            return mapper.Map<Assist, AssistDTO>(result);
+            return mapper.Map<AssistDTO>(result);
         }
         catch (ArgumentNullException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+    public async Task<AssistDTO> DeleteAssistDetailsAsync(string id)
+    {
+        try
+        {
+            Assist a = await assistRepo.DeleteAsync(id) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+            AssistDTO dass = mapper.Map<AssistDTO>(a);
+            return dass;
+        }
+        catch (ArgumentNullException ex) { throw ex; }
+        catch (TimeoutException ex) { throw ex; }
+        catch (Exception) { throw; }
+    }
 
+    public Task<AssistDTO> UpdateAssistDetailsAsync()
+    {
+        throw new NotImplementedException();
+    }
 }

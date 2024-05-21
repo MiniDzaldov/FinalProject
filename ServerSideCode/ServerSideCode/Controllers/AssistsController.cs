@@ -31,9 +31,19 @@ public class AssistsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<AssistDTO>> AddAssistAsync(AssistDTO assist)
     {
-        //return await
-        return null;
-    } 
-
+        return await assistDetailsRepo.AddAssistDetailsAsync(assist);
+    }
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<AssistDTO>> DeleteAssistDetailsAsync(string id)
+    {
+        try
+        {
+            return await assistDetailsRepo.DeleteAssistDetailsAsync(id);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 
 }

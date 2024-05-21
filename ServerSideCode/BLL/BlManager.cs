@@ -1,4 +1,6 @@
-﻿namespace BLL;
+﻿using BLL.Profiles;
+
+namespace BLL;
 
 public class BlManager
 {
@@ -12,7 +14,8 @@ public class BlManager
         services.AddScoped<IAssistService, AssistServics>();
         services.AddScoped<IAssistantService, AssistantService>();
         services.AddScoped<ICategoryService, CategoryService>();
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        //collection.AddAutoMapper(typeof(UserProfile));
+        services.AddAutoMapper(typeof(MapperProfile));
 
         ServiceProvider servicesProvider = services.BuildServiceProvider();
         AssistDetailsRepo = servicesProvider.GetRequiredService<IAssistService>();

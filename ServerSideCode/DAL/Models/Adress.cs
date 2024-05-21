@@ -13,8 +13,8 @@ public partial class Adress
     public int AptNumber { get; set; }
 
     public int ZipCode { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Assistant> Assistants { get; set; } = new List<Assistant>();
-
+    [JsonIgnore]
     public virtual ICollection<Assist> Assists { get; set; } = new List<Assist>();
 }

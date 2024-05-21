@@ -10,3 +10,5 @@ global using System.Collections.Generic;
 global using System.Threading.Tasks;
 global using AutoMapper;
 global using AutoMapper.Extensions.EnumMapping;
+global using System.Text.Json.Serialization;
+ 
