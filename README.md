@@ -11,26 +11,32 @@ User Registration: Soldiers' families and volunteers can register accounts on th
 Profile Creation: Users can create detailed profiles, including information about their needs or how they can help.
 
 ### Getting Started
-To get started with the Volunteer Matching Platform, follow these steps:<br>
-Clone the repository to your local machine:<br> ```bash
-git clone https://github.com/MiniDzaldov/FinalProject.git<br>
-Install dependencies: ```bash
+To get started with the Volunteer Matching Platform, follow these steps:
 
+Clone the repository to your local machine:
+```bash
+git clone https://github.com/MiniDzaldov/FinalProject.git
+
+Install dependencies: 
+```bash
 cd FinalProject
 npm install
 
 Set up environment variables:<br>
 Create a .env file based on the provided .env.example template and fill in the required configuration values.
 
-Start the development server:<br> ```bash
+Start the development server:
+ ```bash
 npm start
 
-Access the platform:<br> ```bash
+Access the platform:<br>
 Open your web browser and navigate to http://localhost:3000 to access the Volunteer Matching Platform.
 
 ### Technologies Used
-Frontend: React.js, HTML, CSS<br>
-Backend: Asp.net core web API<br>
+Frontend: React.js, HTML, CSS
+
+Backend: Asp.net core web API
+
 Database: SQL server<br>
 
 ### Contributing
