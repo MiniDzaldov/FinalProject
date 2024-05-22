@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BLL.BLLModels;
+﻿namespace BLL.BLLModels;
 
 public class AddressDTO
 {
@@ -22,6 +20,11 @@ public class AddressDTO
     [JsonIgnore]
     public virtual ICollection<Assist> Assists { get; set; } = new List<Assist>();
 
+    public AddressDTO()
+    {
+
+    }
+
     public AddressDTO(int code, string city, string street, int numOfBuilding, int aptNumber, int zipCode/*, ICollection<Assistant> assistants, ICollection<Assist> assists*/)
     {
         Code = code;
@@ -31,10 +34,7 @@ public class AddressDTO
         AptNumber = aptNumber;
         ZipCode = zipCode;
     }
-    public AddressDTO()
-    {
-        
-    }
+    
     /*public AddressDTO(int code, string type)
     {
         this.Code = code;

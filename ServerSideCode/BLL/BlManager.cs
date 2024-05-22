@@ -1,6 +1,4 @@
-﻿using BLL.Profiles;
-
-namespace BLL;
+﻿namespace BLL;
 
 public class BlManager
 {

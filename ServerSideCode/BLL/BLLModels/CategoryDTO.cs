@@ -1,13 +1,21 @@
-﻿
-namespace BLL.BLLModels;
+﻿namespace BLL.BLLModels;
 
 public class CategoryDTO
 {
+    public int Code { get; set; }
+
+    public string Type { get; set; }
+
+    [JsonIgnore]
+    public virtual ICollection<Assistant> Assistants { get; set; } = new List<Assistant>();
+
+    [JsonIgnore]
+    public virtual ICollection<Assist> Assists { get; set; } = new List<Assist>();
 
     #region Ctors
     public CategoryDTO()
     {
-        
+
     }
     public CategoryDTO(string type)
     {
@@ -26,14 +34,4 @@ public class CategoryDTO
         this.Assists = assists;
     }
     #endregion
-
-    public int Code { get; set; }
-
-    public string Type { get; set; }
-
-    [JsonIgnore]
-    public virtual ICollection<Assistant> Assistants { get; set; } = new List<Assistant>();
-
-    [JsonIgnore]
-    public virtual ICollection<Assist> Assists { get; set; } = new List<Assist>();
 }

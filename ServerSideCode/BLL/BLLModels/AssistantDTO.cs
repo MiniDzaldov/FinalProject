@@ -21,6 +21,10 @@ public class AssistantDTO
     public virtual Adress AddressCodeNavigation { get; set; }
 
     public virtual HelpCategory CategoryCodeNavigation { get; set; }
+    public AssistantDTO()
+    {
+
+    }
 
     //public AssistantDTO(string firstName, string lastName, string phoneNumber, string email, int addressCode, int categoryCode, int age)
     //{
@@ -39,10 +43,7 @@ public class AssistantDTO
     //    this.PhoneNumber = phoneNumber;
     //    this.Email = email; 
     //}
-    public AssistantDTO()
-    {
-        
-    }
+
 
 }
 

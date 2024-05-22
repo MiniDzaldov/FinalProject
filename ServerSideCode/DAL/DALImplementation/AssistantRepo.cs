@@ -4,43 +4,41 @@ public class AssistantRepo : IAssistantRepo
 
 {
     HelpContext helpContext;
+    #region ctor
     public AssistantRepo(HelpContext helpContext)
     {
         this.helpContext = helpContext;
     }
+    #endregion
 
+    #region GetAll
     public async Task<List<Assistant>> GetAllAsync()
     {
         var assistant = helpContext.Assistants.Include(x => x.AddressCodeNavigation)
             .Include(c => c.CategoryCodeNavigation);
         return await assistant.ToListAsync();
     }
+    #endregion
 
+    #region GetSingle
     public async Task<Assistant> GetSingleAsync(string id)
     {
         Assistant assistant = await helpContext.Assistants.Include(a => a.AddressCodeNavigation)
            .Include(a => a.CategoryCodeNavigation).FirstOrDefaultAsync(ga => ga.Id == id);
         return assistant;
     }
+    #endregion
 
+    #region Create
     public async Task<Assistant> AddAsync(Assistant entity)
     {
         helpContext.Assistants.Add(entity);
         await helpContext.SaveChangesAsync();
         return entity;
     }
+    #endregion
 
-    public async Task<Assistant> DeleteAsync(string id)
-    {
-        Assistant removeAssistant = helpContext.Assistants.FirstOrDefault(ra => ra.Id == id);
-        if (removeAssistant != null)
-        {
-            helpContext.Assistants.Remove(removeAssistant);
-            await helpContext.SaveChangesAsync();
-        }
-        return removeAssistant;
-    }
-
+    #region Update
     public async Task<Assistant> UpdateAsync(Assistant entity, string id)
     {
         Assistant a = helpContext.Assistants.FirstOrDefault(a => a.Id == id);
@@ -56,5 +54,19 @@ public class AssistantRepo : IAssistantRepo
         }
         return a;
     }
+    #endregion
+
+    #region Delete
+    public async Task<Assistant> DeleteAsync(string id)
+    {
+        Assistant removeAssistant = helpContext.Assistants.FirstOrDefault(ra => ra.Id == id);
+        if (removeAssistant != null)
+        {
+            helpContext.Assistants.Remove(removeAssistant);
+            await helpContext.SaveChangesAsync();
+        }
+        return removeAssistant;
+    }
+    #endregion
 
 }

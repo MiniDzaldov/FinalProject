@@ -1,18 +1,18 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.Logging;
-using System.Diagnostics;
-
-namespace BLL.BLLImplementation;
+﻿namespace BLL.BLLImplementation;
 
 public class AssistServics : IAssistService
 {
     IAssistRepo assistRepo;
     IMapper mapper;
+
+    #region ctor
     public AssistServics(DalManager dalManagerInstance, IMapper mapper)
     {
         this.assistRepo = dalManagerInstance.AssistRepo;
         this.mapper = mapper;
     }
+    #endregion
+
     #region GetAll
     public async Task<List<AssistDTO>> GetAllAssistDetailsAsync()
     
@@ -51,8 +51,8 @@ public class AssistServics : IAssistService
     }
     #endregion
 
-
     //doesn't work 😢😢😢
+    #region Create
     public async Task<AssistDTO> AddAssistDetailsAsync(AssistDTO assist)
     {
         try
@@ -64,6 +64,7 @@ public class AssistServics : IAssistService
         catch (ArgumentNullException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+    #endregion
 
     #region Delete
     public async Task<AssistDTO> DeleteAssistDetailsAsync(string id)

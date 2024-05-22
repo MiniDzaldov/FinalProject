@@ -1,18 +1,16 @@
-﻿using AutoMapper;
-using DAL.DALApi;
-using DAL.DALImplementation;
-using DAL.Models;
-
-namespace BLL.BLLImplementation;
+﻿namespace BLL.BLLImplementation;
 
 public class CategoryService : ICategoryService
 {
     ICategoryRepo categoryRepo;
     IMapper mapper;
+
+    #region ctor
     public CategoryService(DalManager dalManagerInstance)
     {
         this.categoryRepo = dalManagerInstance.CategoryRepo;
     }
+    #endregion  
 
     #region GatAlll
     public async Task<List<CategoryDTO>> GetAllCategoryDetailsAsync()

@@ -1,19 +1,17 @@
-﻿
-using DAL.DALApi;
-using DAL.DALImplementation;
-using DAL.Models;
-
-namespace BLL.BLLImplementation;
+﻿namespace BLL.BLLImplementation;
 
 public class AssistantService : IAssistantService
 {
     IAssistantRepo assistantRepo;
     IMapper mapper;
+
+    #region ctor
     public AssistantService(DalManager dalmanagerInstance, IMapper mapper)
     {
         this.assistantRepo = dalmanagerInstance.AssistantRepo;
         this.mapper = mapper;
     }
+    #endregion
 
     #region GetAll
     public async Task<List<AssistantDTO>> GetAllAssistantDetailsAsync()
@@ -36,6 +34,7 @@ public class AssistantService : IAssistantService
     }
     #endregion
 
+    #region GetSingle
     public async Task<AssistantDTO> GetSingleAssistantDetailsAsync(string id)
     {
         try
@@ -48,8 +47,10 @@ public class AssistantService : IAssistantService
         catch (TimeoutException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+    #endregion
 
     // doesnt work
+    #region Create
     public async Task<AssistantDTO> AddAssistantDetailsAsync(AssistantDTO asdto)
     {
         try
@@ -61,7 +62,9 @@ public class AssistantService : IAssistantService
         catch (ArgumentNullException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+    #endregion
 
+    #region Delete
     public async Task<AssistantDTO> DeleteAssistantDetailsAsync(string id)
     {
         try
@@ -74,6 +77,7 @@ public class AssistantService : IAssistantService
         catch (TimeoutException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+    #endregion
 
     #region Update
     public async Task<AssistantDTO> UpdateAssistantDetailsAsync(AssistantDTO assdto, string id)

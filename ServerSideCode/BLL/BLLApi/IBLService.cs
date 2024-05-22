@@ -1,5 +1,4 @@
-﻿
-namespace BL.BLApi
+﻿namespace BL.BLApi
 {
     public interface IBLService<T>
     {

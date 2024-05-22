@@ -3,10 +3,12 @@
 public class AssistRepo : IAssistRepo
 {
     HelpContext helpContext;
+    #region ctor
     public AssistRepo(HelpContext helpContext)
     {
         this.helpContext = helpContext;
     }
+    #endregion
 
     #region GetAll
     public async Task<List<Assist>> GetAllAsync()
@@ -26,14 +28,15 @@ public class AssistRepo : IAssistRepo
     }
     #endregion
 
-
     //doesn't work 😒
+    #region Create
     public async Task<Assist> AddAsync(Assist entity)
     {
         helpContext.Assists.Add(entity);
         await helpContext.SaveChangesAsync();
         return entity;
     }
+    #endregion
 
     #region Delete
     public async Task<Assist> DeleteAsync(string id)

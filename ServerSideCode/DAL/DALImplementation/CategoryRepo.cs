@@ -3,10 +3,13 @@
 public class CategoryRepo : ICategoryRepo
 {
     HelpContext helpContext;
+
+    #region ctor
     public CategoryRepo(HelpContext helpContext)
     {
         this.helpContext = helpContext;
     }
+    #endregion
 
     #region GetAll
     public async Task<List<HelpCategory>> GetAllAsync()
@@ -22,14 +25,16 @@ public class CategoryRepo : ICategoryRepo
     }
     #endregion
 
-
+    #region Create
     public async Task<HelpCategory> AddAsync(HelpCategory category)
     {
         helpContext.HelpCategories.Add(category);
         await helpContext.SaveChangesAsync();
         return category;
     }
+    #endregion
 
+    #region Delete
     public async Task<HelpCategory> DeleteAsync(int id)
     {
         HelpCategory removeCategory = helpContext.HelpCategories.FirstOrDefault(ra => ra.Code == id);
@@ -40,7 +45,6 @@ public class CategoryRepo : ICategoryRepo
         }
         return removeCategory;
     }
-  
-
+    #endregion
 
 }
