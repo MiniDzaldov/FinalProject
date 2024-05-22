@@ -34,6 +34,12 @@ public class AssistantsController : ControllerBase
         return await assistantDetailsRepo.AddAssistantDetailsAsync(assistant);
     }
 
+    [HttpPut("{id}")]
+    public async Task<ActionResult<AssistantDTO>> UpdateAssistantDetailsAsync(AssistantDTO assistant, string id)
+    {
+        return await assistantDetailsRepo.UpdateAssistantDetailsAsync(assistant, id);
+    }
+
     [HttpDelete("{id}")]
     public async Task<ActionResult<AssistantDTO>> DeleteAssistantDetailsAsync(string id)
     {

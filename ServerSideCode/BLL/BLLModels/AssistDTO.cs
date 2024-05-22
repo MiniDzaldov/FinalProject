@@ -22,11 +22,15 @@ public class AssistDTO
 
     public virtual CategoryDTO CategoryCodeNavigation { get; set; }
 
-    public AssistDTO(string firstName, string lastName, string phoneNumber, string email)
+    //public AssistDTO(string firstName, string lastName, string phoneNumber, string email)
+    //{
+    //    this.FirstName = firstName;
+    //    this.LastName = lastName;
+    //    this.PhoneNumber = phoneNumber;
+    //    this.Email = email;
+    //}
+    public AssistDTO()
     {
-        this.FirstName = firstName;
-        this.LastName = lastName;   
-        this.PhoneNumber = phoneNumber;
-        this.Email = email;
+        
     }
 }

@@ -14,17 +14,28 @@ public class AssistantService : IAssistantService
         this.assistantRepo = dalmanagerInstance.AssistantRepo;
         this.mapper = mapper;
     }
-    
+
+    #region GetAll
     public async Task<List<AssistantDTO>> GetAllAssistantDetailsAsync()
     {
-        var assistantList = await assistantRepo.GetAllAsync();
-        var assistantDetailList = new List<AssistantDTO>();
-        foreach (var ad in assistantList)
+        try
         {
-            assistantDetailList.Add(new AssistantDTO(ad.FirstName, ad.LastName, ad.PhoneNumber, ad.Email));
+            List<AssistantDTO> assistantBL = new();
+            var assistants = await assistantRepo.GetAllAsync() ?? throw new ArgumentNullException("The action failed, please try again later");
+            foreach (var assistant in assistants)
+            {
+                //AssistDTO a = ConvertionClass.SimpleAutoMapper<AssistDTO, Assist>(assist);
+                AssistantDTO a = mapper.Map<AssistantDTO>(assistant);
+                assistantBL.Add(a);
+            }
+            return assistantBL;
         }
-        return assistantDetailList;
+        catch (ArgumentNullException ex) { throw ex; }
+        catch (TimeoutException ex) { throw ex; }
+        catch (Exception) { throw; }
     }
+    #endregion
+
     public async Task<AssistantDTO> GetSingleAssistantDetailsAsync(string id)
     {
         try
@@ -63,8 +74,18 @@ public class AssistantService : IAssistantService
         catch (TimeoutException ex) { throw ex; }
         catch (Exception) { throw; }
     }
-    public async Task<AssistantDTO> UpdateAssistantDetailsAsync()
+
+    #region Update
+    public async Task<AssistantDTO> UpdateAssistantDetailsAsync(AssistantDTO assdto, string id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var assistant = mapper.Map<Assistant>(assdto) ?? throw new ArgumentNullException("assistant details are null");
+            var result = await assistantRepo.UpdateAsync(assistant, id);
+            return mapper.Map<AssistantDTO>(result);
+        }
+        catch (ArgumentNullException ex) { throw ex; }
+        catch (Exception) { throw; }
     }
+    #endregion
 }

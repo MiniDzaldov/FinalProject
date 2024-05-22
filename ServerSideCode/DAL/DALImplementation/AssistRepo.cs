@@ -7,18 +7,25 @@ public class AssistRepo : IAssistRepo
     {
         this.helpContext = helpContext;
     }
+
+    #region GetAll
     public async Task<List<Assist>> GetAllAsync()
     {
         var assists = helpContext.Assists.Include(a => a.AddressCodeNavigation)
             .Include(x => x.CategoryCodeNavigation);
         return await assists.ToListAsync();
     }
+    #endregion
+
+    #region GetSingle
     public async Task<Assist> GetSingleAsync(string id)
     {
         Assist assist = await helpContext.Assists.Include(a => a.AddressCodeNavigation)
             .Include(a => a.CategoryCodeNavigation).FirstOrDefaultAsync(ga => ga.Id == id);
         return assist;
     }
+    #endregion
+
 
     //doesn't work 😒
     public async Task<Assist> AddAsync(Assist entity)
@@ -28,6 +35,7 @@ public class AssistRepo : IAssistRepo
         return entity;
     }
 
+    #region Delete
     public async Task<Assist> DeleteAsync(string id)
     {
         Assist removeAssist = helpContext.Assists.FirstOrDefault(ra => ra.Id == id);
@@ -38,7 +46,9 @@ public class AssistRepo : IAssistRepo
         }
         return removeAssist;
     }
+    #endregion
 
+    #region Update
     public async Task<Assist> UpdateAsync(Assist entity, string id)
     {
         Assist a = helpContext.Assists.FirstOrDefault(a => a.Id == id);
@@ -47,6 +57,7 @@ public class AssistRepo : IAssistRepo
             a.FirstName = entity.FirstName;
             a.LastName = entity.LastName;
             a.Email = entity.Email;
+            a.NumOfChildren = entity.NumOfChildren;
             a.AddressCode = entity.AddressCode;
             a.PhoneNumber = entity.PhoneNumber;
             a.CategoryCode = entity.CategoryCode;
@@ -54,5 +65,6 @@ public class AssistRepo : IAssistRepo
         }
         return a;
     }
+    #endregion
 }
 

@@ -8,15 +8,20 @@ public class CategoryRepo : ICategoryRepo
         this.helpContext = helpContext;
     }
 
+    #region GetAll
     public async Task<List<HelpCategory>> GetAllAsync()
     {
         return await helpContext.HelpCategories.ToListAsync();
     }
+    #endregion
 
+    #region GetSingle
     public async Task<HelpCategory> GetSingleAsync(int id)
     {
         return await helpContext.HelpCategories.FirstOrDefaultAsync(ga => ga.Code == id);
     }
+    #endregion
+
 
     public async Task<HelpCategory> AddAsync(HelpCategory category)
     {
@@ -35,6 +40,7 @@ public class CategoryRepo : ICategoryRepo
         }
         return removeCategory;
     }
-
   
+
+
 }

@@ -15,10 +15,13 @@ public class AddressDTO
     public int AptNumber { get; set; }
 
     public int ZipCode { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<Assistant> Assistants { get; set; } = new List<Assistant>();
+
     [JsonIgnore]
     public virtual ICollection<Assist> Assists { get; set; } = new List<Assist>();
+
     public AddressDTO(int code, string city, string street, int numOfBuilding, int aptNumber, int zipCode/*, ICollection<Assistant> assistants, ICollection<Assist> assists*/)
     {
         Code = code;
@@ -27,6 +30,10 @@ public class AddressDTO
         NumOfBuilding = numOfBuilding;
         AptNumber = aptNumber;
         ZipCode = zipCode;
+    }
+    public AddressDTO()
+    {
+        
     }
     /*public AddressDTO(int code, string type)
     {

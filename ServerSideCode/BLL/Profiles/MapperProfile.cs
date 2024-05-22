@@ -9,10 +9,12 @@ public class MapperProfile : Profile
     {
         CreateMap<Assist, AssistDTO>().ReverseMap();
         CreateMap<Assistant, AssistantDTO>().ReverseMap();
+
         //CreateMap<CategoryDTO, HelpCategory>()
         //    .ForMember(ctgr => ctgr.Assists, opt => opt.Ignore())
         //    .ForMember(ctgr => ctgr.Assistants, opt => opt.Ignore());
         CreateMap<HelpCategory, CategoryDTO>().ReverseMap();
+
         //CreateMap<AddressDTO, Adress>()
         //    .ForMember(addrs => addrs.Assists, opt => opt.Ignore())
         //    .ForMember(addrs => addrs.Assistants, opt => opt.Ignore());

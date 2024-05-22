@@ -13,7 +13,7 @@ public class AssistServics : IAssistService
         this.assistRepo = dalManagerInstance.AssistRepo;
         this.mapper = mapper;
     }
-
+    #region GetAll
     public async Task<List<AssistDTO>> GetAllAssistDetailsAsync()
     
     {
@@ -33,7 +33,9 @@ public class AssistServics : IAssistService
         catch (TimeoutException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+    #endregion
 
+    #region GetSingle
     public async Task<AssistDTO> GetSingleAssistDetailsAsync(string id)
     {
         try
@@ -47,6 +49,9 @@ public class AssistServics : IAssistService
         catch (Exception) { throw; }
 
     }
+    #endregion
+
+
     //doesn't work 😢😢😢
     public async Task<AssistDTO> AddAssistDetailsAsync(AssistDTO assist)
     {
@@ -59,6 +64,8 @@ public class AssistServics : IAssistService
         catch (ArgumentNullException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+
+    #region Delete
     public async Task<AssistDTO> DeleteAssistDetailsAsync(string id)
     {
         try
@@ -71,9 +78,21 @@ public class AssistServics : IAssistService
         catch (TimeoutException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+    #endregion
 
-    public Task<AssistDTO> UpdateAssistDetailsAsync()
+    #region Update
+
+    public async Task<AssistDTO> UpdateAssistDetailsAsync(AssistDTO assdto, string id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var assist = mapper.Map<Assist>(assdto) ?? throw new ArgumentNullException("assist details are null");
+            var result = await assistRepo.UpdateAsync(assist, id);
+            return mapper.Map<AssistDTO>(result);
+        }
+        catch (ArgumentNullException ex) { throw ex; }
+        catch (Exception) { throw; }
     }
+    #endregion
+
 }

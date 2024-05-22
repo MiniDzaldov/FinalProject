@@ -22,22 +22,27 @@ public class AssistantDTO
 
     public virtual HelpCategory CategoryCodeNavigation { get; set; }
 
-    public AssistantDTO(string firstName, string lastName, string phoneNumber, string email, int addressCode, int categoryCode, int age)
+    //public AssistantDTO(string firstName, string lastName, string phoneNumber, string email, int addressCode, int categoryCode, int age)
+    //{
+    //    this.FirstName = firstName;
+    //    this.LastName = lastName;
+    //    this.PhoneNumber = phoneNumber;
+    //    this.Email = email;
+    //    this.AddressCode = addressCode;
+    //    this.CategoryCode = categoryCode;
+    //    this.Age = age; 
+    //}
+    //public AssistantDTO(string firstName, string lastName, string phoneNumber, string email)
+    //{
+    //    this.FirstName = firstName;
+    //    this.LastName = lastName;
+    //    this.PhoneNumber = phoneNumber;
+    //    this.Email = email; 
+    //}
+    public AssistantDTO()
     {
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.PhoneNumber = phoneNumber;
-        this.Email = email;
-        this.AddressCode = addressCode;
-        this.CategoryCode = categoryCode;
-        this.Age = age; 
+        
     }
-    public AssistantDTO(string firstName, string lastName, string phoneNumber, string email)
-    {
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.PhoneNumber = phoneNumber;
-        this.Email = email; 
-    }
+
 }
 
