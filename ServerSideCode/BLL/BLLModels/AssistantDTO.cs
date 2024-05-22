@@ -18,8 +18,9 @@ public class AssistantDTO
 
     public int CategoryCode { get; set; }
 
+    [JsonIgnore]
     public virtual Adress AddressCodeNavigation { get; set; }
-
+    [JsonIgnore]
     public virtual HelpCategory CategoryCodeNavigation { get; set; }
     public AssistantDTO()
     {
