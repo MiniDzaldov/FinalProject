@@ -7,9 +7,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './project/HomePage';
 
 function App() {
+  const s = {"backgroundColor":"white"}
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" style={s}>
       {/* <a>Sari & Mini</a> */}
 
         {/* <img src={logo} className="App-logo" alt="logo" /> */}

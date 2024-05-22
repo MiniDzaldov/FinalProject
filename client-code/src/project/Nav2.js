@@ -6,7 +6,7 @@ export default function Nav2() {
     return (
         <>
         <div style={buttonStyle}>
-        <button onClick={() => navigate("/assist_form")} >I need help</button>
+        <button  onClick={() => navigate("/assist_form")} >I need help</button>
         
         <button onClick={() => navigate("/assistant_form")} >I want to help</button> 
         <br></br>

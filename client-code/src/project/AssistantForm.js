@@ -4,9 +4,22 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Nav from './Nav';
+import { useEffect, useState } from 'react';
 // import Nav2 from './Nav2';
 
 export default function AssistantForm() {
+  const [helpCategory, setHelpCategory] = useState([]);
+   useEffect(() => {
+    fetch('https://localhost:7189/api/categories')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setHelpCategory(data);
+      });
+  }, []);
+
   return (
     <>
     <Nav></Nav>
@@ -14,7 +27,7 @@ export default function AssistantForm() {
     <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label>ID</Form.Label> */}
         <Form.Control type="ID" placeholder="Enter your ID" />
-        <br/>
+        
         {/* <Form.Text className="text-muted" >
           We'll never share your email with anyone else.
         </Form.Text> */}
@@ -68,16 +81,21 @@ export default function AssistantForm() {
         {/* <Form.Label> Email</Form.Label> */}
         <Form.Control type="zipCode" placeholder="Enter your zipCode" />
     </Form.Group>
+   
     
-    <Form.Group>
-    <select>
-      <option value="someOption">help category</option>
-      <option value="otherOption">Babysiting</option>
-      <option value="otherOption">Meals</option>
-      <option value="otherOption">Cleaning</option>
 
+    {/* <Form.Group>
+      <div>
+       {helpCategory.map((h)) => (
+    <select>
+      <option value="someOption">{h.type}</option>
+ 
     </select>
-    </Form.Group>
+    ))}
+   </div>
+    </Form.Group> */}
+
+  
 
 
     
@@ -86,7 +104,11 @@ export default function AssistantForm() {
 
 
 
-      {/* <InputGroup className="mb-3">
+      {
+      
+      /* <InputGroup className="mb-3">
+{users.map((user) =>(
+
         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
         <Form.Control
           placeholder="Username"

@@ -1,10 +1,21 @@
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import Nav from './Nav';
+import { useEffect, useState } from 'react';
 // import Nav2 from './Nav2';
 
 export default function AssistForm() {
-
+  const [helpCategory, setHelpCategory] = useState([]);
+   useEffect(() => {
+    fetch('https://localhost:7189/api/categories')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setHelpCategory(data);
+      });
+  }, []);
 
   return (
     <>
@@ -75,14 +86,24 @@ export default function AssistForm() {
         <Form.Control type="zipCode" placeholder="Enter your zipCode" />
     </Form.Group>
 
-    <Form.Group>
-    <select>
-      <option value="someOption">help category</option>
-      <option value="otherOption">Babysiting</option>
-      <option value="otherOption">Meals</option>
-      <option value="otherOption">Cleaning</option>
+        
+    <div>
+      {helpCategory.map((helpc) =>(console.log(helpc.type)))}
+    </div>
 
-    </select>
+    <Form.Group>
+   
+    <select>
+       {helpCategory.map((helpc) =>(
+          <option value="someOption">{helpc.type}</option> ))}
+          {/* <option value="otherOption">Babysiting</option>
+          <option value="otherOption">Meals</option>
+          <option value="otherOption">Cleaning</option> */}
+
+        </select>
+
+   
+   
     </Form.Group>
 
 
