@@ -13,23 +13,27 @@ Profile Creation: Users can create detailed profiles, including information abou
 ### Getting Started
 To get started with the Volunteer Matching Platform, follow these steps:
 
-1. Clone the repository to your local machine:
- ```bash
- git clone https://github.com/MiniDzaldov/FinalProject.git
+1. Clone the repository:
 
-2. Install dependencies: 
- ```bash
- cd FinalProject
- npm install
+   ```bash
+   git clone https://github.com/MiniDzaldov/FinalProject.git
+
+2. Install dependencies:
+
+   ```bash
+      cd FinalProject
+      npm install
 
 3. Set up environment variables:<br>
 Create a .env file based on the provided .env.example template and fill in the required configuration values.
 
 4. Start the development server:
-  ```bash
-  npm start
 
-5. Access the platform:<br>
+   ```bash
+   npm start
+
+
+6. Access the platform:<br>
 Open your web browser and navigate to http://localhost:3000 to access the Volunteer Matching Platform.
 
 ### Technologies Used
