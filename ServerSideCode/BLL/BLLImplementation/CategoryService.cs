@@ -1,4 +1,6 @@
-﻿namespace BLL.BLLImplementation;
+﻿using DAL.Models;
+
+namespace BLL.BLLImplementation;
 
 public class CategoryService : ICategoryService
 {
@@ -6,9 +8,10 @@ public class CategoryService : ICategoryService
     IMapper mapper;
 
     #region ctor
-    public CategoryService(DalManager dalManagerInstance)
+    public CategoryService(DalManager dalManagerInstance, IMapper mapper)
     {
         this.categoryRepo = dalManagerInstance.CategoryRepo;
+        this.mapper = mapper;
     }
     #endregion  
 
@@ -43,7 +46,7 @@ public class CategoryService : ICategoryService
     {
         try
         {
-            var categoryData = mapper.Map<HelpCategory>(category) ?? throw new ArgumentNullException("category details are null");
+            HelpCategory categoryData = mapper.Map<HelpCategory>(category) ?? throw new ArgumentNullException("category details are null");
             var result = await categoryRepo.AddAsync(categoryData);
             return mapper.Map<CategoryDTO>(result);
         }
