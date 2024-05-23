@@ -1,4 +1,8 @@
-﻿namespace BLL.BLLImplementation;
+﻿using DAL.DALApi;
+using DAL.DALImplementation;
+using DAL.Models;
+
+namespace BLL.BLLImplementation;
 
 public class CategoryService : ICategoryService
 {
@@ -6,44 +10,54 @@ public class CategoryService : ICategoryService
     IMapper mapper;
 
     #region ctor
-    public CategoryService(DalManager dalManagerInstance)
+    public CategoryService(DalManager dalManagerInstance, IMapper mapper)
     {
         this.categoryRepo = dalManagerInstance.CategoryRepo;
+        this.mapper = mapper;
     }
     #endregion  
 
     #region GatAlll
     public async Task<List<CategoryDTO>> GetAllCategoryDetailsAsync()
     {
-        var categoryList = await categoryRepo.GetAllAsync();
-        var categoryDetailsList = new List<CategoryDTO>(); 
-        foreach (var c in categoryList)
+        try
         {
-            categoryDetailsList.Add(new CategoryDTO(c.Code, c.Type));
+            List<CategoryDTO> categoriesBL = new();
+            var categories = await categoryRepo.GetAllAsync() ?? throw new ArgumentNullException("The action failed, please try again later");
+            foreach (var category in categories)
+            {
+                CategoryDTO a = mapper.Map<CategoryDTO>(category);
+                categoriesBL.Add(a);
+            }
+            return categoriesBL;
         }
-        return categoryDetailsList;
+        catch (ArgumentNullException ex) { throw ex; }
+        catch (TimeoutException ex) { throw ex; }
+        catch (Exception) { throw; }
     }
     #endregion
 
     #region GetSingle
     public async Task<CategoryDTO> GetSinglecategoryDetailsAsync(int code)
     {
-        var category = await categoryRepo.GetSingleAsync(code);
-        if(category == null)
+        try
         {
-            throw new Exception("This Category does not exist");
+            HelpCategory c = await categoryRepo.GetSingleAsync(code) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+            CategoryDTO category = mapper.Map<CategoryDTO>(c);
+            return category;
         }
-        var categoryDetails = new CategoryDTO(category.Code, category.Type);
-        return categoryDetails;
+        catch (ArgumentNullException ex) { throw ex; }
+        catch (TimeoutException ex) { throw ex; }
+        catch (Exception) { throw; }
     }
     #endregion
 
-    #region Create - doesn't work
+    #region Create 
     public async Task<CategoryDTO> AddCategoryDetailsAsync(CategoryDTO category)
     {
         try
         {
-            var categoryData = mapper.Map<HelpCategory>(category) ?? throw new ArgumentNullException("category details are null");
+            HelpCategory categoryData = mapper.Map<HelpCategory>(category) ?? throw new ArgumentNullException("category details are null");
             var result = await categoryRepo.AddAsync(categoryData);
             return mapper.Map<CategoryDTO>(result);
         }
@@ -53,24 +67,18 @@ public class CategoryService : ICategoryService
     }
     #endregion
 
-    #region Delete - doesn't work
+    #region Delete 
     public async Task<CategoryDTO> DeleteCategoryDetailsAsync(int code)
     {
         try
         {
-            HelpCategory hc = await categoryRepo.DeleteAsync(code) ?? throw new ArgumentNullException("The category doesn't exist in our system");
-            CategoryDTO category = mapper.Map<CategoryDTO>(hc);
-            //return category;
-            return null;
+            HelpCategory hc = await categoryRepo.DeleteAsync(code) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+            CategoryDTO hcdto = mapper.Map<CategoryDTO>(hc);
+            return hcdto;
         }
         catch (ArgumentNullException ex) { throw ex; }
         catch (TimeoutException ex) { throw ex; }
         catch (Exception) { throw; }
     }
     #endregion
-
-
-
-  
-
 }
