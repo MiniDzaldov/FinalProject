@@ -1,23 +1,28 @@
-import { Form, useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button'
+import { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 
 export default function BasicForm() {
+    const [helpCategory, setHelpCategory] = useState([]);
+   useEffect(() => {
+    fetch('https://localhost:7189/api/categories')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setHelpCategory(data);
+      });
+  }, []);
 
-    // const navigate = useNavigate();
-    // const buttonStyle = {"marginTop":"0px", "display": "fixed"}
-    // const buttonMargin = {"marginRight":"15px", "marginLeft":"15px"}
-    return (
-        <>
-            <div>
+  return (
+    <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label>ID</Form.Label> */}
         <Form.Control type="ID" placeholder="Enter your ID" />
+        </Form.Group>
         
-        {/* <Form.Text className="text-muted" >
-          We'll never share your email with anyone else.
-        </Form.Text> */}
-    </Form.Group>
-    <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label>First Name</Form.Label> */}
         <Form.Control type="firstName" placeholder="Enter your firstName" />
     </Form.Group>
@@ -65,9 +70,22 @@ export default function BasicForm() {
         {/* <Form.Label> Email</Form.Label> */}
         <Form.Control type="zipCode" placeholder="Enter your zipCode" />
     </Form.Group>
+    <div>
+      {helpCategory.map((helpc) =>(console.log(helpc.type)))}
+    </div>
 
-            </div>
-      
-        </>
-    );
+    <Form.Group>
+   
+    <select>
+       {helpCategory.map((helpc) =>(
+          <option value="someOption">{helpc.type}</option> ))}
+          {/* <option value="otherOption">Babysiting</option>
+          <option value="otherOption">Meals</option>
+          <option value="otherOption">Cleaning</option> */}
+
+        </select>
+    </Form.Group>
+    <Button type="submit">Submit form</Button> 
+    </Form>
+  );
 }
