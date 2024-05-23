@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import AssistantDetailsButton from './buttons/AssistantDetailsButton';
 
 
 const AssistsDetailsFetch = () => {
@@ -26,8 +27,8 @@ const AssistsDetailsFetch = () => {
 
   return (
 <>
-    <button variant="primary" onClick={() => navigate("/assistant_details")}> Assistant Details</button>
- 
+    {/* <button variant="primary" onClick={() => navigate("/assistant_details")}> Assistant Details</button> */}
+ <AssistantDetailsButton></AssistantDetailsButton>
     <br></br>
     {/* <center>
     <table class="table table-striped" style={{"width": "90rem", "alignContent":"center"}}>
@@ -72,35 +73,3 @@ const AssistsDetailsFetch = () => {
 );
 };
 export default AssistsDetailsFetch;
-
-
-// import React from 'react';
-// import axios from 'axios';
-
-// const AssistsDetailsFetch=()=> {
-  
-//   state = {
-//     persons: []
-//   }
-
-//   componentDidMount=() => {
-//     axios.get(`https://localhost:7189/api/Assists`)
-//       .then(res => {
-//         const persons = res.data;
-//         this.setState({ persons });
-//       })
-//   };
-
- 
-//     return (
-//       <ul>
-//         {
-//           this.state.persons
-//             .map(person =>
-//               <li key={person.id}>{person.name}</li>
-//             )
-//         }
-//       </ul>
-//     )
-//   };
-//   export default AssistsDetailsFetch;

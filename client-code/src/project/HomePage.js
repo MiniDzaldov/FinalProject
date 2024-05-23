@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 import Nav from "./Nav";
+import Nav2 from "./Nav2";
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -11,14 +11,8 @@ export default function HomePage() {
     return (
         <>
         <Nav></Nav>
-        <Button  style={a} onClick={() => navigate("/assist_form")} >I need help</Button>
+        <Nav2></Nav2>
         
-        <Button variant="success"onClick={() => navigate("/assistant_form")} >I want to help</Button>
-        <br></br>
-        {/* <button  onClick={() => navigate("/assist_details")}>Show Assist Details</button>
-        
-        <button onClick={() => navigate("/assistant_details")}>Show Assistant Details</button> */}
-
         </>
     )
 }

@@ -5,6 +5,8 @@ import { Button } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Nav from './Nav';
 import { useEffect, useState } from 'react';
+import  BasicForm   from './form/BasicForm';
+// import BasicForm from './form/BasicForm';
 // import Nav2 from './Nav2';
 
 export default function AssistantForm() {
@@ -23,7 +25,10 @@ export default function AssistantForm() {
   return (
     <>
     <Nav></Nav>
-    {/* <Nav2></Nav2> */}
+    
+    {/* <BasicForm></BasicForm> */}
+
+
     <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label>ID</Form.Label> */}
         <Form.Control type="ID" placeholder="Enter your ID" />
@@ -32,7 +37,6 @@ export default function AssistantForm() {
           We'll never share your email with anyone else.
         </Form.Text> */}
     </Form.Group>
-
     <Form.Group className="mb-3" controlId="formBasicEmail">
         {/* <Form.Label>First Name</Form.Label> */}
         <Form.Control type="firstName" placeholder="Enter your firstName" />
@@ -81,7 +85,6 @@ export default function AssistantForm() {
         {/* <Form.Label> Email</Form.Label> */}
         <Form.Control type="zipCode" placeholder="Enter your zipCode" />
     </Form.Group>
-   
     
 
     {/* <Form.Group>
@@ -95,12 +98,6 @@ export default function AssistantForm() {
    </div>
     </Form.Group> */}
 
-  
-
-
-    
-    <h3> check how to do the address and category......</h3>
-    <h3>08/04/2024</h3>
 
 
 

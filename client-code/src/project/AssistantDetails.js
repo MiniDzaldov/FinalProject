@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import AssistDetailsButton from './button/AssistDetailsButton';
 
 const AssistantDetailsFetch = () => {
   const [users, setUsers] = useState([]);
@@ -24,9 +25,8 @@ const AssistantDetailsFetch = () => {
   }, []);
   return (
     <>
-    <button  onClick={() => navigate("/assist_details")}>Show Assist Details</button>
-    <br></br>
-    
+    <AssistDetailsButton></AssistDetailsButton>
+     
    {/*fix the data to table show....  */}
    {/* { users.map(user => (<div>name: {user.firstName},  email: {user.email}, phoneNumber: {user.phoneNumber}, category: {user.categoryCode}, address: {user.addressCode}</div>))}  */}
 
@@ -57,7 +57,7 @@ const AssistantDetailsFetch = () => {
         <Card.Text style={color}>
           <h4>{user.firstName + " " + user.lastName}</h4> 
           <br></br>
-         <h5>I would be happy to help with: </h5> <h4>{user.categoryCodeNavigation}</h4>
+         <h5>I would be happy to help with: </h5> <h4>{user.categoryCodeNavigation.type}</h4>
           <h5>Please contact me at:</h5>
           <h5>{user.phoneNumber}</h5>
           <h5>or:</h5>
