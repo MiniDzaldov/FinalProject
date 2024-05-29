@@ -16,7 +16,7 @@ public partial class Assistant
 
     public int AddressCode { get; set; }
 
-    public int CategoryCode { get; set; }
+    public int? CategoryCode { get; set; }
 
     public virtual Adress AddressCodeNavigation { get; set; }
 

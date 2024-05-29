@@ -61,7 +61,7 @@ public partial class HelpContext : DbContext
 
             entity.HasOne(d => d.CategoryCodeNavigation).WithMany(p => p.Assists)
                 .HasForeignKey(d => d.CategoryCode)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK_Assists_HelpCategory");
         });
 
@@ -88,7 +88,7 @@ public partial class HelpContext : DbContext
 
             entity.HasOne(d => d.CategoryCodeNavigation).WithMany(p => p.Assistants)
                 .HasForeignKey(d => d.CategoryCode)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK_Assistants_HelpCategory");
         });
 
