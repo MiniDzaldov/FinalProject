@@ -5,6 +5,7 @@ import AssistantDetailsFetch from './AssistantDetailsFetch';
 import Navigators from './project/Navigators';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './project/HomePage';
+import BasicForm from './project/form/BasicForm';
 
 function App() {
   const s = {"backgroundColor":"white"}
@@ -17,7 +18,6 @@ function App() {
         {/* <p>
           Edit <code>src/App.js</code> and save to reload.
         </p> */}
-
         {/* <Provider store={store}> */}
             <BrowserRouter>
             <Routes> 

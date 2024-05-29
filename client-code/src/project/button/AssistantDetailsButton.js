@@ -11,7 +11,6 @@ export default function AssistantDetailsButton() {
             <Button variant="primary" style={buttonMargin} onClick={() => navigate("/assistant_details")}> Assistants Details</Button>
             <br></br>
         </div>
-      
         </>
     )
 }

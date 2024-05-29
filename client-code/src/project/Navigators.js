@@ -2,8 +2,8 @@ import {Route, Routes } from "react-router-dom"
 import HomePage from "./HomePage";
 import AssistDetails from "./AssistDetails"
 import AssistantDetails from "./AssistantDetails"
-import AssistantForm from "./AssistantForm"
-import AssistForm from "./AssistForm"
+import AssistantForm from "./form/AssistantForm"
+import AssistForm from "./form/AssistForm"
 
 export default function Navigators() {
     return (
