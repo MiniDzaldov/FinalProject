@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DAL.Models;
+﻿namespace DAL.Models;
 
 public partial class Adress
 {
@@ -16,8 +13,7 @@ public partial class Adress
     public int AptNumber { get; set; }
 
     public int ZipCode { get; set; }
-
+    
     public virtual ICollection<Assistant> Assistants { get; set; } = new List<Assistant>();
-
     public virtual ICollection<Assist> Assists { get; set; } = new List<Assist>();
 }

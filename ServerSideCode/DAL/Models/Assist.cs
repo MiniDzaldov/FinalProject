@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DAL.Models;
+﻿namespace DAL.Models;
 
 public partial class Assist
 {
@@ -20,7 +17,7 @@ public partial class Assist
     public int AddressCode { get; set; }
 
     public int? CategoryCode { get; set; }
-
+  
     public virtual Adress AddressCodeNavigation { get; set; }
 
     public virtual HelpCategory CategoryCodeNavigation { get; set; }

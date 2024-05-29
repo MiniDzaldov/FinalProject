@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
-namespace DAL.Models;
+﻿namespace DAL.Models;
 
 public partial class HelpContext : DbContext
 {
@@ -10,7 +6,11 @@ public partial class HelpContext : DbContext
         : base(options)
     {
     }
-
+    public HelpContext()
+      
+    {
+    }
+  
     public virtual DbSet<Adress> Adresses { get; set; }
 
     public virtual DbSet<Assist> Assists { get; set; }
@@ -20,6 +20,9 @@ public partial class HelpContext : DbContext
     public virtual DbSet<HelpCategory> HelpCategories { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\FinalProject\\DB\\DataBase.mdf;Integrated Security=True;Connect Timeout=30");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

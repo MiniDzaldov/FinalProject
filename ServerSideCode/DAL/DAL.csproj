@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DALApi\" />
-    <Folder Include="DALImplementation\" />
-    <Folder Include="Modells\" />
+    <Compile Remove="Modells\**" />
+    <EmbeddedResource Remove="Modells\**" />
+    <None Remove="Modells\**" />
   </ItemGroup>
 
   <ItemGroup>
