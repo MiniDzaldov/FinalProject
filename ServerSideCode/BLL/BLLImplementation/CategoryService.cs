@@ -42,7 +42,7 @@ public class CategoryService : ICategoryService
     {
         try
         {
-            HelpCategory c = await categoryRepo.GetSingleAsync(code) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+            HelpCategory c = await categoryRepo.GetSingleAsync(code) ?? throw new ArgumentNullException("The category doesn't exist in our system");
             CategoryDTO category = mapper.Map<CategoryDTO>(c);
             return category;
         }
@@ -72,7 +72,7 @@ public class CategoryService : ICategoryService
     {
         try
         {
-            HelpCategory hc = await categoryRepo.DeleteAsync(code) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+            HelpCategory hc = await categoryRepo.DeleteAsync(code) ?? throw new ArgumentNullException("The category doesn't exist in our system");
             CategoryDTO hcdto = mapper.Map<CategoryDTO>(hc);
             return hcdto;
         }
