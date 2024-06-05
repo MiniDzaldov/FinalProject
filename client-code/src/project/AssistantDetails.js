@@ -14,7 +14,7 @@ const AssistantDetailsFetch = () => {
 
 
   useEffect(() => {
-    fetch('https://localhost:7189/api/Assistants')
+    fetch('http://localhost:5089/api/Assistants')
       .then((res) => {
         return res.json();
       })

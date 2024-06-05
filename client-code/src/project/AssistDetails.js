@@ -7,6 +7,7 @@ import AssistantDetailsButton from './button/AssistantDetailsButton';
 
 const AssistsDetailsFetch = () => {
   const [users, setUsers] = useState([]);
+  console.log(users);
   const navigate = useNavigate();
   const txt = {"textAlign": "center"}
   const color={"color": "black", "fontsize":"5px"}
@@ -15,7 +16,7 @@ const AssistsDetailsFetch = () => {
 
 
   useEffect(() => {
-    fetch('https://localhost:7189/api/Assists')
+    fetch('http://localhost:5089/api/Assists')
       .then((res) => {
         return res.json();
       })
@@ -50,6 +51,7 @@ const AssistsDetailsFetch = () => {
 </center> */}
 <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
 {users.map((user) =>(
+  
 <Card border="danger" style={cardSize}>
       {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body>
