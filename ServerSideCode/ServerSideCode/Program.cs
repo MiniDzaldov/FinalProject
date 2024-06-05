@@ -1,7 +1,7 @@
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-builder.Services.AddScoped<BlManager>();
+
 
 DBActions actions = new DBActions(builder.Configuration);
 var connString = actions.GetConnectionString("AssistanceDB");
@@ -18,6 +18,7 @@ builder.Services.AddCors(options =>
             .AllowAnyOrigin();
         });
 });
+builder.Services.AddScoped<BlManager>(b => new BlManager(connString));
 
 /*builder.Services.AddScoped<IAssistDetailsRepo, AssistDetailsRepo>();
 builder.Services.AddScoped<IAssistantDetailsRepo, AssistantDetailsRepo>();*/

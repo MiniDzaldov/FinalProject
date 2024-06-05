@@ -1,15 +1,16 @@
 ﻿namespace DAL;
 
+
 public class DalManager
 {
     public IAssistRepo AssistRepo {get;}
     public IAssistantRepo AssistantRepo {get;}
     public ICategoryRepo CategoryRepo {get;}
 
-    public DalManager()
+    public DalManager(string connection)
     {
         ServiceCollection services = new ServiceCollection();
-        services.AddDbContext<HelpContext>();
+        services.AddDbContext<HelpContext>(options => options.UseSqlServer(connection));
         services.AddScoped<IAssistRepo, AssistRepo>();
         services.AddScoped<IAssistantRepo, AssistantRepo>();
         services.AddScoped<ICategoryRepo, CategoryRepo>();

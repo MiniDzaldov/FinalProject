@@ -5,10 +5,10 @@ public class BlManager
     public IAssistService AssistDetailsRepo { get; }
     public IAssistantService AssistantDetailsRepo { get; }
     public ICategoryService CategoryDetailsRepo { get; }
-    public BlManager()
+    public BlManager(string connection)
     {
         ServiceCollection services = new ServiceCollection();
-        services.AddScoped<DalManager>();
+        services.AddScoped<DalManager>(d => new DalManager(connection));
         services.AddScoped<IAssistService, AssistServics>();
         services.AddScoped<IAssistantService, AssistantService>();
         services.AddScoped<ICategoryService, CategoryService>();
