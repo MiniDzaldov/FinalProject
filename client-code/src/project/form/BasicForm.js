@@ -6,7 +6,7 @@ export default function BasicForm() {
     const [helpCategory, setHelpCategory] = useState([]);
     const optionStyle = { 'font-size': '17px', 'color': 'black' }
     const selectStyle = { 'width': '207px', 'height': '38px', 'font-size': '20px', 'textAlign': 'center' }
-    const formStyle = { 'width': '414px', 'height': '38px' }
+    const formStyle = { 'width': '500px'/*, 'height': '38px'*/}
     const formGroupStyle = { 'width': '200px', 'height': '38px', 'display': 'inline-block' }
     useEffect(() => {
         fetch('http://localhost:5089/api/categories')
@@ -20,59 +20,60 @@ export default function BasicForm() {
     }, []);
 
     return (
-        <Form /*style={formStyle}/*class="border border-primary"*/>
-                <Form.Group className="mb-3" controlId="formBasicEmail" >
+        <Form style={formStyle} >
+            <div style={{'display':'inline'}}>
+                <Form.Group  className="mb-3" controlId="formBasicEmail" >
                     {/* <Form.Label>ID</Form.Label> */}
-                    <Form.Control type="ID" placeholder="הכנס מ.ז. " />
+                    <Form.Control type="ID" placeholder="מספר זהות" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     {/* <Form.Label>First Name</Form.Label> */}
-                    <Form.Control type="firstName" placeholder="Enter your firstName" />
+                    <Form.Control type="firstName" placeholder="שם פרטי" />
                 </Form.Group>
-            
+            </div>      
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label>Last Name</Form.Label> */}
-                <Form.Control type="lastName" placeholder="Enter your lastName" />
+                <Form.Control type="lastName" placeholder="שם משפחה" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label>Age</Form.Label> */}
-                <Form.Control type="age" placeholder="Enter your age" />
+                <Form.Control type="age" placeholder="גיל" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label>phoneNumber</Form.Label> */}
-                <Form.Control type="phoneNumber" placeholder="Enter your phoneNumber" />
+                <Form.Control type="phoneNumber" placeholder="מס' פלאפון" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label> Email</Form.Label> */}
-                <Form.Control type="email" placeholder="Enter your email" />
+                <Form.Control type="email" placeholder="Email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label> Email</Form.Label> */}
-                <Form.Control type="city" placeholder="Enter your city" />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                {/* <Form.Label> Email</Form.Label> */}
-                <Form.Control type="street" placeholder="Enter your street" />
+                <Form.Control type="city" placeholder="עיר" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label> Email</Form.Label> */}
-                <Form.Control type="numOfBuilding" placeholder="Enter your numOfBuilding" />
+                <Form.Control type="street" placeholder="רחוב" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label> Email</Form.Label> */}
-                <Form.Control type="apartmentNumber" placeholder="Enter your apartmentNumber" />
+                <Form.Control type="numOfBuilding" placeholder="מס' בנין" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 {/* <Form.Label> Email</Form.Label> */}
-                <Form.Control type="zipCode" placeholder="Enter your zipCode" />
+                <Form.Control type="apartmentNumber" placeholder="מס' דירה" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                {/* <Form.Label> Email</Form.Label> */}
+                <Form.Control type="zipCode" placeholder="מיקוד" />
             </Form.Group>
             <div>
                 {helpCategory.map((helpc) => (console.log(helpc.type)))}

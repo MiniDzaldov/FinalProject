@@ -26,26 +26,7 @@ const AssistantDetailsFetch = () => {
     <AssistDetailsButton></AssistDetailsButton>
      
    {/*fix the data to table show....  */}
-   {/* { users.map(user => (<div>name: {user.firstName},  email: {user.email}, phoneNumber: {user.phoneNumber}, category: {user.categoryCode}, address: {user.addressCode}</div>))}  */}
-
-   {/* <center>
-    <table class="table table-striped" style={{"width": "90rem", "alignContent":"center"}}>
-        <tr>
-            <th style={txt}>Name</th>
-            <th style={txt}>Email</th>
-            <th style={txt}>PhoneNumber</th>
-            <th style={txt}>Category</th>
-        </tr>
-        {users.map((user) =>(
-        <tr>
-            <td style={txt}>{user.firstName + " " + user.lastName}</td>
-            <td style={txt}>{user.email}</td>
-            <td style={txt}>{user.phoneNumber}</td>
-            <td style={txt}>{user.categoryCodeNavigation}</td>
-        </tr>
-       ))}
-    </table>
-</center> */}
+   
 <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
 {users.map((user) =>(
 <Card border="success" style={cardSize}>

@@ -7,7 +7,7 @@ export default function WantToHelpButton() {
     return (
         <>
         <div style={buttonStyle}>       
-        <Button variant="success" onClick={() => navigate("/assistant_form")} >I want to help</Button> 
+        <Button variant="success" onClick={() => navigate("/assistant_form")} >אני מעוניין לעזור</Button> 
         <br></br>
         </div>
       

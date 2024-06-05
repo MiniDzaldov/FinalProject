@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import NeedHelpButton from "./button/NeedHelpButton";
 import WantToHelpButton from "./button/WantToHelpButton";
+import SearchAssistById from "./button/SearchAssistById";
 
 
 
@@ -12,6 +13,7 @@ export default function Nav2() {
         <div style={buttonStyle}>
             <NeedHelpButton></NeedHelpButton>
             <WantToHelpButton></WantToHelpButton>
+            <SearchAssistById></SearchAssistById>
         <br></br>
         </div>
        

@@ -8,7 +8,7 @@ export default function AssistantDetailsButton() {
     return (
         <>
         <div style={buttonStyle}>
-            <Button variant="primary" style={buttonMargin} onClick={() => navigate("/assistant_details")}> Assistants Details</Button>
+            <Button variant="primary" style={buttonMargin} onClick={() => navigate("/assistant_details")}> פרטי מתנדבים</Button>
             <br></br>
         </div>
         </>

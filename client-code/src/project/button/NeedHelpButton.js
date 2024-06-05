@@ -7,7 +7,7 @@ export default function NeedHelpButton() {
     return (
         <>
         <div style={buttonStyle}>
-        <Button  variant="danger" onClick={() => navigate("/assist_form")} >I need help</Button>
+        <Button  variant="danger" onClick={() => navigate("/assist_form")} >אני מעוניין בעזרה</Button>
         <br></br>
         </div>
         </>

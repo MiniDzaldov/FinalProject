@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 import Nav2 from "./Nav2";
+import GetAssistsById from "./assistMethods/GetAssistsById";
+import SearchAssistById from "./button/SearchAssistById";
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -12,6 +14,8 @@ export default function HomePage() {
         <>
         <Nav></Nav>
         <Nav2></Nav2>
+        {/* <SearchAssistById></SearchAssistById>
+        <GetAssistsById></GetAssistsById> */}
         
         </>
     )

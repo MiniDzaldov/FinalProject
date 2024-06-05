@@ -22,12 +22,13 @@ function App() {
         {/* <Provider store={store}> */}
             <BrowserRouter>
             <Routes> 
+              {/* <SearchAssistById></SearchAssistById> */}
+
             {/* <Route exact path="/" element={< HomePage/>} /> */}
             </Routes>
               <Navigators></Navigators>
               
             </BrowserRouter>
-<SearchAssistById></SearchAssistById>
         {/* </Provider> */}
         {/* <p>AssistsDetailsFetch</p>
         <AssistsDetailsFetch></AssistsDetailsFetch>
