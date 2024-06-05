@@ -23,7 +23,7 @@ export default function BasicForm() {
         <Form /*style={formStyle}/*class="border border-primary"*/>
                 <Form.Group className="mb-3" controlId="formBasicEmail" >
                     {/* <Form.Label>ID</Form.Label> */}
-                    <Form.Control type="ID" placeholder="Enter your ID" />
+                    <Form.Control type="ID" placeholder="הכנס מ.ז. " />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">

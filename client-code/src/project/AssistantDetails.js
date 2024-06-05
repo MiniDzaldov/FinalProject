@@ -11,8 +11,6 @@ const AssistantDetailsFetch = () => {
   const color={"color": "black", "fontsize":"5px"}
   const cardSize ={"width": "22rem", "height": "20rem","marginRight": "0.5rem", "marginLeft": "0.5rem", "marginBottom":"5px" ,"borderColor" : "gray", "marginTop":"1.5rem"}
 
-
-
   useEffect(() => {
     fetch('http://localhost:5089/api/Assistants')
       .then((res) => {

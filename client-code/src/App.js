@@ -6,6 +6,7 @@ import Navigators from './project/Navigators';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './project/HomePage';
 import BasicForm from './project/form/BasicForm';
+import SearchAssistById from './project/button/SearchAssistById';
 
 function App() {
   const s = {"backgroundColor":"white"}
@@ -24,8 +25,9 @@ function App() {
             {/* <Route exact path="/" element={< HomePage/>} /> */}
             </Routes>
               <Navigators></Navigators>
+              
             </BrowserRouter>
-
+<SearchAssistById></SearchAssistById>
         {/* </Provider> */}
         {/* <p>AssistsDetailsFetch</p>
         <AssistsDetailsFetch></AssistsDetailsFetch>
