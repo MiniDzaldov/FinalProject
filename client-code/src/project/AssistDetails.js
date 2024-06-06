@@ -42,7 +42,7 @@ const AssistsDetailsFetch = () => {
       <Card.Body>
         <Card.Text style={color}>
           <h4>{user.firstName + " " + user.lastName}</h4> 
-          <br></br>
+          {/* <br></br> */}
          <h5>:אשמח מאד לקבל סיוע ב</h5> <h4>{user.categoryCodeNavigation.type}</h4>
           <h5> :צרו איתי קשר ב</h5>
           <h5> <i class="bi bi-telephone"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
