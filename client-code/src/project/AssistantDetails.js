@@ -9,7 +9,7 @@ const AssistantDetailsFetch = () => {
   const navigate = useNavigate();
   const txt = {"textAlign": "center"}
   const color={"color": "black", "fontsize":"5px"}
-  const cardSize ={"width": "22rem", "height": "20rem","marginRight": "0.5rem", "marginLeft": "0.5rem", "marginBottom":"5px" ,"borderColor" : "gray", "marginTop":"1.5rem"}
+  const cardSize ={"width": "18rem", "height": "18rem","marginRight": "0.5rem", "marginLeft": "0.5rem", "marginBottom":"5px" ,"borderColor" : "gray", "marginTop":"1.5rem"}
 
   useEffect(() => {
     fetch('http://localhost:5089/api/Assistants')
@@ -23,10 +23,8 @@ const AssistantDetailsFetch = () => {
   }, []);
   return (
     <>
-    <AssistDetailsButton></AssistDetailsButton>
-     
-   {/*fix the data to table show....  */}
-   
+    {/* <AssistDetailsButton></AssistDetailsButton> */}
+        
 <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
 {users.map((user) =>(
 <Card border="success" style={cardSize}>
@@ -35,7 +33,7 @@ const AssistantDetailsFetch = () => {
         {/* <Card.Title>Card Title</Card.Title> */}
         <Card.Text style={color}>
           <h4>{user.firstName + " " + user.lastName}</h4> 
-          <br></br>
+          {/* <br></br> */}
          <h5>I would be happy to help with: </h5> <h4>{user.categoryCodeNavigation.type}</h4>
           <h5>Please contact me at:</h5>
           <h5>{user.phoneNumber}</h5>

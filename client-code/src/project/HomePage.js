@@ -12,8 +12,8 @@ export default function HomePage() {
     
     return (
         <>
-        <Nav></Nav>
-        <Nav2></Nav2>
+        {/* <Nav></Nav>
+        <Nav2></Nav2> */}
         {/* <SearchAssistById></SearchAssistById>
         <GetAssistsById></GetAssistsById> */}
         

@@ -8,7 +8,7 @@ const AssistsDetailsFetch = () => {
   const [assists, setAssists] = useState([]);
   const color={"color": "black", "fontsize":"5px"}
   const txt = {"textAlign": "center"}
-  const cardSize ={"width": "22rem", "height": "20rem","marginRight": "0.5rem", "marginLeft": "0.5rem", "marginBottom":"5px" ,"borderColor" : "gray", "marginTop":"1.5rem"}
+  const cardSize ={"width": "18rem", "height": "18rem","marginRight": "0.5rem", "marginLeft": "0.5rem", "marginBottom":"5px" ,"borderColor" : "gray", "marginTop":"1.5rem"}
 
   // Function to fetch data from the API
   const fetchAssists = async () => {
@@ -31,7 +31,7 @@ const AssistsDetailsFetch = () => {
 
   return (
 <>
- <AssistantDetailsButton></AssistantDetailsButton>
+ {/* <AssistantDetailsButton></AssistantDetailsButton> */}
     <br></br>
 
 <div style={{ "display": "flex", "flex-wrap": "wrap" }}>

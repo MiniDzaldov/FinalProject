@@ -6,6 +6,7 @@ import AssistantForm from "./form/AssistantForm"
 import AssistForm from "./form/AssistForm"
 import Bb from './BB';
 import SearchAssistById from './assistMethods/GetAssistsById';
+import About from "./About";
 
 export default function Navigators() {
     return (
@@ -18,6 +19,7 @@ export default function Navigators() {
                 <Route exact path="/assistant_form" element={<AssistantForm/>}/>
                 <Route exact path="/assist_form" element={<AssistForm/>}/>
                 <Route exact path='/search_assist_byID:assistId' element={< SearchAssistById />}/>
+                <Route exact path="/about" element={<About/>}/>
                 
             </Routes>
         </>
