@@ -6,8 +6,11 @@ export default function AssistantForm() {
 
   return (
     <>
-    {/* <Nav></Nav> */}
-    <BasicForm></BasicForm>
+      {/* <Nav></Nav> */}
+      <BasicForm></BasicForm>
+      <Button variant="primary" type="submit">
+        שלח טופס
+      </Button>
     </>
   );
 }

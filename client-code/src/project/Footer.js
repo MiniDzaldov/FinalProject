@@ -2,7 +2,7 @@
 
 export default function Footer() {
     const c = {'color':'black'} 
-    const s = {'margin-top': '20rem', 'background-color':'#ff25','position':'fixed'}
+    const s = {'width':'100%','margin-top': '25rem', 'background-color':'#ff25'/*,'position':'fixed'*/}
   return (
     <>
    <footer class='footer-app'>

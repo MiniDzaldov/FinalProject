@@ -53,8 +53,6 @@ export default function Navbarr() {
                         </button>
                     </div>
 
-
-
                 </nav>
             </div>
         </>

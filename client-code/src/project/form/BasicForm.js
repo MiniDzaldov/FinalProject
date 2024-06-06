@@ -69,7 +69,7 @@ export default function BasicForm() {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formBasicLastName">
-                <Form.Control type="lastName" placeholder="רחוב" required />
+                <Form.Control type="lastName" placeholder="רחוב" className="centered-placeholder" required />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicAge">
@@ -107,9 +107,9 @@ export default function BasicForm() {
             </Row>
  
 
-            <Button variant="primary" type="submit">
+            {/* <Button variant="primary" type="submit">
               שלח טופס
-            </Button>
+            </Button> */}
           </Form>
         </div>
       </Col>
