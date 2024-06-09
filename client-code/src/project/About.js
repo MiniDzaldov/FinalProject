@@ -1,19 +1,32 @@
 import meal from '../pictures/meals5.jpg'
+import meal1 from '../pictures/meals4.jpg'
 import baby from '../pictures/babysitting1.png'
 import clean from '../pictures/clean5.png'
 
 export default function About() {
   const c = { 'color': 'green', 'margin-top':'3rem' }
+  const co = { 'color': '#398EDA', 'margin-top':'2rem'}
   const mealImgStyle = { 'width': '32rem', 'height': '26rem', 'float': 'right'/*, 'border': '1px solid white'*/ }
   const babyImgStyle = { 'width': '32rem', 'height': '26rem', 'float': 'left'/*, 'border': '1px solid white'*/ }
   const border = { 'border-color': 'black' }
-  const divStyle = { 'margin-top': '10rem' }
+  const divStyle = { 'margin-top': '8rem' }
+  const blurBorderStyle = {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    border: '10px solid rgba(255, 255, 255, 0.5)', // ניתן לשנות צבע ועובי מסגרת
+    filter: 'blur(10px)', // ניתן לשנות את רמת הטשטוש
+    pointerEvents: 'none',
+  };
   return (
     <>
       {/* <h3 style={c}>About Us</h3> */}
 
       <div style={border} >
-        <img style={mealImgStyle} src={meal}></img>
+        <img style={mealImgStyle} src={meal1}></img>
       </div>
       <div style={divStyle}>
         <h5>ארוחות</h5>
@@ -27,6 +40,7 @@ export default function About() {
       </div>
       <br></br>
       <br></br>
+  
       <div style={border} >
         <img style={babyImgStyle} src={baby}></img>
       </div>
@@ -51,7 +65,7 @@ export default function About() {
       </div>
       <div style={divStyle}>
         <h5>ניקיון</h5>
-        <p>
+        <p style={co}>
         האפליקציה שלנו נועדה להקל על משפחות אנשי המילואים באמצעות ארגון ושיתוף פעולה עם מתנדבים שונים ברחבי הארץ למתן שירותי ניקיון ועזרה בבית. בעזרת האפליקציה, מתנדבים יכולים להירשם ולהתחייב להגיע לבתי המשפחות ולסייע בניקיון הבית ובמשימות ביתיות שונות.
 
 אנו מבינים כי בתקופות של שירות מילואים, המשפחות נאלצות להתמודד עם עומס יתר בכל הקשור לניהול הבית. לכן, המטרה שלנו היא להקל על המשפחות ולאפשר לאנשי המילואים להתמקד בשירותם בידיעה שביתם מתוחזק ונקי.

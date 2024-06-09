@@ -8,7 +8,8 @@ export default function AssistForm() {
     <>
       {/* <Nav></Nav> */}
       <BasicForm></BasicForm>
-      <Button variant="primary" type="submit" >
+      <br></br>
+      <Button variant="outline-primary" type="submit" >
         שלח טופס
       </Button>
     </>

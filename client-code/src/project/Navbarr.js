@@ -2,6 +2,8 @@
 
 import { useNavigate } from "react-router-dom";
 import l from '../pictures/logo1.png'
+// import StickyBox from "react-sticky-box";
+
 
 
 
@@ -11,11 +13,13 @@ export default function Navbarr() {
     const color = { 'color': 'white' }
     const divStyle = {'marginTop':'2rem', 'marginLeft':'2rem'}
     const logoStyle = {'width': '8rem', 'height':'8rem'}
-    const navStyle ={'margin-right':'2.5rem', 'margin-left':'2.5rem'}
+    const navStyle ={'margin-right':'4rem', 'margin-left':'4rem'}
+    // const navbarStyle = { "position": "sticky", "top": "0", "zIndex": "1", "width": "100vw" }
     return (
         <>
             <div>
-                <nav class="navbar navbar-expand-lg white">
+        
+                <nav class="navbar navbar-expand-lg white" style={{'top':'0',"width": "100vw", "position": "sticky"}} /*style={navbarStyle}*/>
                     <div style={divStyle} ><img style={logoStyle} src ={l}></img></div>
 
                     <div style={navStyle}>
@@ -54,6 +58,7 @@ export default function Navbarr() {
                     </div>
 
                 </nav>
+          
             </div>
         </>
     )

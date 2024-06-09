@@ -53,7 +53,7 @@ export default function BasicForm() {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicAge">
-                <Form.Control type="age" placeholder="***" required/>
+                <Form.Control type="age" placeholder="מספר ילדים" required/>
               </Form.Group>
             </Row>
 
@@ -88,12 +88,17 @@ export default function BasicForm() {
             </Row>
 
             <Row className="mb-3">
+            <Form.Group as={Col} controlId="formBasicLastName">
+                <Form.Control type="lastName" placeholder="-------" required/>
+              </Form.Group>
+
               <Form.Group as={Col} controlId="formBasicLastName">
                 <Form.Control type="lastName" placeholder="מיקוד" required/>
               </Form.Group>
-            {/* </Row> */}
+            </Row>
 
             {/* <Row className="mb-3"> */}
+            <Row className="mb-3">
                <div>
                 {helpCategory.map((helpc) => (console.log(helpc.type)))}
             </div>
