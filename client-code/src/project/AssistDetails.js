@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
 import AssistantDetailsButton from './button/AssistantDetailsButton';
+import { useNavigate } from "react-router-dom";
+
 
 const AssistsDetailsFetch = () => {
   // State to hold the fetched data
+  const navigate = useNavigate();
   const [assists, setAssists] = useState([]);
   const color = { "color": "black", "fontsize": "5px" }
   const txt = { "textAlign": "center" }
-  const cardSize = { "width": "18rem", "height": "18rem", "marginRight": "0.5rem", "marginLeft": "0.5rem", "marginBottom": "5px", "borderColor": "gray", "marginTop": "1.5rem" }
+  const cardSize = { "width": "18rem", "height": "20rem", "marginRight": "1.5rem", "marginLeft": "1.5rem", "marginBottom": "5px", "borderColor": "gray", "marginTop": "4rem" }
+  const trashSize = { "width": "1.8rem", "height": "2.5rem" }
 
   // Function to fetch data from the API
   const fetchAssists = async () => {
@@ -32,18 +36,24 @@ const AssistsDetailsFetch = () => {
   return (
     <>
       {/* <AssistantDetailsButton></AssistantDetailsButton> */}
-      <br></br>
+
+
+
 
       <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
         {assists.map((user) => (
 
           <Card border="danger" style={cardSize}>
+            <button style={trashSize} onClick={() => navigate(`/delete_assist/${user.id}`)}><i class="bi bi-trash"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+            </svg></i></button>
             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
             <Card.Body>
               <Card.Text style={color}>
                 <h4>{user.firstName + " " + user.lastName}</h4>
                 {/* <br></br> */}
-                <h5>:אשמח מאד לקבל סיוע ב</h5> <h4>{user.categoryCodeNavigation.type}</h4>
+                <h5>:אשמח מאד לקבל סיוע ב</h5> <h4 class="fw-bolder">{user.categoryCodeNavigation.type}</h4>
                 <h5> :צרו איתי קשר ב</h5>
                 <h5> <i class="bi bi-telephone"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
                   <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />

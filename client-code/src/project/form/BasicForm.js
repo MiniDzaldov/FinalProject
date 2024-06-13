@@ -39,7 +39,7 @@ export default function BasicForm() {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formBasicID">
-                <Form.Control type="ID" placeholder="שם משפחה" required/>
+                <Form.Control type="lastName" placeholder="שם משפחה" required/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicFirstName">
@@ -49,41 +49,41 @@ export default function BasicForm() {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formBasicLastName">
-                <Form.Control type="lastName" placeholder="גיל" required />
+                <Form.Control type="age" placeholder="גיל" required />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicAge">
-                <Form.Control type="age" placeholder="מספר ילדים" required/>
+                <Form.Control type="numOfChildren" placeholder="מספר ילדים" required/>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formBasicLastName">
-                <Form.Control type="lastName" placeholder="מספר פלאפון" required/>
+                <Form.Control type="phoneNumber" placeholder="מספר פלאפון" required/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicAge">
-                <Form.Control type="age" placeholder='כתובת דוא"ל'required />
+                <Form.Control type="email" placeholder='כתובת דוא"ל'required />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formBasicLastName">
-                <Form.Control type="lastName" placeholder="רחוב" className="centered-placeholder" required />
+                <Form.Control type="street" placeholder="רחוב" className="centered-placeholder" required />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicAge">
-                <Form.Control type="age" placeholder="עיר" required/>
+                <Form.Control type="city" placeholder="עיר" required/>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formBasicLastName">
-                <Form.Control type="lastName" placeholder="מספר דירה" required/>
+                <Form.Control type="aptNumber" placeholder="מספר דירה" required/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicAge">
-                <Form.Control type="age" placeholder="מספר בנין" required/>
+                <Form.Control type="buildingNumber" placeholder="מספר בנין" required/>
               </Form.Group>
             </Row>
 
@@ -93,7 +93,7 @@ export default function BasicForm() {
               </Form.Group>
 
               <Form.Group as={Col} controlId="formBasicLastName">
-                <Form.Control type="lastName" placeholder="מיקוד" required/>
+                <Form.Control type="zipCode" placeholder="מיקוד" required/>
               </Form.Group>
             </Row>
 
@@ -112,7 +112,7 @@ export default function BasicForm() {
             </Row>
  
 
-            {/* <Button variant="primary" type="submit">
+            {/* <Button variant="outline-primary" type="submit">
               שלח טופס
             </Button> */}
           </Form>

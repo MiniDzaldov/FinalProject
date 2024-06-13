@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BasicForm from '../form/BasicForm'
 
 const CreateAssistComponent = ({ fetchAssists }) => {
   const [newAssist, setNewAssist] = useState({
@@ -24,6 +25,7 @@ const CreateAssistComponent = ({ fetchAssists }) => {
   return (
     <div>
       <h2>Create Assist:</h2>
+      <BasicForm></BasicForm>
       <div>
       <input
         type="text"

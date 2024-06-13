@@ -12,7 +12,7 @@ const DeleteAssistComponent = ({ assistId, fetchAssists }) => {
   };
 
   return (
-    <div>
+    <div style={{'backgroundColor': "yellow"}}>
       <h2>Delete Assist:</h2>
       <button onClick={deleteAssist}>Delete Assist</button>
     </div>
@@ -20,3 +20,4 @@ const DeleteAssistComponent = ({ assistId, fetchAssists }) => {
 };
 
 export default DeleteAssistComponent;
+

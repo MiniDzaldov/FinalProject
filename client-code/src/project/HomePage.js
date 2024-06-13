@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Nav2 from "./Nav2";
 import GetAssistsById from "./assistMethods/GetAssistsById";
 import SearchAssistById from "./button/SearchAssistById";
+import CreateAssistant from './assistantsMethods/CreateAssistant'
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ export default function HomePage() {
         <Nav2></Nav2> */}
         {/* <SearchAssistById></SearchAssistById>
         <GetAssistsById></GetAssistsById> */}
+        {/* <CreateAssistant></CreateAssistant> */}
         
         </>
     )
