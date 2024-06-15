@@ -2,6 +2,7 @@ import meal from '../pictures/meals5.jpg'
 import meal1 from '../pictures/meals4.jpg'
 import baby from '../pictures/babysitting1.png'
 import clean from '../pictures/clean5.png'
+import a from '../pictures/1.png'
 
 export default function About() {
   const c = { 'color': 'green', 'margin-top': '3rem' }
@@ -26,7 +27,7 @@ export default function About() {
       {/* <h3 style={c}>About Us</h3> */}
   
       <div style={border} >
-        <img style={mealImgStyle} src={meal1}></img>
+        <img style={mealImgStyle} src={a}></img>
       </div>
       <div style={divStyle}>
         <h5>ארוחות</h5>
