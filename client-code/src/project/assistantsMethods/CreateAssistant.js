@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from 'axios'
@@ -6,6 +6,7 @@ import axios from 'axios'
 export default function CreateAssistant() {
     // const navigate = useNavigate();
     const userExist = useRef();
+    const [helpCategory, setHelpCategory] = useState([]);
     const [newAssistant, setNewAssistant] = useState({
         id: null,
         firstname: null,
@@ -20,6 +21,17 @@ export default function CreateAssistant() {
         aptnumber: null,
         zipcode: null
     });
+    useEffect(() => {
+        fetch('http://localhost:5089/api/categories')
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                console.log(data);
+                setHelpCategory(data);
+            });
+    }, []);
+
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -204,6 +216,15 @@ export default function CreateAssistant() {
                 <br />
                 <input name="zipcode" placeholder="מיקוד" {...register("zipcode", requirements.zipcode)} />
                 {errors.zipcode && <small style={{ color: "red" }}>{errors.zipcode.message}</small>}
+                {/* <div> */}
+                    {/* {helpCategory.map((helpc) => (console.log(helpc.type)))} */}
+                {/* </div> */}
+
+                <select /*style={selectStyle}*/>
+                    {helpCategory.map((helpc) => (
+                        <option value="someOption" /*style={optionStyle}*/>{helpc.type}</option>))}
+                        
+                </select>
                 <center>
                     <button type="submit">שליחת הטופס</button>
                 </center>

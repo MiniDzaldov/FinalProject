@@ -1,12 +1,9 @@
-
-
 export default function Footer() {
     const c = {'color':'black'} 
-    const s = {'width':'100%','marginTop': '20rem', 'backgroundColor':'#ff25','':''/*,'position':'fixed'*/}
+    const s = {'width':'100%', 'backgroundColor':'#ff25'}
   return (
     <>
-   <footer class="fixed-bottom">
-    <footer class='footer'>
+    <footer class="fixed-bottom">
         <div style={s}>
             <h6 style={c}>הסתדרתם דרכינו? נשמח לשמוע</h6>
             <h6 style={c}>
@@ -14,7 +11,6 @@ export default function Footer() {
             </h6>
         </div>
     </footer>
-   </footer>
     </>
   );
 }
