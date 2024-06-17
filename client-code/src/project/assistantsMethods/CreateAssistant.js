@@ -1,4 +1,4 @@
-import { useRef, useState , useEffect} from "react";
+import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from 'axios'
@@ -31,7 +31,6 @@ export default function CreateAssistant() {
                 setHelpCategory(data);
             });
     }, []);
-
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -102,14 +101,14 @@ export default function CreateAssistant() {
         firstname: {
             required: true,
             pattern: {
-                value: /^[a-zA-Z]+$/,
+                value: /^[a-zA-Zא-ת' -]+$/,
                 message: 'First name must contain only letters.',
             },
         },
         lastname: {
             required: true,
             pattern: {
-                value: /^[a-zA-Z]+$/,
+                value: /^[a-zA-Zא-ת' -]+$/,
                 message: 'Last name must contain only letters.',
             },
         },
@@ -144,14 +143,14 @@ export default function CreateAssistant() {
         city: {
             required: true,
             pattern: {
-                value: /^[a-zA-Z\s]+$/,
+                value: /^[a-zA-Zא-ת' -]+$/,
                 message: 'City must contain only letters.',
             },
         },
         street: {
             required: true,
             pattern: {
-                value: /^[a-zA-Z\s]+$/,
+                value: /^[a-zA-Zא-ת' -]+$/,
                 message: 'Street must contain only letters.',
             },
         },
@@ -172,7 +171,7 @@ export default function CreateAssistant() {
         zipcode: {
             required: true,
             pattern: {
-                value: /^[0-9]{5,6}$/,
+                value: /^[0-9]{6,7}$/,
                 message: 'Zip code must be a valid 5 or 6-digit number.',
             },
         },
@@ -217,13 +216,13 @@ export default function CreateAssistant() {
                 <input name="zipcode" placeholder="מיקוד" {...register("zipcode", requirements.zipcode)} />
                 {errors.zipcode && <small style={{ color: "red" }}>{errors.zipcode.message}</small>}
                 {/* <div> */}
-                    {/* {helpCategory.map((helpc) => (console.log(helpc.type)))} */}
+                {/* {helpCategory.map((helpc) => (console.log(helpc.type)))} */}
                 {/* </div> */}
 
                 <select /*style={selectStyle}*/>
                     {helpCategory.map((helpc) => (
                         <option value="someOption" /*style={optionStyle}*/>{helpc.type}</option>))}
-                        
+
                 </select>
                 <center>
                     <button type="submit">שליחת הטופס</button>

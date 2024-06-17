@@ -32,6 +32,7 @@ public class AssistantRepo : IAssistantRepo
     #region Create
     public async Task<Assistant> AddAsync(Assistant entity)
     {
+        //order the function - first add the address details and category details and then continue......
         helpContext.Assistants.Add(entity);
         await helpContext.SaveChangesAsync();
         return entity;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import AssistantDetailsButton from './button/AssistantDetailsButton';
 import { useNavigate } from "react-router-dom";
 
@@ -38,16 +38,20 @@ const AssistsDetailsFetch = () => {
       {/* <AssistantDetailsButton></AssistantDetailsButton> */}
 
 
+      <br></br>
+      <br></br>
 
+      <Button onClick={() => navigate(`/get_assist_by_id`)}> search assist</Button>
 
       <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
         {assists.map((user) => (
-
           <Card border="danger" style={cardSize}>
             <button style={trashSize} onClick={() => navigate(`/delete_assist/${user.id}`)}><i class="bi bi-trash"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
               <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
             </svg></i></button>
+
+            <button style={trashSize} onClick={() => navigate(`/update_assist/${user.id}`)}>u</button>
             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
             <Card.Body>
               <Card.Text style={color}>
@@ -62,6 +66,8 @@ const AssistsDetailsFetch = () => {
                 <h5> <i style={{ 'color': 'balck' }} class="bi bi-envelope"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
                 </svg></i>  {user.email}</h5>
+
+                <h6>{user.addressCodeNavigation.city}</h6>
               </Card.Text>
               {/* <Button variant="primary">Go somewhere {user.firstName}</Button> */}
             </Card.Body>

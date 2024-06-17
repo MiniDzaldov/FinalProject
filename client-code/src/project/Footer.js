@@ -3,7 +3,7 @@ export default function Footer() {
     const s = {'width':'100%', 'backgroundColor':'#ff25'}
   return (
     <>
-    <footer class="fixed-bottom">
+    <footer /*class="fixed-bottom"*/>
         <div style={s}>
             <h6 style={c}>הסתדרתם דרכינו? נשמח לשמוע</h6>
             <h6 style={c}>

@@ -2,7 +2,7 @@
 
 public class AssistRepo : IAssistRepo
 {
-    HelpContext helpContext;
+    private readonly HelpContext helpContext;
     #region ctor
     public AssistRepo(HelpContext helpContext)
     {
@@ -28,7 +28,6 @@ public class AssistRepo : IAssistRepo
     }
     #endregion
 
-    //doesn't work 😒
     #region Create
     public async Task<Assist> AddAsync(Assist entity)
     {

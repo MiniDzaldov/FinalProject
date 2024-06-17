@@ -1,40 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-const GetAssistsById = ({ assistId }) => {
-  const [assist, setAssist] = useState(null);
-  const color={"color": "black", "fontsize":"5px"}
+const GetAssistsById = () => {
+  const [id, setId] = useState(''); // State to manage the input ID
+  const [data, setData] = useState(null); // State to manage the fetched data
+  const [loading, setLoading] = useState(false); // State to manage loading status
+  const [error, setError] = useState(null); // State to manage errors
 
+  const handleInputChange = (event) => {
+    setId(event.target.value); // Update ID state when input changes
+  };
 
-  const fetchAssistById = async () => {
+  const handleFetch = async () => {
+    setLoading(true);
+    setError(null);
+    setData(null);
+
     try {
-    //   const response = await axios.get(`http://localhost:5089/api/Assists${assistId}`);
-    const response = await axios.get(`http://localhost:5089/api/Assists/215487888`);
-      setAssist(response.data);
-    } catch (error) {
-      console.error('Error fetching assist by id:', error);
-      console.log(error);
+      const response = await axios.get(`http://localhost:5089/api/assists/${id}`); // Fetch data by ID
+      setData(response.data); // Set the fetched data to state
+    } catch (err) {
+      setError(err.message); // Set error message to state
+    } finally {
+      setLoading(false); // End loading state
     }
   };
 
-  useEffect(() => {
-    fetchAssistById();
-  }, [assistId]);
-
-  if (!assist) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div>
-      <h2 style={color}>Assist {assist.data} Details:</h2>
-      <div>
-        <p style={color}>Assist ID: {assist.assistId}</p>
-        <p style={color}>Assist Name: {assist.name}</p>
-        {/* Add more details as needed */}
-      </div>
+      <input
+        type="text"
+        value={id}
+        onChange={handleInputChange}
+        placeholder="Enter ID"
+      />
+      <button onClick={handleFetch} disabled={loading}>
+        {loading ? 'Fetching...' : 'Fetch Data'}
+      </button>
+      {data && (
+        <div>
+          <h3>Fetched Data:</h3>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+        </div>
+      )}
+      {error && <div>Error: {error}</div>}
     </div>
-  );  
+  );
 };
 
 export default GetAssistsById;

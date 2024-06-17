@@ -51,7 +51,6 @@ public class AssistServics : IAssistService
     }
     #endregion
 
-    //doesn't work 😢😢😢
     #region Create
     public async Task<AssistDTO> AddAssistDetailsAsync(AssistDTO assist)
     {
