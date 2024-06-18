@@ -25,13 +25,4 @@ public class AssistDTO
     {
 
     }
-
-    //public AssistDTO(string firstName, string lastName, string phoneNumber, string email)
-    //{
-    //    this.FirstName = firstName;
-    //    this.LastName = lastName;
-    //    this.PhoneNumber = phoneNumber;
-    //    this.Email = email;
-    //}
-
 }

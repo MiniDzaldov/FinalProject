@@ -22,18 +22,43 @@ public class AssistsController : ControllerBase
     #endregion
 
     #region [HttpGet("{id}")]
+    /*  [HttpGet("{id}")]
+      public async Task<ActionResult<AssistDTO>> GetSingleAssistDetails(string id)
+      {
+          try
+          {
+              return await assistDetailsRepo.GetSingleAssistDetailsAsync(id);
+          }
+          catch (Exception ex)
+          {
+              return BadRequest(ex.Message);
+          }
+      }*/
+
     [HttpGet("{id}")]
     public async Task<ActionResult<AssistDTO>> GetSingleAssistDetails(string id)
     {
         try
         {
-            return await assistDetailsRepo.GetSingleAssistDetailsAsync(id);
+            // נוודא שה-ID הוא תקין (לדוגמה, באורך 9 ספרות)
+            if (string.IsNullOrEmpty(id) || id.Length != 9 || !id.All(char.IsDigit))
+            {
+                return BadRequest("Invalid ID format");
+            }
+
+            var assistDetails = await assistDetailsRepo.GetSingleAssistDetailsAsync(id);
+            //if (assistDetails == null)
+            //{
+            //    return NotFound("ID not found");
+            //}
+            return Ok(assistDetails);
         }
         catch (Exception ex)
         {
-            return BadRequest(ex.Message);
+            return NotFound(ex.Message);
         }
     }
+
     #endregion
 
     #region [HttpPost]

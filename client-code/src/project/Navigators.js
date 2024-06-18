@@ -1,16 +1,12 @@
 import {Route, Routes } from "react-router-dom"
+
 import HomePage from "./HomePage";
-import AssistDetails from "./AssistDetails"
+import AssistDetails from "./assistMethods/AssistDetails"
 import AssistantDetails from "./AssistantDetails"
-import AssistantForm from "./form/AssistantForm"
-import AssistForm from "./form/AssistForm"
-import Bb from './BB';
-// import SearchAssistById from './assistMethods/GetAssistsById';
 import About from "./About";
 import CreateAssist from './assistMethods/CreateAssist'
 import DeleteAssist from './assistMethods/DeleteAssist'
 import AddAssistantSuccessfully from "./assistantsMethods/AddAssistantSuccessfully";
-import CreateAssistantComponent from "./assistantsMethods/CreateAssistant";
 import CreateAssistant from "./assistantsMethods/CreateAssistant";
 import GetAssistsById from "./assistMethods/GetAssistsById";
 import UpdateAssist from './assistMethods/UpdateAssist'

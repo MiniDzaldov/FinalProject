@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import AssistDetailsButton from './button/AssistDetailsButton';
+// import AssistDetailsButton from './button/AssistDetailsButton';
 
 const AssistantDetailsFetch = () => {
   const [users, setUsers] = useState([]);

@@ -36,19 +36,41 @@ public class AssistServics : IAssistService
     #endregion
 
     #region GetSingle
+    //public async Task<AssistDTO> GetSingleAssistDetailsAsync(string id)
+    //{
+    //    try
+    //    {
+    //        Assist a = await assistRepo.GetSingleAsync(id) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+    //        AssistDTO ass = mapper.Map<AssistDTO>(a);
+    //        return ass;
+    //    }
+    //    catch (ArgumentNullException ex) { throw ex; }
+    //    catch (TimeoutException ex) { throw ex; }
+    //    catch (Exception) { throw; }
+
+    //}
     public async Task<AssistDTO> GetSingleAssistDetailsAsync(string id)
     {
         try
         {
-            Assist a = await assistRepo.GetSingleAsync(id) ?? throw new ArgumentNullException("The assist doesn't exist in our system");
+            Assist a = await assistRepo.GetSingleAsync(id) ?? throw new KeyNotFoundException("The assist with the specified ID was not found.");
             AssistDTO ass = mapper.Map<AssistDTO>(a);
             return ass;
         }
-        catch (ArgumentNullException ex) { throw ex; }
-        catch (TimeoutException ex) { throw ex; }
-        catch (Exception) { throw; }
-
+        catch (KeyNotFoundException ex)
+        {
+            throw ex; // Rethrow to propagate the exception message
+        }
+        catch (TimeoutException ex)
+        {
+            throw ex; // Rethrow to propagate the timeout exception
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("An error occurred while fetching assist details.", ex); // Wrap and throw other exceptions
+        }
     }
+
     #endregion
 
     #region Create

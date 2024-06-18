@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import NeedHelpButton from "./button/NeedHelpButton";
-import WantToHelpButton from "./button/WantToHelpButton";
-import SearchAssistById from "./button/SearchAssistById";
+// import NeedHelpButton from "./button/NeedHelpButton";
+// import WantToHelpButton from "./button/WantToHelpButton";
+// import SearchAssistById from "./button/SearchAssistById";
 // import l from '../pictures/logo1.png'
 
 
@@ -13,9 +13,9 @@ export default function Nav2() {
         <>
         {/* <div ><img style={logoStyle} src ={l}></img></div> */}
         <div style={buttonStyle}>
-            <NeedHelpButton></NeedHelpButton>
+            {/* <NeedHelpButton></NeedHelpButton>
             <WantToHelpButton></WantToHelpButton>
-            <SearchAssistById></SearchAssistById>
+            <SearchAssistById></SearchAssistById> */}
         <br></br>
         </div>
        

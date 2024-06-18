@@ -25,6 +25,7 @@ const DeleteAssist = () => {
   };
   return (
     <div>
+      {/* alert('r u sure to delete') */}
       <button onClick={handleDelete} disabled={loading}>
         {loading ? 'Deleting...' : 'Delete'}
       </button>
