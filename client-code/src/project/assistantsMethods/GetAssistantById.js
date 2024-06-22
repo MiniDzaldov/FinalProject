@@ -9,7 +9,7 @@ import SearchIcon from '../style/SearchIcon';
 import EditIcon from '../style/EditIcon';
 import TrashIcon from '../style/TrashIcon';
 
-const GetAssistsById = () => {
+const GetAssistantsById = () => {
   const [id, setId] = useState('');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -41,7 +41,7 @@ const GetAssistsById = () => {
     setShowDetails(false);
 
     try {
-      const response = await axios.get(`http://localhost:5089/api/assists/${id}`);
+      const response = await axios.get(`http://localhost:5089/api/assistants/${id}`);
       if (response.data) {
         setData(response.data);
         setShowDetails(true);
@@ -97,7 +97,7 @@ const GetAssistsById = () => {
             <Card.Body>
               <Card.Text style={cardTextColor}>
                 <h5>{data.firstName + " " + data.lastName}</h5>
-                <h7>:אשמח מאד לקבל סיוע ב</h7>
+                <h7>:אשמח מאד לעזור ב</h7>
                 <h4 className="fw-bolder" style={{ color: 'red' }}>{data.categoryCodeNavigation.type}</h4>
               </Card.Text>
               <Collapse in={showDetails}>
@@ -107,11 +107,10 @@ const GetAssistsById = () => {
                     <h5><i className="bi bi-telephone"><PhoneIcon /></i> {data.phoneNumber}</h5>
                     <h5>:או</h5>
                     <h5><i style={{ color: 'black' }} className="bi bi-envelope"><EmailIcon /></i> {data.email}</h5>
-                    {/* <h7>{data.addressCodeNavigation.city}</h7> */}
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                      <button style={trashSize} onClick={() => navigate(`/delete_assist/${data.id}`)}><TrashIcon /> </button>
-                      <button style={trashSize} onClick={() => navigate(`/update_assist/${data.id}`)}><EditIcon /></button>
+                      <button style={trashSize} onClick={() => navigate(`/delete_assistant/${data.id}`)}><TrashIcon /> </button>
+                      <button style={trashSize} onClick={() => navigate(`/update_assistant/${data.id}`)}><EditIcon /></button>
                     </div>
                   </Card.Text>
                 </div>
@@ -131,6 +130,5 @@ const GetAssistsById = () => {
   );
 };
 
-export default GetAssistsById;
-
+export default GetAssistantsById;
 

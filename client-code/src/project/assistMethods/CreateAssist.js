@@ -562,7 +562,7 @@ export default function CreateAssist({ fetchAssists }) {
       phonenumber: data.phonenumber,
       email: data.email,
       categoryCode: data.categoryCode,
-      address: {
+      addressCodeNavigation: {
         city: data.city,
         street: data.street,
         numofbuilding: data.numofbuilding,
@@ -572,12 +572,14 @@ export default function CreateAssist({ fetchAssists }) {
     };
 
     try {
+      console.log(assistData);
       const response = await axios.post('http://localhost:5089/api/assists', assistData, {
 
         headers: { 'Content-Type': 'application/json' }
       });
       console.log(assistData)
       if (response.status === 200) {
+        console.log(response)
         console.log("Assistant added");
         fetchAssists(); // Refresh the list of assists
       }

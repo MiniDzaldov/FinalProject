@@ -14,7 +14,7 @@ function App() {
       <Navbarr></Navbarr>
       <div className="App">
         {/* <BB></BB> */}
-        <B></B>
+        {/* <B></B> */}
       <header >
             <BrowserRouter>
             <Routes> 

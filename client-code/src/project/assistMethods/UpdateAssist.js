@@ -51,13 +51,20 @@ import { useParams } from 'react-router-dom';
 const UpdateAssist = ({fetchAssists }) => {
   const { id } = useParams();
   const [updatedAssist, setUpdatedAssist] = useState({
+    Id:'',
     FirstName: '',
     LastName: '',
     NumOfChildren: 0,
     PhoneNumber: '',
     Email: '',
-    AddressCode: 0,
-    CategoryCode: 0
+    categoryCode: '',
+      address: {
+        city: '',
+        street:'',
+        numofbuilding: '',
+        aptnumber: '',
+        zipcode: ''
+      }
   });
 
   const updateAssist = async () => {

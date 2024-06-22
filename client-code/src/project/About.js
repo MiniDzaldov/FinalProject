@@ -2,15 +2,9 @@ import meal from '../pictures/meals5.jpg'
 import meal1 from '../pictures/meals4.jpg'
 import baby from '../pictures/babysitting1.png'
 import clean from '../pictures/clean5.png'
-// import a from '../pictures/1.png'
+import { mealsTextStyle, cleanTextStyle, mealImgStyle, babyImgStyle, border, divStyle } from './style/Styles'
 
 export default function About() {
-  const c = { 'color': 'green', 'margin-top': '3rem' }
-  const co = { 'color': '#398EDA', 'margin-top': '2rem' }
-  const mealImgStyle = { 'width': '32rem', 'height': '26rem', 'float': 'right'/*, 'border': '1px solid white'*/ }
-  const babyImgStyle = { 'width': '32rem', 'height': '26rem', 'float': 'left'/*, 'border': '1px solid white'*/ }
-  const border = { 'border-color': 'black' }
-  const divStyle = { 'margin-top': '8rem' }
   const blurBorderStyle = {
     content: '""',
     position: 'absolute',
@@ -24,14 +18,12 @@ export default function About() {
   };
   return (
     <>
-      {/* <h3 style={c}>About Us</h3> */}
-  
       <div style={border} >
         <img style={mealImgStyle} src={meal1}></img>
       </div>
       <div style={divStyle}>
         <h5>ארוחות</h5>
-        <p style={c}>
+        <p style={mealsTextStyle}>
           האפליקציה שלנו נועדה לסייע לאנשי מילואים ומשפחותיהם על ידי ארגון ושיתוף פעולה עם מתנדבים שונים ברחבי הארץ. בעזרת האפליקציה, מתנדבים יכולים להירשם ולהתחייב להכין ולהביא ארוחות מבושלות חמות ישירות לבתיהם של אנשי המילואים.
 
           אנו מבינים כי בתקופות של שירות מילואים, עול הבית והדאגה למשפחה יכולים להיות כבדים במיוחד. לכן, המטרה שלנו היא להקל על המשפחות ולאפשר לאנשי המילואים להתמקד בשירותם בראש שקט, בידיעה שמשפחתם מקבלת את כל התמיכה הדרושה לה.
@@ -66,7 +58,7 @@ export default function About() {
       </div>
       <div style={divStyle}>
         <h5>ניקיון</h5>
-        <p style={co}>
+        <p style={cleanTextStyle}>
           האפליקציה שלנו נועדה להקל על משפחות אנשי המילואים באמצעות ארגון ושיתוף פעולה עם מתנדבים שונים ברחבי הארץ למתן שירותי ניקיון ועזרה בבית. בעזרת האפליקציה, מתנדבים יכולים להירשם ולהתחייב להגיע לבתי המשפחות ולסייע בניקיון הבית ובמשימות ביתיות שונות.
 
           אנו מבינים כי בתקופות של שירות מילואים, המשפחות נאלצות להתמודד עם עומס יתר בכל הקשור לניהול הבית. לכן, המטרה שלנו היא להקל על המשפחות ולאפשר לאנשי המילואים להתמקד בשירותם בידיעה שביתם מתוחזק ונקי.
@@ -76,10 +68,6 @@ export default function About() {
           כך נבנית רשת תמיכה קהילתית שמחברת בין אנשים טובים עם לב רחב לבין משפחות המילואים שזקוקות לעזרה במשימות היום-יומיות בזמן שהם עסוקים בשירות למדינה.
         </p>
       </div>
-
-
-
-
     </>
   );
 }
