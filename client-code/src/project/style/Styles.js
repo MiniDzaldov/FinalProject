@@ -1,13 +1,20 @@
+
+export const blackColor={color:'black'}
+export const redColor={color:'red'}
+export const greenColor={color:'green'}
+
+export const displayFlex={display:'flex'}
+
+
 //assistDetails
-export const cardSize = { width: "18rem", height: "10rem", margin: '1rem', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', transition: '0.3s'/*"marginRight": "1.5rem", "marginLeft": "1.5rem", "marginBottom": "5px", "borderColor": "gray", "marginTop": "4rem" */ }
-export const cardTextColor = { color: 'black' };
-export const cardContainer = { display: 'flex', flexWrap: 'wrap', marginRight: '0.5rem', marginLeft: '0.5rem' };
-export const cardContent = { marginBottom: '1rem', maxWidth: '18rem', minWidth: '14rem', width: '100%', transition: 'all 0.3s ease', marginLeft: '2.5rem', marginRight: '2.5rem', };
+export const cardSize = { width: "18rem", height: "10rem", margin: '1rem', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', transition: '0.3s'}
+export const cardContainer = { display: 'flex', flexWrap: 'wrap'};
+export const cardContent = { marginBottom: '2.3rem', maxWidth: '18rem', minWidth: '14rem', width: '100%', transition: 'all 0.3s ease', marginLeft: '2.3rem', marginRight: '2.3rem', };
 export const cardButton = { width: '100%' };
 export const trashSize = { width: '1.8rem', height: '2.5rem' };
 export const centeredCardContainer = { Fdisplay: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', };
 export const centeredCard = { maxWidth: '30rem', width: '100%', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', transition: '0.3s', margin: '1rem', };
-
+export const displayCardsStyle={ display: 'flex', justifyContent: 'flex-end' }
 
 //getAssistById
 export const searchButtonstyle = { borderRadius: '4px', border: '1px solid #ccc' }

@@ -9,10 +9,9 @@ public class BlManager
     {
         ServiceCollection services = new ServiceCollection();
         services.AddScoped<DalManager>(d => new DalManager(connection));
-        services.AddScoped<IAssistService, AssistServics>();
+        services.AddScoped<IAssistService, AssistService>();
         services.AddScoped<IAssistantService, AssistantService>();
         services.AddScoped<ICategoryService, CategoryService>();
-        //collection.AddAutoMapper(typeof(UserProfile));
         services.AddAutoMapper(typeof(MapperProfile));
 
         ServiceProvider servicesProvider = services.BuildServiceProvider();

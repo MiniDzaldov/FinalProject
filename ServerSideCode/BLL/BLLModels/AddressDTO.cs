@@ -25,7 +25,7 @@ public class AddressDTO
 
     }
 
-    public AddressDTO(int code, string city, string street, int numOfBuilding, int aptNumber, int zipCode/*, ICollection<Assistant> assistants, ICollection<Assist> assists*/)
+    public AddressDTO(int code, string city, string street, int numOfBuilding, int aptNumber, int zipCode)
     {
         Code = code;
         City = city;
@@ -35,9 +35,4 @@ public class AddressDTO
         ZipCode = zipCode;
     }
     
-    /*public AddressDTO(int code, string type)
-    {
-        this.Code = code;
-        this.Type = type;
-    }*/
 }

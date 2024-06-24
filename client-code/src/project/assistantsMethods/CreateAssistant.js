@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from 'axios'
-
+import axios from 'axios';
+import {redColor} from '../style/Styles'
 export default function CreateAssistant() {
     // const navigate = useNavigate();
     const userExist = useRef();
@@ -181,44 +181,42 @@ export default function CreateAssistant() {
         <>
             <form onSubmit={handleSubmit(onSuccess, onFailed)}>
                 <input name="id" placeholder="מספר זהות" {...register("id", requirements.id)} />
-                {errors.id && <small style={{ color: "red" }}>{errors.id.message}</small>}
+                {errors.id && <small style={redColor}>{errors.id.message}</small>}
                 <br />
                 <input name="firstname" placeholder="שם פרטי" {...register("firstname", requirements.firstname)} />
-                {errors.firstname && <small style={{ color: "red" }}>{errors.firstname.message}</small>}
+                {errors.firstname && <small style={redColor}>{errors.firstname.message}</small>}
                 <br />
                 <input name="lastname" placeholder="שם משפחה" {...register("lastname", requirements.lastname)} />
-                {errors.lastname && <small style={{ color: "red" }}>{errors.lastname.message}</small>}
+                {errors.lastname && <small style={redColor}>{errors.lastname.message}</small>}
                 <br />
                 <input name="age" placeholder="גיל" {...register("age", requirements.age)} />
-                {errors.age && <small style={{ color: "red" }}>{errors.age.message}</small>}
+                {errors.age && <small style={redColor}>{errors.age.message}</small>}
                 <br />
                 <input name="numofchildren" placeholder="מספר ילדים" {...register("numofchildren", requirements.numofchildren)} />
-                {errors.numofchildren && <small style={{ color: "red" }}>{errors.numofchildren.message}</small>}
+                {errors.numofchildren && <small style={redColor}>{errors.numofchildren.message}</small>}
                 <br />
                 <input name="phonenumber" placeholder="מספר פלאפון" {...register("phonenumber", requirements.phonenumber)} />
-                {errors.phonenumber && <small style={{ color: "red" }}>{errors.phonenumber.message}</small>}
+                {errors.phonenumber && <small style={redColor}>{errors.phonenumber.message}</small>}
                 <br />
                 <input name="email" placeholder="כתובת דואל" {...register("email", requirements.email)} />
-                {errors.email && <small style={{ color: "red" }}>{errors.email.message}</small>}
+                {errors.email && <small style={redColor}>{errors.email.message}</small>}
                 <br />
                 <input name="city" placeholder="עיר" {...register("city", requirements.city)} />
-                {errors.city && <small style={{ color: "red" }}>{errors.city.message}</small>}
+                {errors.city && <small style={redColor}>{errors.city.message}</small>}
                 <br />
                 <input name="street" placeholder="רחוב" {...register("street", requirements.street)} />
-                {errors.street && <small style={{ color: "red" }}>{errors.street.message}</small>}
+                {errors.street && <small style={redColor}>{errors.street.message}</small>}
                 <br />
                 <input name="numofbuilding" placeholder="מספר בנין" {...register("numofbuilding", requirements.numofbuilding)} />
-                {errors.numofbuilding && <small style={{ color: "red" }}>{errors.numofbuilding.message}</small>}
+                {errors.numofbuilding && <small style={redColor}>{errors.numofbuilding.message}</small>}
                 <br />
                 <input name="aptnumber" placeholder="מספר דירה" {...register("aptnumber", requirements.aptnumber)} />
-                {errors.aptnumber && <small style={{ color: "red" }}>{errors.aptnumber.message}</small>}
+                {errors.aptnumber && <small style={redColor}>{errors.aptnumber.message}</small>}
                 <br />
                 <input name="zipcode" placeholder="מיקוד" {...register("zipcode", requirements.zipcode)} />
-                {errors.zipcode && <small style={{ color: "red" }}>{errors.zipcode.message}</small>}
-                {/* <div> */}
-                {/* {helpCategory.map((helpc) => (console.log(helpc.type)))} */}
-                {/* </div> */}
-
+                {errors.zipcode && <small style={redColor}>{errors.zipcode.message}</small>}
+               
+                <br />
                 <select /*style={selectStyle}*/>
                     {helpCategory.map((helpc) => (
                         <option value="someOption" /*style={optionStyle}*/>{helpc.type}</option>))}

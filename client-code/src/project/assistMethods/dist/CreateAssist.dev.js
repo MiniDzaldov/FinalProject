@@ -1,7 +1,6 @@
 // import React, { useState } from 'react';
 // import axios from 'axios';
 // import BasicForm from '../form/BasicForm'
-
 // const CreateAssist = ({ fetchAssists }) => {
 //   const [newAssist, setNewAssist] = useState({
 //     FirstName: '',
@@ -12,7 +11,6 @@
 //     AddressCode: 0,
 //     CategoryCode: 0
 //   });
-
 //   const createAssist = async () => {
 //     try {
 //       await axios.post('http://localhost:5089/api/assists', newAssist);
@@ -22,7 +20,6 @@
 //       console.error('Error creating assist:', error);
 //     }
 //   };
-
 //   return (
 //     <div>
 //       <h6>Create Assist:</h6>
@@ -45,20 +42,15 @@
 //     </div>
 //   );
 // };
-
 // export default CreateAssist;
-
-
 // import { useRef, useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 // import axios from 'axios'
-
 // export default function CreateAssist() {
 //     // const navigate = useNavigate();
 //     // const userExist = useRef();
 //     const [helpCategory, setHelpCategory] = useState([]);
-
 //     const [newAssis, setNewAssist] = useState({
 //         id: "",
 //         firstname: "",
@@ -77,7 +69,6 @@
 //         zipcode: ""
 //         }
 //     });
-
 //     useEffect(() => {
 //         fetch('http://localhost:5089/api/categories')
 //             .then((res) => {
@@ -88,9 +79,7 @@
 //                 setHelpCategory(data);
 //             });
 //     }, []);
-
 //     const { register, handleSubmit, formState: { errors } } = useForm();
-
 // const onSuccess = (data) => {navigate(`/HomePage/${data.userName}/${data.password}`)}
 // const onSuccess = (data) => {
 //   setNewAssist({
@@ -110,11 +99,9 @@
 //         aptnumber: data.aptnumber,
 //         zipcode: data.zipcode
 //     }});
-
 //     const options = {
 //         headers: { 'Content-Type': 'application/json' }
 //     };
-
 //     axios.post(`http://localhost:5089/api/Assists`, JSON.stringify(newAssis), options)
 //         .then((response) => {
 //             if (response.status === 200) {
@@ -144,7 +131,6 @@
 // Actions to perform regardless of success or failure
 //             });
 //     }
-
 //     const onFailed = (data, error) => {
 //       setNewAssist({
 //         id: data.id,
@@ -163,11 +149,9 @@
 //         aptnumber: data.aptnumber,
 //         zipcode: data.zipcode
 //     }});
-
 //         console.log("Form submission failed:", error);
 //         console.log("Form errors:", errors);
 //     }
-
 //     const requirements = {
 //         id: {
 //             required: true,
@@ -254,11 +238,9 @@
 //             },
 //         },
 //     };
-
 //     return (
 //         <>
 //             <form onSubmit={handleSubmit(onSuccess, onFailed)}>
-
 //                 <input name="id" placeholder="מספר זהות" {...register("id", requirements.id)} />
 //                 {errors.id && <small style={{ color: "red" }}>{errors.id.message}</small>}
 //                 <br />
@@ -294,15 +276,10 @@
 //                 <br />
 //                 <input name="zipcode" placeholder="מיקוד" {...register("zipcode", requirements.zipcode)} />
 //                 {errors.zipcode && <small style={{ color: "red" }}>{errors.zipcode.message}</small>}
-
-
 //                 <select>
 //                     {helpCategory.map((helpc) => (
 //                         <option value="someOption">{helpc.type}</option>))}
 //                 </select>
-
-
-
 //                 <center>
 //                     <button type="submit">שליחת הטופס</button>
 //                 </center>
@@ -310,11 +287,9 @@
 //         </>
 //     )
 // };
-
 // import { useEffect, useState } from "react";
 // import { useForm } from "react-hook-form";
 // import axios from 'axios';
-
 // export default function CreateAssist({ fetchAssists }) {
 //   const [helpCategory, setHelpCategory] = useState([]);
 //   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -336,7 +311,6 @@
 //       zipcode: ""
 //     }
 //   });
-
 //   useEffect(() => {
 //     fetch('http://localhost:5089/api/categories')
 //       .then((res) => res.json())
@@ -345,9 +319,6 @@
 //         setValue("categoryCode", data[0]?.code); // Default to first category
 //       });
 //   }, [setValue]);
-
-
-
 //   const onSubmit = async (data) => {
 //     const assistData = {
 //       id: data.id,
@@ -366,8 +337,6 @@
 //       },
 //       categoryCode: data.categoryCode
 //     };
-
-
 //     try {
 //       const response = await axios.post('http://localhost:5089/api/assists', assistData, {
 //         headers: { 'Content-Type': 'application/json' }
@@ -394,7 +363,6 @@
 //       }
 //     }
 //   };
-
 //   const requirements = {
 //     id: {
 //       required: true,
@@ -481,7 +449,6 @@
 //       },
 //     },
 //   };
-
 //   return (
 //     <>
 //       <form onSubmit={handleSubmit(onSubmit)}>
@@ -534,19 +501,13 @@
 //     </>
 //   );
 // }
-
-
-
-
 // import { useEffect, useState } from "react";
 // import { useForm } from "react-hook-form";
 // import axios from 'axios';
 // import {redColor} from '../style/Styles'
-
 // export default function CreateAssist({ fetchAssists }) {
 //   const [helpCategory, setHelpCategory] = useState([]);
 //   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
-
 //   useEffect(() => {
 //     fetch('http://localhost:5089/api/categories')
 //       .then((res) => res.json())
@@ -555,7 +516,6 @@
 //         setValue("categoryCode", data[0]?.code); // Default to first category
 //       });
 //   }, [setValue]);
-
 //   const onSubmit = async (data) => {
 //     const assistData = {
 //       id: data.id,
@@ -574,11 +534,9 @@
 //         zipcode: data.zipcode
 //       }
 //     };
-
 //     try {
 //       console.log(assistData);
 //       const response = await axios.post('http://localhost:5089/api/assists', assistData, {
-
 //         headers: { 'Content-Type': 'application/json' }
 //       });
 //       console.log(assistData)
@@ -605,7 +563,6 @@
 //       }
 //     }
 //   };
-
 //   const requirements = {
 //     id: {
 //       required: true,
@@ -692,7 +649,6 @@
 //       },
 //     },
 //   };
-
 //   return (
 //     <>
 //       <form onSubmit={handleSubmit(onSubmit)}>
@@ -745,182 +701,4 @@
 //     </>
 //   );
 // }
-
-
-
-
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useForm } from 'react-hook-form';
-
-const CreateAssist = () => {
-  const [helpCategory, setHelpCategory] = useState([]);
-  const { formState: { errors }, setValue } = useForm();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    street: '',
-    city: '',
-  });
-
-  useEffect(() => {
-    fetch('http://localhost:5089/api/categories')
-      .then((res) => res.json())
-      .then((data) => {
-        setHelpCategory(data);
-        setValue("categoryCode", data[0]?.code); // Default to first category
-      });
-  }, [setValue]);
-
-  const handleChange = (e) => {
-    const { n, value } = e.target;
-    const numericValue = e.target.type === 'number' ? Number(value) : value;
-
-    setFormData({
-      ...formData,
-      [n]: numericValue,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const dataToSend = {
-        id: formData.id,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        age: formData.age,
-        numofchildren: /*formData.numofchildren*/ 9,
-        phonenumber: formData.phonenumber,
-        email: formData.email,
-        categoryCode: formData.categoryCode,
-        AddressCodeNavigation: {
-          street: formData.street,
-          city: formData.city,
-          numofbuilding: /*formData.numofbuilding*/8,
-          aptnumber: /*formData.aptnumber*/ 13,
-          zipcode: formData.zipcode
-        },
-      };
-      console.log(dataToSend);
-
-      const response = await axios.post('http://localhost:5089/api/assists', dataToSend);
-      console.log('Data submitted successfully', response.data);
-    } catch (error) {
-      console.error('Error submitting data', error);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="id"
-        placeholder="מספר זהות"
-        value={formData.id}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="firstName"
-        placeholder="שם פרטי"
-        value={formData.firstName}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="שם משפחה"
-        value={formData.lastName}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="age"
-        placeholder="גיל"
-        value={formData.age}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="numOfChildren"
-        placeholder="מס' ילדים"
-        value={formData.numOfChildren}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="phonenumber"
-        placeholder="מס' פלאפון"
-        value={formData.phonenumber}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="email"
-        name="email"
-        placeholder="דוא''ל"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="street"
-        placeholder="רחוב"
-        value={formData.street}
-        onChange={handleChange}
-      />
-      <br />
-
-      <input
-        type="text"
-        name="city"
-        placeholder="עיר"
-        value={formData.city}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="city"
-        placeholder="מס' בנין"
-        value={formData.numofbuilding}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="city"
-        placeholder="מס' דירה"
-        value={formData.aptnumber}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="zipcode"
-        placeholder="מיקוד"
-        value={formData.zipcode}
-        onChange={handleChange}
-      />
-      <br />
-
-      <select name="categoryCode" value={formData.categoryCode} onChange={handleChange}>
-        {helpCategory.map((category) => (
-          <option key={category.code} value={category.code}>{category.type}</option>
-        ))}
-      </select>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
-
-export default CreateAssist;
+"use strict";

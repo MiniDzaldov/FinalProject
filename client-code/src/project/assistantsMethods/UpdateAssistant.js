@@ -1,10 +1,11 @@
+import {blackColor} from '../style/Styles'
 
 export default function UpdateAssistant() {
-    const s ={'marginTop':'10rem', 'color':'black'};
+    // const s ={'marginTop':'10rem', 'color':'black'};
     return (
         <>
-            <h3 style={s}>UpdateAssistant</h3>
-            {/* <h7>(כרגע זה לא באמת נכון..... רק בשביל בנית דפי האתר)</h7> */}
+            <h3 style={blackColor}>עדכון מתנדב</h3>
+            <h7>(צריך לטפל בזה דחוף ממש)</h7>
         </>
     )
 }

@@ -3,37 +3,45 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.divStyle = exports.border = exports.babyImgStyle = exports.mealImgStyle = exports.cleanTextStyle = exports.mealsTextStyle = exports.footerDivStyle = exports.footerTextStyle = exports.navStyle = exports.logoStyle = exports.navbarDivStyle = exports.errorStyle = exports.inputStyle = exports.searchDivStyle = exports.searchStyle = exports.searchButtonstyle = exports.centeredCard = exports.centeredCardContainer = exports.trashSize = exports.cardButton = exports.cardContent = exports.cardContainer = exports.cardTextColor = exports.cardSize = void 0;
-//assistDetails
+exports.divStyle = exports.border = exports.babyImgStyle = exports.mealImgStyle = exports.cleanTextStyle = exports.mealsTextStyle = exports.footerDivStyle = exports.footerTextStyle = exports.navStyle = exports.logoStyle = exports.navbarDivStyle = exports.errorStyle = exports.inputStyle = exports.searchDivStyle = exports.searchStyle = exports.searchButtonstyle = exports.displayCardsStyle = exports.centeredCard = exports.centeredCardContainer = exports.trashSize = exports.cardButton = exports.cardContent = exports.cardContainer = exports.cardSize = exports.displayFlex = exports.greenColor = exports.redColor = exports.blackColor = void 0;
+var blackColor = {
+  color: 'black'
+};
+exports.blackColor = blackColor;
+var redColor = {
+  color: 'red'
+};
+exports.redColor = redColor;
+var greenColor = {
+  color: 'green'
+};
+exports.greenColor = greenColor;
+var displayFlex = {
+  display: 'flex'
+}; //assistDetails
+
+exports.displayFlex = displayFlex;
 var cardSize = {
   width: "18rem",
   height: "10rem",
   margin: '1rem',
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
   transition: '0.3s'
-  /*"marginRight": "1.5rem", "marginLeft": "1.5rem", "marginBottom": "5px", "borderColor": "gray", "marginTop": "4rem" */
-
 };
 exports.cardSize = cardSize;
-var cardTextColor = {
-  color: 'black'
-};
-exports.cardTextColor = cardTextColor;
 var cardContainer = {
   display: 'flex',
-  flexWrap: 'wrap',
-  marginRight: '0.5rem',
-  marginLeft: '0.5rem'
+  flexWrap: 'wrap'
 };
 exports.cardContainer = cardContainer;
 var cardContent = {
-  marginBottom: '1rem',
+  marginBottom: '2.3rem',
   maxWidth: '18rem',
   minWidth: '14rem',
   width: '100%',
   transition: 'all 0.3s ease',
-  marginLeft: '2.5rem',
-  marginRight: '2.5rem'
+  marginLeft: '2.3rem',
+  marginRight: '2.3rem'
 };
 exports.cardContent = cardContent;
 var cardButton = {
@@ -58,9 +66,14 @@ var centeredCard = {
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
   transition: '0.3s',
   margin: '1rem'
+};
+exports.centeredCard = centeredCard;
+var displayCardsStyle = {
+  display: 'flex',
+  justifyContent: 'flex-end'
 }; //getAssistById
 
-exports.centeredCard = centeredCard;
+exports.displayCardsStyle = displayCardsStyle;
 var searchButtonstyle = {
   borderRadius: '4px',
   border: '1px solid #ccc'

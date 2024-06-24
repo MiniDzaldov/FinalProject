@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Spinner, Card, Button, Collapse } from 'react-bootstrap';
-import { searchButtonstyle, searchStyle, searchDivStyle, inputStyle, errorStyle, cardTextColor, cardContainer, cardContent, cardButton, trashSize } from '../style/Styles';
+import { searchButtonstyle, searchStyle, searchDivStyle, inputStyle, errorStyle, blackColor, cardContainer, cardContent, cardButton, trashSize, redColor} from '../style/Styles';
 import PhoneIcon from '../style/PhoneIcon';
 import EmailIcon from '../style/EmailIcon';
 import SearchIcon from '../style/SearchIcon';
@@ -95,19 +95,18 @@ const GetAssistsById = () => {
         {data && (
           <Card key={data.id} style={{ ...cardContent, height: showDetails ? 'auto' : '12rem' }}>
             <Card.Body>
-              <Card.Text style={cardTextColor}>
+              <Card.Text style={blackColor}>
                 <h5>{data.firstName + " " + data.lastName}</h5>
                 <h7>:אשמח מאד לקבל סיוע ב</h7>
-                <h4 className="fw-bolder" style={{ color: 'red' }}>{data.categoryCodeNavigation.type}</h4>
+                <h4 className="fw-bolder" style={redColor}>{data.categoryCodeNavigation.type}</h4>
               </Card.Text>
               <Collapse in={showDetails}>
                 <div>
                   <Card.Text>
                     <h5>:צרו איתי קשר ב</h5>
-                    <h5><i className="bi bi-telephone"><PhoneIcon /></i> {data.phoneNumber}</h5>
+                    <h5><i className="bi bi-telephone"><PhoneIcon /></i>       {data.phoneNumber}</h5>
                     <h5>:או</h5>
-                    <h5><i style={{ color: 'black' }} className="bi bi-envelope"><EmailIcon /></i> {data.email}</h5>
-                    {/* <h7>{data.addressCodeNavigation.city}</h7> */}
+                    <h5><i style={blackColor} className="bi bi-envelope"><EmailIcon /></i> {data.email}</h5>
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                       <button style={trashSize} onClick={() => navigate(`/delete_assist/${data.id}`)}><TrashIcon /> </button>

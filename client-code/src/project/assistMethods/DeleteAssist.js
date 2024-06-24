@@ -10,7 +10,6 @@ const DeleteAssist = () => {
   const [promptShown, setPromptShown] = useState(false); // State to track if prompt has been shown
 
   useEffect(() => {
-    // Function to handle delete operation
     const handleDelete = async () => {
       setLoading(true);
       setError(null);
@@ -25,22 +24,20 @@ const DeleteAssist = () => {
         setLoading(false);
       }
     };
-
-    // Show prompt and check manager code when component mounts
     const checkManagerCode = () => {
       const enteredCode = prompt(':הכנס קוד מנהל');
       if (enteredCode === '123456') {
-        handleDelete(); // Call handleDelete if code is correct
+        handleDelete(); 
       } else if (enteredCode !== null) {
         alert('אם אתה לא מנהל אל תנסה...');
       }
-      setPromptShown(true); // Mark prompt as shown
+      setPromptShown(true); 
     };
 
     if (!promptShown) {
-      checkManagerCode(); // Call checkManagerCode only if prompt has not been shown
+      checkManagerCode(); 
     }
-  }, [promptShown, id]); // useEffect will re-run if promptShown or id changes
+  }, [promptShown, id]); 
 
   return (
     <>
@@ -63,7 +60,7 @@ const DeleteAssist = () => {
       <br />
       <br />
     </>
-  );
+  );    
 };
 
 export default DeleteAssist;
