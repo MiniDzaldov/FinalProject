@@ -86,7 +86,6 @@ export default function BasicForm() {
                 <Form.Control type="buildingNumber" placeholder="מספר בנין" required/>
               </Form.Group>
             </Row>
-
             <Row className="mb-3">
             <Form.Group as={Col} controlId="formBasicLastName">
                 <Form.Control type="lastName" placeholder="-------" required/>
@@ -96,8 +95,6 @@ export default function BasicForm() {
                 <Form.Control type="zipCode" placeholder="מיקוד" required/>
               </Form.Group>
             </Row>
-
-            {/* <Row className="mb-3"> */}
             <Row className="mb-3">
                <div>
                 {helpCategory.map((helpc) => (console.log(helpc.type)))}
@@ -110,11 +107,6 @@ export default function BasicForm() {
                 </select>
             </Form.Group>
             </Row>
- 
-
-            {/* <Button variant="outline-primary" type="submit">
-              שלח טופס
-            </Button> */}
           </Form>
         </div>
       </Col>

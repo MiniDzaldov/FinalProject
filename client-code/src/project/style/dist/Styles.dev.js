@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.divStyle = exports.border = exports.babyImgStyle = exports.mealImgStyle = exports.cleanTextStyle = exports.mealsTextStyle = exports.footerDivStyle = exports.footerTextStyle = exports.navStyle = exports.logoStyle = exports.navbarDivStyle = exports.errorStyle = exports.inputStyle = exports.searchDivStyle = exports.searchStyle = exports.searchButtonstyle = exports.displayCardsStyle = exports.centeredCard = exports.centeredCardContainer = exports.trashSize = exports.cardButton = exports.cardContent = exports.cardContainer = exports.cardSize = exports.displayFlex = exports.greenColor = exports.redColor = exports.blackColor = void 0;
+exports.succsesfully = exports.centeredInputStyle = exports.divStyle = exports.border = exports.babyImgStyle = exports.mealImgStyle = exports.cleanTextStyle = exports.mealsTextStyle = exports.footerDivStyle = exports.footerTextStyle = exports.navStyle = exports.logoStyle = exports.navbarDivStyle = exports.errorStyle = exports.inputStyle = exports.searchDivStyle = exports.searchStyle = exports.searchButtonstyle = exports.displayCardsStyle = exports.centeredCard = exports.centeredCardContainer = exports.trashSize = exports.cardButton = exports.cardContent = exports.cardContainer = exports.cardSize = exports.displayFlex = exports.greenColor = exports.redColor = exports.blackColor = void 0;
 var blackColor = {
   color: 'black'
 };
@@ -170,3 +170,16 @@ var divStyle = {
   'margin-top': '8rem'
 };
 exports.divStyle = divStyle;
+var centeredInputStyle = {
+  textAlign: 'center',
+  placeholder: {
+    textAlign: 'center',
+    color: 'gray'
+  }
+};
+exports.centeredInputStyle = centeredInputStyle;
+var succsesfully = {
+  marginTop: '2rem',
+  color: 'black'
+};
+exports.succsesfully = succsesfully;

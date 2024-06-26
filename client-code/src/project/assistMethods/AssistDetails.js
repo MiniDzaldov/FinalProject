@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import GetAssistsById from './GetAssistsById';
 import DeleteAssist from './DeleteAssist';
 import UpdateAssist from './UpdateAssist';
-import { blackColor, cardContainer, cardContent, trashSize,redColor,displayCardsStyle,displayFlex } from '../style/Styles';
+import { blackColor, cardContainer, cardContent, trashSize, redColor, displayCardsStyle, displayFlex } from '../style/Styles';
 import EmailIcon from '../style/EmailIcon';
 import PhoneIcon from '../style/PhoneIcon';
 import TrashIcon from '../style/TrashIcon';
@@ -64,7 +64,7 @@ const AssistsDetailsFetch = () => {
                 <div>
                   <Card.Text>
                     <h6>אני מאזור {user.addressCodeNavigation.city}</h6>
-                    <br/>
+                    <br />
                     <h7>:צרו איתי קשר ב</h7>
                     <h6><i className="bi bi-telephone"><PhoneIcon /></i> {user.phoneNumber}</h6>
                     <h7>:או</h7>
@@ -82,7 +82,7 @@ const AssistsDetailsFetch = () => {
                 </div>
               </Collapse>
               <Button variant="outline-danger" onClick={() => toggleDetails(user.id)}>
-                {openCardId === user.id ? 'הסתר פרטים' : 'צפו בפרטים'}
+                {openCardId === user.id ? 'הסתר פרטים' : 'לפרטים נוספים'}
               </Button>
             </Card.Body>
           </Card>

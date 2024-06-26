@@ -4,12 +4,10 @@ import { BrowserRouter,  Routes } from 'react-router-dom';
 import Navbarr from './project/Navbarr';
 import Footer from './project/Footer';
 
-
-
 function App() {
-
   return (
     <>
+
       <Navbarr></Navbarr>
       <div className="App">
       <header >

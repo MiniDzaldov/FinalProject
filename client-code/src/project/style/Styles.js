@@ -43,3 +43,5 @@ export const divStyle = { 'margin-top': '8rem' }
 
 
 
+export const centeredInputStyle = {textAlign: 'center', placeholder: {textAlign: 'center', color: 'gray',},};
+export const succsesfully = {marginTop: '2rem' , color:'black'}

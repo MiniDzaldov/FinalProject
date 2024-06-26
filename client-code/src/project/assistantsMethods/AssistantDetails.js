@@ -76,7 +76,7 @@ const AssistantDetailsFetch = () => {
                 </div>
               </Collapse>
               <Button variant="outline-success" onClick={() => toggleDetails(user.id)}>
-                {openCardId === user.id ? 'הסתר פרטים' : 'צפו בפרטים'}
+                {openCardId === user.id ? 'הסתר פרטים': 'לפרטים נוספים'}
               </Button>
             </Card.Body>
           </Card>

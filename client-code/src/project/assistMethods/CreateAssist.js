@@ -1,809 +1,40 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import BasicForm from '../form/BasicForm'
-
-// const CreateAssist = ({ fetchAssists }) => {
-//   const [newAssist, setNewAssist] = useState({
-//     FirstName: '',
-//     LastName: '',
-//     NumOfChildren: 0,
-//     PhoneNumber: '',
-//     Email: '',
-//     AddressCode: 0,
-//     CategoryCode: 0
-//   });
-
-//   const createAssist = async () => {
-//     try {
-//       await axios.post('http://localhost:5089/api/assists', newAssist);
-//       console.log(newAssist);
-//       fetchAssists();
-//     } catch (error) {
-//       console.error('Error creating assist:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h6>Create Assist:</h6>
-//       <BasicForm></BasicForm>
-//       <div>
-//       {/* <input
-//         type="text"
-//         placeholder="First Name"
-//         value={newAssist.FirstName}
-//         onChange={(e) => setNewAssist({ ...newAssist, FirstName: e.target.value })}
-//       />
-//       <input
-//         type="text"
-//         placeholder="Last Name"
-//         value={newAssist.LastName}
-//         onChange={(e) => setNewAssist({ ...newAssist, LastName: e.target.value })}
-//       /> */}
-//         <button onClick={createAssist}>Create Assist</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CreateAssist;
-
-
-// import { useRef, useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { useForm } from "react-hook-form";
-// import axios from 'axios'
-
-// export default function CreateAssist() {
-//     // const navigate = useNavigate();
-//     // const userExist = useRef();
-//     const [helpCategory, setHelpCategory] = useState([]);
-
-//     const [newAssis, setNewAssist] = useState({
-//         id: "",
-//         firstname: "",
-//         lastname: "",
-//         age: "",
-//         numofchildren: "",
-//         phonenumber: "",
-//         email: "",
-//         addressCode:"",
-//         categoryCode:"",
-//         addressCodeNaigation:{
-//           city: "",
-//         street: "",
-//         numofbuilding: "",
-//         aptnumber: "",
-//         zipcode: ""
-//         }
-//     });
-
-//     useEffect(() => {
-//         fetch('http://localhost:5089/api/categories')
-//             .then((res) => {
-//                 return res.json();
-//             })
-//             .then((data) => {
-//                 console.log(data);
-//                 setHelpCategory(data);
-//             });
-//     }, []);
-
-//     const { register, handleSubmit, formState: { errors } } = useForm();
-
-// const onSuccess = (data) => {navigate(`/HomePage/${data.userName}/${data.password}`)}
-// const onSuccess = (data) => {
-//   setNewAssist({
-//         id: data.id,
-//         firstname: data.firstname.toString(),
-//         lastname: data.lastname,
-//         age: data.age,
-//         numofchildren: data.numofchildren,
-//         phonenumber: data.phonenumber,
-//         email: data.email,
-//         addressCode: 0,
-//         categoryCode: 1 /*helpCategory[data.categoryCode[helpCategory[data.categoryCode]]]*/,
-//         addressCodeNaigation: {
-//         city: data.city,
-//         street: data.street,
-//         numofbuilding: data.numofbuilding,
-//         aptnumber: data.aptnumber,
-//         zipcode: data.zipcode
-//     }});
-
-//     const options = {
-//         headers: { 'Content-Type': 'application/json' }
-//     };
-
-//     axios.post(`http://localhost:5089/api/Assists`, JSON.stringify(newAssis), options)
-//         .then((response) => {
-//             if (response.status === 200) {
-//                 console.log("Assistant add");
-//                 console.log(response);
-// Perform actions after successful signup, e.g., redirect to login page or log in the user
-//     }
-// })
-// .catch((error) => {
-//     if (error.response) {
-//         if (error.response.status === 409) {
-//             console.log("ID already exists. Please log in.");
-//         } else if (error.response.status === 400) {
-//             console.log("Bad Request: ", error.response.data);
-//         } else if (error.response.status === 500) {
-//             console.log("Internal Server Error: ", error.response.data);
-//         } else {
-//             console.log("Error: ", error.response.data);
-//         }
-//     } else if (error.request) {
-//         console.log("No response received: ", error.request);
-//     } else {
-//         console.log("Error: ", error.message);
-//     }
-// })
-// .finally(() => {
-// Actions to perform regardless of success or failure
-//             });
-//     }
-
-//     const onFailed = (data, error) => {
-//       setNewAssist({
-//         id: data.id,
-//         firstname: data.firstname,
-//         lastname: data.lastname,
-//         age: data.age,
-//         numofchildren: data.numofchildren,
-//         phonenumber: data.phonenumber,
-//         email: data.email,
-//         addressCode: 0,
-//         categoryCode: 1,
-//         addressCodeNaigation: {
-//         city: data.city,
-//         street: data.street,
-//         numofbuilding: data.numofbuilding,
-//         aptnumber: data.aptnumber,
-//         zipcode: data.zipcode
-//     }});
-
-//         console.log("Form submission failed:", error);
-//         console.log("Form errors:", errors);
-//     }
-
-//     const requirements = {
-//         id: {
-//             required: true,
-//             pattern: {
-//                 value: /^[0-9]+$/,
-//                 message: 'ID must be a valid number.',
-//             },
-//         },
-//         firstname: {
-//             required: true,
-//             pattern: {
-//                 value: /^[a-zA-Zא-ת' -]+$/,
-//                 message: 'First name must contain only letters.',
-//             },
-//         },
-//         lastname: {
-//             required: true,
-//             pattern: {
-//                 value: /^[a-zA-Zא-ת' -]+$/,
-//                 message: 'Last name must contain only letters.',
-//             },
-//         },
-//         age: {
-//             required: true,
-//             pattern: {
-//                 value: /^[0-9]+$/,
-//                 message: 'Age must be a valid number.',
-//             },
-//         },
-//         numofchildren: {
-//             required: true,
-//             pattern: {
-//                 value: /^[0-9]+$/,
-//                 message: 'Number of children must be a valid number.',
-//             },
-//         },
-//         phonenumber: {
-//             required: true,
-//             pattern: {
-//                 value: /^[0-9]{10}$/,
-//                 message: 'Phone number must be a valid 10-digit number.',
-//             },
-//         },
-//         email: {
-//             required: true,
-//             pattern: {
-//                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-//                 message: 'Please enter a valid email address.',
-//             },
-//         },
-//         city: {
-//             required: true,
-//             pattern: {
-//                 value: /^[a-zA-Zא-ת' -]+$/,
-//                 message: 'City must contain only letters.',
-//             },
-//         },
-//         street: {
-//             required: true,
-//             pattern: {
-//                 value: /^[a-zA-Zא-ת' -]+$/,
-//                 message: 'Street must contain only letters.',
-//             },
-//         },
-//         numofbuilding: {
-//             required: true,
-//             pattern: {
-//                 value: /^[0-9]+$/,
-//                 message: 'Number of building must be a valid number.',
-//             },
-//         },
-//         aptnumber: {
-//             required: true,
-//             pattern: {
-//                 value: /^[0-9]+$/,
-//                 message: 'Apartment number must be a valid number.',
-//             },
-//         },
-//         zipcode: {
-//             required: true,
-//             pattern: {
-//                 value: /^[0-9]{6,7}$/,
-//                 message: 'Zip code must be a valid 5 or 6-digit number.',
-//             },
-//         },
-//     };
-
-//     return (
-//         <>
-//             <form onSubmit={handleSubmit(onSuccess, onFailed)}>
-
-//                 <input name="id" placeholder="מספר זהות" {...register("id", requirements.id)} />
-//                 {errors.id && <small style={{ color: "red" }}>{errors.id.message}</small>}
-//                 <br />
-//                 <input name="firstname" placeholder="שם פרטי" {...register("firstname", requirements.firstname)} />
-//                 {errors.firstname && <small style={{ color: "red" }}>{errors.firstname.message}</small>}
-//                 <br />
-//                 <input name="lastname" placeholder="שם משפחה" {...register("lastname", requirements.lastname)} />
-//                 {errors.lastname && <small style={{ color: "red" }}>{errors.lastname.message}</small>}
-//                 <br />
-//                 <input name="age" placeholder="גיל" {...register("age", requirements.age)} />
-//                 {errors.age && <small style={{ color: "red" }}>{errors.age.message}</small>}
-//                 <br />
-//                 <input name="numofchildren" placeholder="מספר ילדים" {...register("numofchildren", requirements.numofchildren)} />
-//                 {errors.numofchildren && <small style={{ color: "red" }}>{errors.numofchildren.message}</small>}
-//                 <br />
-//                 <input name="phonenumber" placeholder="מספר פלאפון" {...register("phonenumber", requirements.phonenumber)} />
-//                 {errors.phonenumber && <small style={{ color: "red" }}>{errors.phonenumber.message}</small>}
-//                 <br />
-//                 <input name="email" placeholder="כתובת דואל" {...register("email", requirements.email)} />
-//                 {errors.email && <small style={{ color: "red" }}>{errors.email.message}</small>}
-//                 <br />
-//                 <input name="city" placeholder="עיר" {...register("city", requirements.city)} />
-//                 {errors.city && <small style={{ color: "red" }}>{errors.city.message}</small>}
-//                 <br />
-//                 <input name="street" placeholder="רחוב" {...register("street", requirements.street)} />
-//                 {errors.street && <small style={{ color: "red" }}>{errors.street.message}</small>}
-//                 <br />
-//                 <input name="numofbuilding" placeholder="מספר בנין" {...register("numofbuilding", requirements.numofbuilding)} />
-//                 {errors.numofbuilding && <small style={{ color: "red" }}>{errors.numofbuilding.message}</small>}
-//                 <br />
-//                 <input name="aptnumber" placeholder="מספר דירה" {...register("aptnumber", requirements.aptnumber)} />
-//                 {errors.aptnumber && <small style={{ color: "red" }}>{errors.aptnumber.message}</small>}
-//                 <br />
-//                 <input name="zipcode" placeholder="מיקוד" {...register("zipcode", requirements.zipcode)} />
-//                 {errors.zipcode && <small style={{ color: "red" }}>{errors.zipcode.message}</small>}
-
-
-//                 <select>
-//                     {helpCategory.map((helpc) => (
-//                         <option value="someOption">{helpc.type}</option>))}
-//                 </select>
-
-
-
-//                 <center>
-//                     <button type="submit">שליחת הטופס</button>
-//                 </center>
-//             </form>
-//         </>
-//     )
-// };
-
-// import { useEffect, useState } from "react";
-// import { useForm } from "react-hook-form";
-// import axios from 'axios';
-
-// export default function CreateAssist({ fetchAssists }) {
-//   const [helpCategory, setHelpCategory] = useState([]);
-//   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
-//   const [newAssist, setNewAssist] = useState({
-//     id: "",
-//     firstname: "",
-//     lastname: "",
-//     age: "",
-//     numofchildren: "",
-//     phonenumber: "",
-//     email: "",
-//     addressCode: 4,
-//     categoryCode: "",
-//     addressCodeNaigation: {
-//       city: "",
-//       street: "",
-//       numofbuilding: "",
-//       aptnumber: "",
-//       zipcode: ""
-//     }
-//   });
-
-//   useEffect(() => {
-//     fetch('http://localhost:5089/api/categories')
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setHelpCategory(data);
-//         setValue("categoryCode", data[0]?.code); // Default to first category
-//       });
-//   }, [setValue]);
-
-
-
-//   const onSubmit = async (data) => {
-//     const assistData = {
-//       id: data.id,
-//       firstname: data.firstname,
-//       lastname: data.lastname,
-//       age: data.age,
-//       numofchildren: data.numofchildren,
-//       phonenumber: data.phonenumber,
-//       email: data.email,
-//       address: {
-//         city: data.city,
-//         street: data.street,
-//         numofbuilding: data.numofbuilding,
-//         aptnumber: data.aptnumber,
-//         zipcode: data.zipcode
-//       },
-//       categoryCode: data.categoryCode
-//     };
-
-
-//     try {
-//       const response = await axios.post('http://localhost:5089/api/assists', assistData, {
-//         headers: { 'Content-Type': 'application/json' }
-//       });
-//       if (response.status === 200) {
-//         console.log("Assistant added");
-//         fetchAssists(); // Refresh the list of assists
-//       }
-//     } catch (error) {
-//       if (error.response) {
-//         if (error.response.status === 409) {
-//           console.log("ID already exists. Please log in.");
-//         } else if (error.response.status === 400) {
-//           console.log("Bad Request: ", error.response.data);
-//         } else if (error.response.status === 500) {
-//           console.log("Internal Server Error: ", error.response.data);
-//         } else {
-//           console.log("Error: ", error.response.data);
-//         }
-//       } else if (error.request) {
-//         console.log("No response received: ", error.request);
-//       } else {
-//         console.log("Error: ", error.message);
-//       }
-//     }
-//   };
-
-//   const requirements = {
-//     id: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'ID must be a valid number.',
-//       },
-//     },
-//     firstname: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'First name must contain only letters.',
-//       },
-//     },
-//     lastname: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'Last name must contain only letters.',
-//       },
-//     },
-//     age: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'Age must be a valid number.',
-//       },
-//     },
-//     numofchildren: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'Number of children must be a valid number.',
-//       },
-//     },
-//     phonenumber: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]{10}$/,
-//         message: 'Phone number must be a valid 10-digit number.',
-//       },
-//     },
-//     email: {
-//       required: true,
-//       pattern: {
-//         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-//         message: 'Please enter a valid email address.',
-//       },
-//     },
-//     city: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'City must contain only letters.',
-//       },
-//     },
-//     street: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'Street must contain only letters.',
-//       },
-//     },
-//     numofbuilding: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'Number of building must be a valid number.',
-//       },
-//     },
-//     aptnumber: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'Apartment number must be a valid number.',
-//       },
-//     },
-//     zipcode: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]{5,7}$/,
-//         message: 'Zip code must be a valid 5 or 6-digit number.',
-//       },
-//     },
-//   };
-
-//   return (
-//     <>
-//       <form onSubmit={handleSubmit(onSubmit)}>
-//         <input name="id" placeholder="מספר זהות" {...register("id", requirements.id)} />
-//         {errors.id && <small style={{ color: "red" }}>{errors.id.message}</small>}
-//         <br />
-//         <input name="firstname" placeholder="שם פרטי" {...register("firstname", requirements.firstname)} />
-//         {errors.firstname && <small style={{ color: "red" }}>{errors.firstname.message}</small>}
-//         <br />
-//         <input name="lastname" placeholder="שם משפחה" {...register("lastname", requirements.lastname)} />
-//         {errors.lastname && <small style={{ color: "red" }}>{errors.lastname.message}</small>}
-//         <br />
-//         <input name="age" placeholder="גיל" {...register("age", requirements.age)} />
-//         {errors.age && <small style={{ color: "red" }}>{errors.age.message}</small>}
-//         <br />
-//         <input name="numofchildren" placeholder="מספר ילדים" {...register("numofchildren", requirements.numofchildren)} />
-//         {errors.numofchildren && <small style={{ color: "red" }}>{errors.numofchildren.message}</small>}
-//         <br />
-//         <input name="phonenumber" placeholder="מספר פלאפון" {...register("phonenumber", requirements.phonenumber)} />
-//         {errors.phonenumber && <small style={{ color: "red" }}>{errors.phonenumber.message}</small>}
-//         <br />
-//         <input name="email" placeholder="כתובת דואל" {...register("email", requirements.email)} />
-//         {errors.email && <small style={{ color: "red" }}>{errors.email.message}</small>}
-//         <br />
-//         <input name="city" placeholder="עיר" {...register("city", requirements.city)} />
-//         {errors.city && <small style={{ color: "red" }}>{errors.city.message}</small>}
-//         <br />
-//         <input name="street" placeholder="רחוב" {...register("street", requirements.street)} />
-//         {errors.street && <small style={{ color: "red" }}>{errors.street.message}</small>}
-//         <br />
-//         <input name="numofbuilding" placeholder="מספר בנין" {...register("numofbuilding", requirements.numofbuilding)} />
-//         {errors.numofbuilding && <small style={{ color: "red" }}>{errors.numofbuilding.message}</small>}
-//         <br />
-//         <input name="aptnumber" placeholder="מספר דירה" {...register("aptnumber", requirements.aptnumber)} />
-//         {errors.aptnumber && <small style={{ color: "red" }}>{errors.aptnumber.message}</small>}
-//         <br />
-//         <input name="zipcode" placeholder="מיקוד" {...register("zipcode", requirements.zipcode)} />
-//         {errors.zipcode && <small style={{ color: "red" }}>{errors.zipcode.message}</small>}
-//         <br />
-//         <select name="categoryCode" {...register("categoryCode")}>
-//           {helpCategory.map((category) => (
-//             <option key={category.code} value={category.code}>{category.type}</option>
-//           ))}
-//         </select>
-//         <br />
-//         <center>
-//           <button type="submit">שליחת הטופס</button>
-//         </center>
-//       </form>
-//     </>
-//   );
-// }
-
-
-
-
-// import { useEffect, useState } from "react";
-// import { useForm } from "react-hook-form";
-// import axios from 'axios';
-// import {redColor} from '../style/Styles'
-
-// export default function CreateAssist({ fetchAssists }) {
-//   const [helpCategory, setHelpCategory] = useState([]);
-//   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
-
-//   useEffect(() => {
-//     fetch('http://localhost:5089/api/categories')
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setHelpCategory(data);
-//         setValue("categoryCode", data[0]?.code); // Default to first category
-//       });
-//   }, [setValue]);
-
-//   const onSubmit = async (data) => {
-//     const assistData = {
-//       id: data.id,
-//       firstname: data.firstname,
-//       lastname: data.lastname,
-//       // age: data.age,
-//       numofchildren: data.numofchildren,
-//       phonenumber: data.phonenumber,
-//       email: data.email,
-//       categoryCode: data.categoryCode,
-//       addressCodeNavigation: {
-//         city: data.city,
-//         street: data.street,
-//         numofbuilding: data.numofbuilding,
-//         aptnumber: data.aptnumber,
-//         zipcode: data.zipcode
-//       }
-//     };
-
-//     try {
-//       console.log(assistData);
-//       const response = await axios.post('http://localhost:5089/api/assists', assistData, {
-
-//         headers: { 'Content-Type': 'application/json' }
-//       });
-//       console.log(assistData)
-//       if (response.status === 200) {
-//         console.log(response)
-//         console.log("Assistant added");
-//         fetchAssists(); // Refresh the list of assists
-//       }
-//     } catch (error) {
-//       if (error.response) {
-//         if (error.response.status === 409) {
-//           console.log("ID already exists. Please log in.");
-//         } else if (error.response.status === 400) {
-//           console.log("Bad Request: ", error.response.data);
-//         } else if (error.response.status === 500) {
-//           console.log("Internal Server Error: ", error.response.data);
-//         } else {
-//           console.log("Error: ", error.response.data);
-//         }
-//       } else if (error.request) {
-//         console.log("No response received: ", error.request);
-//       } else {
-//         console.log("Error: ", error.message);
-//       }
-//     }
-//   };
-
-//   const requirements = {
-//     id: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'ID must be a valid number.',
-//       },
-//     },
-//     firstname: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'First name must contain only letters.',
-//       },
-//     },
-//     lastname: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'Last name must contain only letters.',
-//       },
-//     // },
-//     // age: {
-//     //   required: true,
-//     //   pattern: {
-//     //     value: /^[0-9]+$/,
-//     //     message: 'Age must be a valid number.',
-//     //   },
-//     },
-//     numofchildren: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'Number of children must be a valid number.',
-//       },
-//     },
-//     phonenumber: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]{10}$/,
-//         message: 'Phone number must be a valid 10-digit number.',
-//       },
-//     },
-//     email: {
-//       required: true,
-//       pattern: {
-//         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-//         message: 'Please enter a valid email address.',
-//       },
-//     },
-//     city: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'City must contain only letters.',
-//       },
-//     },
-//     street: {
-//       required: true,
-//       pattern: {
-//         value: /^[a-zA-Zא-ת' -]+$/,
-//         message: 'Street must contain only letters.',
-//       },
-//     },
-//     numofbuilding: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'Number of building must be a valid number.',
-//       },
-//     },
-//     aptnumber: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]+$/,
-//         message: 'Apartment number must be a valid number.',
-//       },
-//     },
-//     zipcode: {
-//       required: true,
-//       pattern: {
-//         value: /^[0-9]{5,7}$/,
-//         message: 'Zip code must be a valid 5 or 6-digit number.',
-//       },
-//     },
-//   };
-
-//   return (
-//     <>
-//       <form onSubmit={handleSubmit(onSubmit)}>
-//         <input name="id" placeholder="מספר זהות" {...register("id", requirements.id)} />
-//         {errors.id && <small style={redColor}>{errors.id.message}</small>}
-//         <br />
-//         <input name="firstname" placeholder="שם פרטי" {...register("firstname", requirements.firstname)} />
-//         {errors.firstname && <small style={redColor}>{errors.firstname.message}</small>}
-//         <br />
-//         <input name="lastname" placeholder="שם משפחה" {...register("lastname", requirements.lastname)} />
-//         {errors.lastname && <small style={redColor}>{errors.lastname.message}</small>}
-//         <br />
-//         <input name="age" placeholder="גיל" {...register("age", requirements.age)} />
-//         {errors.age && <small style={redColor}>{errors.age.message}</small>}
-//         <br />
-//         <input name="numofchildren" placeholder="מספר ילדים" {...register("numofchildren", requirements.numofchildren)} />
-//         {errors.numofchildren && <small style={redColor}>{errors.numofchildren.message}</small>}
-//         <br />
-//         <input name="phonenumber" placeholder="מספר פלאפון" {...register("phonenumber", requirements.phonenumber)} />
-//         {errors.phonenumber && <small style={redColor}>{errors.phonenumber.message}</small>}
-//         <br />
-//         <input name="email" placeholder="כתובת דואל" {...register("email", requirements.email)} />
-//         {errors.email && <small style={redColor}>{errors.email.message}</small>}
-//         <br />
-//         <input name="city" placeholder="עיר" {...register("city", requirements.city)} />
-//         {errors.city && <small style={redColor}>{errors.city.message}</small>}
-//         <br />
-//         <input name="street" placeholder="רחוב" {...register("street", requirements.street)} />
-//         {errors.street && <small style={redColor}>{errors.street.message}</small>}
-//         <br />
-//         <input name="numofbuilding" placeholder="מספר בנין" {...register("numofbuilding", requirements.numofbuilding)} />
-//         {errors.numofbuilding && <small style={redColor}>{errors.numofbuilding.message}</small>}
-//         <br />
-//         <input name="aptnumber" placeholder="מספר דירה" {...register("aptnumber", requirements.aptnumber)} />
-//         {errors.aptnumber && <small style={redColor}>{errors.aptnumber.message}</small>}
-//         <br />
-//         <input name="zipcode" placeholder="מיקוד" {...register("zipcode", requirements.zipcode)} />
-//         {errors.zipcode && <small style={redColor}>{errors.zipcode.message}</small>}
-//         <br />
-//         <select name="categoryCode" {...register("categoryCode")}>
-//           {helpCategory.map((category) => (
-//             <option key={category.code} value={category.code}>{category.type}</option>
-//           ))}
-//         </select>
-//         <br />
-//         <center>
-//           <button type="submit">שליחת הטופס</button>
-//         </center>
-//       </form>
-//     </>
-//   );
-// }
-
-
-
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import {centeredInputStyle} from '../style/Styles'
 const CreateAssist = () => {
   const [helpCategory, setHelpCategory] = useState([]);
-  const { formState: { errors }, setValue } = useForm();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    street: '',
-    city: '',
-  });
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
   useEffect(() => {
     fetch('http://localhost:5089/api/categories')
       .then((res) => res.json())
       .then((data) => {
         setHelpCategory(data);
-        setValue("categoryCode", data[0]?.code); // Default to first category
+        setValue("categoryCode", data[0]?.code);
       });
   }, [setValue]);
 
-  const handleChange = (e) => {
-    const { n, value } = e.target;
-    const numericValue = e.target.type === 'number' ? Number(value) : value;
-
-    setFormData({
-      ...formData,
-      [n]: numericValue,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (formData) => {
     try {
       const dataToSend = {
         id: formData.id,
         firstName: formData.firstName,
         lastName: formData.lastName,
         age: formData.age,
-        numofchildren: /*formData.numofchildren*/ 9,
+        numOfChildren: formData.numOfChildren,
         phonenumber: formData.phonenumber,
         email: formData.email,
         categoryCode: formData.categoryCode,
         AddressCodeNavigation: {
           street: formData.street,
           city: formData.city,
-          numofbuilding: /*formData.numofbuilding*/8,
-          aptnumber: /*formData.aptnumber*/ 13,
+          numofbuilding: formData.numofbuilding,
+          aptnumber: formData.aptnumber,
           zipcode: formData.zipcode
         },
       };
-      console.log(dataToSend);
 
       const response = await axios.post('http://localhost:5089/api/assists', dataToSend);
       console.log('Data submitted successfully', response.data);
@@ -813,114 +44,144 @@ const CreateAssist = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="id"
-        placeholder="מספר זהות"
-        value={formData.id}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="firstName"
-        placeholder="שם פרטי"
-        value={formData.firstName}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="שם משפחה"
-        value={formData.lastName}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="age"
-        placeholder="גיל"
-        value={formData.age}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="numOfChildren"
-        placeholder="מס' ילדים"
-        value={formData.numOfChildren}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="phonenumber"
-        placeholder="מס' פלאפון"
-        value={formData.phonenumber}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="email"
-        name="email"
-        placeholder="דוא''ל"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="street"
-        placeholder="רחוב"
-        value={formData.street}
-        onChange={handleChange}
-      />
-      <br />
+    <>
+      <center>
+        <Container>
+          <Row className="justify-content-center">
+            <Col md={8}>
+            <div className="border border-danger p-4 rounded">
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formBasicID">
+                      <Form.Control type="text" placeholder="מספר זהות" style={centeredInputStyle}
+                      {...register("id", {
+                        required: "שדה זה הינו שדה חובה",
+                        maxLength: { value: 9, message: "מספר זהות חייב להכיל עד 9 תווים" }
+                      })} />
+                      {errors.id && <span style={{ color: 'red' }}>{errors.id.message}</span>}
+                    </Form.Group>
+                  </Row>
 
-      <input
-        type="text"
-        name="city"
-        placeholder="עיר"
-        value={formData.city}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="city"
-        placeholder="מס' בנין"
-        value={formData.numofbuilding}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        name="city"
-        placeholder="מס' דירה"
-        value={formData.aptnumber}
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        name="zipcode"
-        placeholder="מיקוד"
-        value={formData.zipcode}
-        onChange={handleChange}
-      />
-      <br />
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formBasicLastName" >
+                      <Form.Control type="text" placeholder="שם משפחה" style={centeredInputStyle}
+                       {...register("lastName", { required: "שדה זה הינו שדה חובה" })} />
+                      {errors.lastName && <span style={{ color: 'red' }}>{errors.lastName.message}</span>}
+                    </Form.Group>
 
-      <select name="categoryCode" value={formData.categoryCode} onChange={handleChange}>
-        {helpCategory.map((category) => (
-          <option key={category.code} value={category.code}>{category.type}</option>
-        ))}
-      </select>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+                    <Form.Group as={Col} controlId="formBasicFirstName">
+                      <Form.Control type="text" placeholder="שם פרטי" style={centeredInputStyle}
+                        {...register("firstName", { required: "שדה זה הינו שדה חובה" })} />
+                      {errors.firstName && <span style={{ color: 'red' }}>{errors.firstName.message}</span>}
+                    </Form.Group>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formBasicNumOfChildren">
+                      <Form.Control type="number" placeholder="מספר ילדים" style={centeredInputStyle}
+                      {...register("numOfChildren", {
+                        required: "שדה זה הינו שדה חובה",
+                        min: { value: 0, message: "מספר הילדים חייב להיות חיובי" }
+                      })} />
+                      {errors.numOfChildren && <span style={{ color: 'red' }}>{errors.numOfChildren.message}</span>}
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formBasicAge">
+                      <Form.Control type="number" placeholder="גיל" style={centeredInputStyle}
+                       {...register("age", {
+                        required: "שדה זה הינו שדה חובה",
+                        min: { value: 0, message: "הגיל חייב להיות חיובי" }
+                      })} />
+                      {errors.age && <span style={{ color: 'red' }}>{errors.age.message}</span>}
+                    </Form.Group>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formBasicEmail">
+                      <Form.Control type="email" placeholder="דוא''ל" style={centeredInputStyle}
+                      {...register("email", {
+                        required: "שדה זה הינו שדה חובה",
+                        pattern: { value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, message: "דוא''ל אינו חוקי" }
+                      })} />
+                      {errors.email && <span style={{ color: 'red' }}>{errors.email.message}</span>}
+                    </Form.Group>
+                    <Form.Group as={Col} controlId="formBasicPhoneNumber">
+                      <Form.Control type="text" placeholder="מספר פלאפון" style={centeredInputStyle}
+                      {...register("phonenumber", {
+                        required: "שדה זה הינו שדה חובה",
+                        pattern: { value: /^[0-9]{10}$/, message: "מספר פלאפון חייב להכיל 10 ספרות" }
+                      })} />
+                      {errors.phonenumber && <span style={{ color: 'red' }}>{errors.phonenumber.message}</span>}
+                    </Form.Group>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formBasicStreet">
+                      <Form.Control type="text" placeholder="רחוב" style={centeredInputStyle}
+                       {...register("street", { required: "שדה זה הינו שדה חובה" })} />
+                      {errors.street && <span style={{ color: 'red' }}>{errors.street.message}</span>}
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formBasicCity">
+                      <Form.Control type="text" placeholder="עיר / יישוב" style={centeredInputStyle}
+                       {...register("city", { required: "שדה זה הינו שדה חובה" })} />
+                      {errors.city && <span style={{ color: 'red' }}>{errors.city.message}</span>}
+                    </Form.Group>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formBasicAptNumber">
+                      <Form.Control type="number" placeholder="מספר דירה" style={centeredInputStyle}
+                      {...register("aptnumber", {
+                        required: "שדה זה הינו שדה חובה",
+                        min: { value: 1, message: "מס' דירה חייב להיות חיובי" }
+                      })} />
+                      {errors.aptnumber && <span style={{ color: 'red' }}>{errors.aptnumber.message}</span>}
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formBasicBuildingNumber">
+                      <Form.Control type="number" placeholder="מספר בנין" style={centeredInputStyle}
+                       {...register("numofbuilding", {
+                        required: "שדה זה הינו שדה חובה",
+                        min: { value: 1, message: "מס' בנין חייב להיות חיובי" }
+                      })} />
+                      {errors.numofbuilding && <span style={{ color: 'red' }}>{errors.numofbuilding.message}</span>}
+                    </Form.Group>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formBasicCategoryCode" >
+                      <Form.Control as="select" style={centeredInputStyle}
+                      {...register("categoryCode", { required: "שדה זה הינו שדה חובה" })}>
+                        {helpCategory.map((category) => (
+                          <option key={category.code} value={category.code}>
+                            {category.type}
+                          </option>
+                        ))}
+                      </Form.Control>
+                      {errors.categoryCode && <span style={{ color: 'red' }}>{errors.categoryCode.message}</span>}
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formBasicZipCode">
+                      <Form.Control type="text" placeholder="מיקוד" style={centeredInputStyle}
+                      {...register("zipcode", {
+                        required: "שדה זה הינו שדה חובה",
+                        pattern: { value: /^[0-9]{5,7}$/, message: "מיקוד חייב להכיל בין 5 ל-7 ספרות" }
+                      })} />
+                      {errors.zipcode && <span style={{ color: 'red' }}>{errors.zipcode.message}</span>}
+                    </Form.Group>
+
+                  </Row>
+                  <br />
+                  <Button variant="outline-danger" type="submit" style={{width: '8rem'}} >שליחת הטופס</Button>
+                </Form>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </center>
+    </>
   );
-};
+}
 
 export default CreateAssist;
