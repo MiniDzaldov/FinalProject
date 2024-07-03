@@ -1,25 +1,16 @@
 import meal from '../pictures/meals5.jpg'
+import m from '../pictures/m7.jpg'
+import c from '../pictures/c8.jpg'
 import meal1 from '../pictures/meals4.jpg'
 import baby from '../pictures/babysitting1.png'
 import clean from '../pictures/clean5.png'
 import { mealsTextStyle, cleanTextStyle, mealImgStyle, babyImgStyle, border, divStyle } from './style/Styles'
 
 export default function About() {
-  const blurBorderStyle = {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    border: '10px solid rgba(255, 255, 255, 0.5)', // ניתן לשנות צבע ועובי מסגרת
-    filter: 'blur(10px)', // ניתן לשנות את רמת הטשטוש
-    pointerEvents: 'none',
-  };
   return (
     <>
       <div style={border} >
-        <img style={mealImgStyle} src={meal1}></img>
+        <img style={mealImgStyle} src={m}></img>
       </div>
       <div style={divStyle}>
         <h5>ארוחות</h5>
@@ -54,7 +45,7 @@ export default function About() {
       <br></br>
 
       <div style={border} >
-        <img style={mealImgStyle} src={clean}></img>
+        <img style={mealImgStyle} src={c}></img>
       </div>
       <div style={divStyle}>
         <h5>ניקיון</h5>

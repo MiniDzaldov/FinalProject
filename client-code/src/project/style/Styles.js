@@ -11,7 +11,7 @@ export const cardSize = { width: "18rem", height: "10rem", margin: '1rem', boxSh
 export const cardContainer = { display: 'flex', flexWrap: 'wrap'};
 export const cardContent = { marginBottom: '2.3rem', maxWidth: '18rem', minWidth: '14rem', width: '100%', transition: 'all 0.3s ease', marginLeft: '2.3rem', marginRight: '2.3rem', };
 export const cardButton = { width: '100%' };
-export const trashSize = { width: '1.8rem', height: '2.5rem' };
+export const trashSize = { width: '2rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'red'}
 export const centeredCardContainer = { Fdisplay: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', };
 export const centeredCard = { maxWidth: '30rem', width: '100%', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', transition: '0.3s', margin: '1rem', };
 export const displayCardsStyle={ display: 'flex', justifyContent: 'flex-end' }
@@ -36,7 +36,7 @@ export const footerDivStyle = { width: '100%', backgroundColor: '#ff25' }
 //about
 export const mealsTextStyle = { 'color': 'green', 'margin-top': '3rem' }
 export const cleanTextStyle = { 'color': '#398EDA', 'margin-top': '2rem' }
-export const mealImgStyle = { 'width': '32rem', 'height': '26rem', 'float': 'right' }
+export const mealImgStyle = { 'width': '32rem', 'height': '26rem', 'float': 'right',marginRight: '0.5rem' }
 export const babyImgStyle = { 'width': '32rem', 'height': '26rem', 'float': 'left' }
 export const border = { 'border-color': 'black' }
 export const divStyle = { 'margin-top': '8rem' }
@@ -44,4 +44,18 @@ export const divStyle = { 'margin-top': '8rem' }
 
 
 export const centeredInputStyle = {textAlign: 'center', placeholder: {textAlign: 'center', color: 'gray',},};
-export const succsesfully = {marginTop: '2rem' , color:'black'}
+export const updateSuccsesfully = {marginTop: '12rem' , color:'black', color: 'green', fontWeight: 'bold'}
+
+export const succsesfully = {marginTop: '12rem' , color:'black', color: 'green', fontWeight: 'bold'}
+export const backgroundImageCarousel ={
+    position:'fixed',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height:' 100%',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    transition: 'background-image 1s ease-in-out',
+    zIndex:' -1'
+}

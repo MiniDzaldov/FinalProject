@@ -14,6 +14,7 @@ const DeleteAssist = () => {
       setLoading(true);
       setError(null);
       setMessage(null);
+      
       try {
         const response = await axios.delete(`http://localhost:5089/api/assists/${id}`);
         console.log(response);
@@ -28,6 +29,7 @@ const DeleteAssist = () => {
       const enteredCode = prompt(':הכנס קוד מנהל');
       if (enteredCode === '123456') {
         handleDelete(); 
+        
       } else if (enteredCode !== null) {
         alert('אם אתה לא מנהל אל תנסה...');
       }
@@ -48,6 +50,7 @@ const DeleteAssist = () => {
         ) :
          (
           <>
+          onClick={() => navigate('/delete_assist_succesfuly')}
             {/* {message && <div>{message}</div>}
             {error && <div>Error: {error}</div>} */}
           </>

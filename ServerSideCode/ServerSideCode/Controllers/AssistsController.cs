@@ -1,4 +1,6 @@
-﻿namespace ServerSideCode.Controllers;
+﻿using BLL.BLLImplementation;
+
+namespace ServerSideCode.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -73,7 +75,16 @@ public class AssistsController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<AssistDTO>> UpdateAssistDetailsAsync(AssistDTO assist, string id)
     {
-        return await assistDetailsRepo.UpdateAssistDetailsAsync(assist, id);
+        try
+        {
+            var result = await assistDetailsRepo.UpdateAssistDetailsAsync(assist, id);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        //return await assistDetailsRepo.UpdateAssistDetailsAsync(assist, id);
     }
     #endregion
 

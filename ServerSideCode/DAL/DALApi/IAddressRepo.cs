@@ -8,6 +8,8 @@ namespace DAL.DALApi;
 
 public interface IAddressRepo
 {
+    //Task<int> AddAddressAsync(Adress address);
     Task<int> AddAddressAsync(Adress address);
 
+    Task<bool> DeleteAddressAsync(int addressCode);
 }

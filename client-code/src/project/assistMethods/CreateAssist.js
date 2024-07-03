@@ -3,8 +3,10 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import {centeredInputStyle} from '../style/Styles'
+import { useNavigate } from 'react-router-dom';
 const CreateAssist = () => {
   const [helpCategory, setHelpCategory] = useState([]);
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
   useEffect(() => {
@@ -173,7 +175,7 @@ const CreateAssist = () => {
 
                   </Row>
                   <br />
-                  <Button variant="outline-danger" type="submit" style={{width: '8rem'}} >שליחת הטופס</Button>
+                  <Button variant="outline-danger" type="submit" style={{width: '8rem'}} onClick={() => navigate('/create_assist_succesfuly')}>שליחת הטופס</Button>
                 </Form>
               </div>
             </Col>

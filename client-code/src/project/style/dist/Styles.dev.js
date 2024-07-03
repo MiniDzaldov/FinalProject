@@ -3,7 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.succsesfully = exports.centeredInputStyle = exports.divStyle = exports.border = exports.babyImgStyle = exports.mealImgStyle = exports.cleanTextStyle = exports.mealsTextStyle = exports.footerDivStyle = exports.footerTextStyle = exports.navStyle = exports.logoStyle = exports.navbarDivStyle = exports.errorStyle = exports.inputStyle = exports.searchDivStyle = exports.searchStyle = exports.searchButtonstyle = exports.displayCardsStyle = exports.centeredCard = exports.centeredCardContainer = exports.trashSize = exports.cardButton = exports.cardContent = exports.cardContainer = exports.cardSize = exports.displayFlex = exports.greenColor = exports.redColor = exports.blackColor = void 0;
+exports.backgroundImageCarousel = exports.succsesfully = exports.updateSuccsesfully = exports.centeredInputStyle = exports.divStyle = exports.border = exports.babyImgStyle = exports.mealImgStyle = exports.cleanTextStyle = exports.mealsTextStyle = exports.footerDivStyle = exports.footerTextStyle = exports.navStyle = exports.logoStyle = exports.navbarDivStyle = exports.errorStyle = exports.inputStyle = exports.searchDivStyle = exports.searchStyle = exports.searchButtonstyle = exports.displayCardsStyle = exports.centeredCard = exports.centeredCardContainer = exports.trashSize = exports.cardButton = exports.cardContent = exports.cardContainer = exports.cardSize = exports.displayFlex = exports.greenColor = exports.redColor = exports.blackColor = void 0;
+
+var _updateSuccsesfully, _succsesfully;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var blackColor = {
   color: 'black'
 };
@@ -49,8 +54,10 @@ var cardButton = {
 };
 exports.cardButton = cardButton;
 var trashSize = {
-  width: '1.8rem',
-  height: '2.5rem'
+  width: '2rem',
+  height: '2.5rem',
+  borderRadius: '0.5rem',
+  backgroundColor: 'red'
 };
 exports.trashSize = trashSize;
 var centeredCardContainer = {
@@ -153,7 +160,8 @@ exports.cleanTextStyle = cleanTextStyle;
 var mealImgStyle = {
   'width': '32rem',
   'height': '26rem',
-  'float': 'right'
+  'float': 'right',
+  marginRight: '0.5rem'
 };
 exports.mealImgStyle = mealImgStyle;
 var babyImgStyle = {
@@ -178,8 +186,26 @@ var centeredInputStyle = {
   }
 };
 exports.centeredInputStyle = centeredInputStyle;
-var succsesfully = {
-  marginTop: '2rem',
+var updateSuccsesfully = (_updateSuccsesfully = {
+  marginTop: '12rem',
   color: 'black'
-};
+}, _defineProperty(_updateSuccsesfully, "color", 'green'), _defineProperty(_updateSuccsesfully, "fontWeight", 'bold'), _updateSuccsesfully);
+exports.updateSuccsesfully = updateSuccsesfully;
+var succsesfully = (_succsesfully = {
+  marginTop: '12rem',
+  color: 'black'
+}, _defineProperty(_succsesfully, "color", 'green'), _defineProperty(_succsesfully, "fontWeight", 'bold'), _succsesfully);
 exports.succsesfully = succsesfully;
+var backgroundImageCarousel = {
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  width: '100%',
+  height: ' 100%',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  transition: 'background-image 1s ease-in-out',
+  zIndex: ' -1'
+};
+exports.backgroundImageCarousel = backgroundImageCarousel;

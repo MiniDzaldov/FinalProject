@@ -76,7 +76,7 @@ const AssistsDetailsFetch = () => {
                       {/* <button style={trashSize} onClick={() => handleDeleteClick(user.id)}><i className="bi bi-trash"><TrashIcon /></i></button> */}
                       <button style={trashSize} onClick={() => navigate(`/delete_assist/${user.id}`)}><i className="bi bi-trash"><TrashIcon /></i></button>
 
-                      <button style={trashSize} onClick={() => handleUpdateClick(user.id)}><i className="bi bi-pen"><EditIcon /></i></button>
+                      <button style={trashSize} onClick={() => navigate(`/update_assist/${user.id}`)}><i className="bi bi-pen"><EditIcon /></i></button>
                     </div>
                   </Card.Text>
                 </div>
