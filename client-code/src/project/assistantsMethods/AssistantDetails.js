@@ -9,7 +9,7 @@ import EditIcon from '../style/EditIcon';
 import GetAssistantById from './GetAssistantById';
 import DeleteAssistant from './DeleteAssistant';
 import UpdateAssistant from './UpdateAssistant';
-import { blackColor, cardContainer, cardContent, trashSize,displayCardsStyle,greenColor,displayFlex } from '../style/Styles';
+import { blackColor, cardContainer, cardContent, trashSize, editSize, displayCardsStyle, greenColor, displayFlex } from '../style/Styles';
 
 const AssistantDetailsFetch = () => {
   const [users, setUsers] = useState([]);
@@ -37,7 +37,12 @@ const AssistantDetailsFetch = () => {
   };
 
   const handleDeleteClick = (id) => {
-    setDeleteId(id);
+    const enteredId = prompt('הקלד מספר זהות של האדם שברצונך למחוק:');
+    if (enteredId === id.toString()) {
+      navigate(`/delete_assistant/${id}`);
+    } else if (enteredId !== null) {
+      alert('מספר זהות שגוי, אנא נסה שוב...');
+    }
   };
 
   const handleUpdateClick = (id) => {
@@ -69,11 +74,13 @@ const AssistantDetailsFetch = () => {
                     <div style={displayFlex}>
                       {deleteId === user.id && <DeleteAssistant id={user.id} />}
                       {updateId === user.id && <UpdateAssistant id={user.id} />}
-                      <button style={trashSize} onClick={() => navigate(`/delete_assistant/${user.id}`)}><i className="bi bi-trash"><TrashIcon /></i></button>
-                      <button style={trashSize} onClick={() => handleUpdateClick(user.id)}><i className="bi bi-pen"><EditIcon /></i></button>
+                      <button style={trashSize} onClick={() => handleDeleteClick(user.id)}><i className="bi bi-trash"><TrashIcon /></i></button>
+                      <button style={editSize} onClick={() => handleUpdateClick(user.id)}><i className="bi bi-pen"><EditIcon /></i></button>
                     </div>
+                    <br/> 
                   </Card.Text>
                 </div>
+                
               </Collapse>
               <Button variant="outline-success" onClick={() => toggleDetails(user.id)}>
                 {openCardId === user.id ? 'הסתר פרטים': 'לפרטים נוספים'}
@@ -82,10 +89,10 @@ const AssistantDetailsFetch = () => {
           </Card>
         ))}
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

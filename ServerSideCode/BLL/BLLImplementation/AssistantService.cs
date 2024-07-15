@@ -1,4 +1,5 @@
-﻿using DAL.DALImplementation;
+﻿using DAL.DALApi;
+using DAL.DALImplementation;
 using DAL.Models;
 
 namespace BLL.BLLImplementation;
@@ -55,7 +56,6 @@ public class AssistantService : IAssistantService
     }
     #endregion
 
-    // doesnt work
     #region Create
     public async Task<AssistantDTO> AddAssistantDetailsAsync(AssistantDTO asdto)
     {
@@ -153,12 +153,13 @@ public class AssistantService : IAssistantService
     {
         try
         {
-            var assistant = mapper.Map<Assistant>(assdto) ?? throw new ArgumentNullException("assistant details are null");
-            var result = await assistantRepo.UpdateAsync(assistant, id);
+            var assist = mapper.Map<Assistant>(assdto) ?? throw new ArgumentNullException("assist details are null");
+            var result = await assistantRepo.UpdateAsync(assist, id);
             return mapper.Map<AssistantDTO>(result);
         }
         catch (ArgumentNullException ex) { throw ex; }
         catch (Exception) { throw; }
     }
+
     #endregion
 }

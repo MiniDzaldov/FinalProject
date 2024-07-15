@@ -1,14 +1,13 @@
 import './App.css';
-import Navigators from './project/Navigators';
+import Navigators from './project/files/Navigators';
 import { BrowserRouter,  Routes } from 'react-router-dom';
-import Navbarr from './project/Navbarr';
-import Footer from './project/Footer';
+import Navbarr from './project/files/Navbarr';
+import Footer from './project/files/Footer';
 
 function App() {
   return (
     <>
-
-      <Navbarr></Navbarr>
+      <Navbarr/>
       <div className="App">
       <header >
             <BrowserRouter>

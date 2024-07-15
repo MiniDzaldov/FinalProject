@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Spinner, Card, Button, Collapse } from 'react-bootstrap';
-import { searchButtonstyle, searchStyle, searchDivStyle, inputStyle, errorStyle, blackColor, cardContainer, cardContent, cardButton, trashSize, redColor} from '../style/Styles';
+import { searchButtonstyle, searchStyle, searchDivStyle, inputStyle, errorStyle, blackColor, cardContainer, cardContent, cardButton, trashSize, redColor,editSize } from '../style/Styles';
 import PhoneIcon from '../style/PhoneIcon';
 import EmailIcon from '../style/EmailIcon';
 import SearchIcon from '../style/SearchIcon';
@@ -69,7 +69,7 @@ const GetAssistsById = () => {
 
   return (
     <>
-      <div>
+      <div style={{}}>
         <div style={searchDivStyle}>
           <input
             type="text"
@@ -93,31 +93,41 @@ const GetAssistsById = () => {
       </div>
       <div style={cardContainer}>
         {data && (
-          <Card key={data.id} style={{ ...cardContent, height: showDetails ? 'auto' : '12rem' }}>
-            <Card.Body>
+          <Card key={data.id} style={{width:'35rem'}}/*style={{ ...cardContent, height: showDetails ? 'auto' : '12rem' }}*/>
+            <Card.Body style={{width:'35rem'}}>
               <Card.Text style={blackColor}>
                 <h5>{data.firstName + " " + data.lastName}</h5>
                 <h7>:אשמח מאד לקבל סיוע ב</h7>
                 <h4 className="fw-bolder" style={redColor}>{data.categoryCodeNavigation.type}</h4>
               </Card.Text>
+              <h6>אני מאזור {data.addressCodeNavigation.city}</h6>
+              <h6 style={redColor}>:הכתובת שלי</h6>
+              <h6>רחוב {data.addressCodeNavigation.street} {data.addressCodeNavigation.numOfBuilding}</h6>
+              <center><h6>דירה מספר {data.addressCodeNavigation.aptNumber} </h6></center>
+<br/>
+
               <Collapse in={showDetails}>
                 <div>
                   <Card.Text>
-                    <h5>:צרו איתי קשר ב</h5>
-                    <h5><i className="bi bi-telephone"><PhoneIcon /></i>       {data.phoneNumber}</h5>
-                    <h5>:או</h5>
-                    <h5><i style={blackColor} className="bi bi-envelope"><EmailIcon /></i> {data.email}</h5>
+                    <h7>:צרו איתי קשר ב</h7>
+                    <h6><i className="bi bi-telephone"><PhoneIcon /></i>       {data.phoneNumber}</h6>
+                    <h7>:או</h7>
+                    <h6><i style={blackColor} className="bi bi-envelope"><EmailIcon /></i> {data.email}</h6>
+                    <br />
+                    {/* <h6 style={redColor}>:הכתובת שלי</h6>
+                    <h6>רחוב {data.addressCodeNavigation.street} {data.addressCodeNavigation.numOfBuilding}</h6>
+                    <center><h6>דירה מספר {data.addressCodeNavigation.aptNumber} </h6></center> */}
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                    <div style={{ display: 'flex', /*justifyContent: 'space-evenly',*/ marginBottom: '0.5rem' }}>
                       <button style={trashSize} onClick={() => navigate(`/delete_assist/${data.id}`)}><TrashIcon /> </button>
-                      <button style={trashSize} onClick={() => navigate(`/update_assist/${data.id}`)}><EditIcon /></button>
+                      <button style={editSize} onClick={() => navigate(`/update_assist/${data.id}`)}><EditIcon /></button>
                     </div>
                   </Card.Text>
                 </div>
               </Collapse>
-              <Button variant="outline-danger" onClick={toggleDetails} style={cardButton}>
+              {/* <Button variant="outline-danger" onClick={toggleDetails} style={cardButton}>
                 {showDetails ? 'הסתר פרטים' : 'צפו בפרטים'}
-              </Button>
+              </Button> */}
             </Card.Body>
           </Card>
         )}
@@ -131,5 +141,7 @@ const GetAssistsById = () => {
 };
 
 export default GetAssistsById;
+
+
 
 

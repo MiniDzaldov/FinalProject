@@ -1,32 +1,81 @@
-// import React from 'react';
+// import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
-// const DeleteAssistantComponent = ({ assistantId, fetchAssistants }) => {
-//   const deleteAssistant = async () => {
-//     try {
-//       await axios.delete(`http://localhost:5089/api/assistants/${assistantId}`);
-//       fetchAssistants();
-//     } catch (error) {
-//       if (error.response) {
-//         // השרת הגיב עם קוד שגיאה
-//         console.error('Error deleting assistant:', error.response.data);
-//         alert(`Error: ${error.response.data}`);
-//       } else if (error.request) {
-//         // הבקשה נשלחה אך לא התקבלה תגובה
-//         console.error('Error deleting assistant: No response received', error.request);
-//         alert('Error: No response received from the server.');
-//       } else {
-//         // משהו קרה בעת הגדרת הבקשה שגרם לשגיאה
-//         console.error('Error deleting assistant:', error.message);
-//         alert(`Error: ${error.message}`);
+// import { useNavigate,useParams } from 'react-router-dom';
+// import { Button, Card, Container } from 'react-bootstrap';
+// import {redColor,deleteCard} from '../style/Styles'
+// const DeleteAssist = ({ onDeleteSuccess }) => {
+//   const navigate = useNavigate();
+//   const { id } = useParams();
+//   const [message, setMessage] = useState(null);
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(null);
+//   const [promptShown, setPromptShown] = useState(false); 
+//   const [deletedPerson, setDeletedPerson] = useState(null);
+//   useEffect(() => {
+//     const handleDelete = async () => {
+//       setLoading(true);
+//       setError(null);
+//       setMessage(null);
+//       try {
+//         const response = await axios.delete(`http://localhost:5089/api/assistants/${id}`);
+//         console.log(response);
+//         setDeletedPerson(response.data);
+//         const successMessage = `${response.data.firstName} ${response.data.lastName} נמחק/ה בהצלחה`;
+//         setMessage(successMessage);
+//         onDeleteSuccess(successMessage);
+//       } catch (err) {
+//         setError(err.message);
+//       } finally {
+//         setLoading(false);
 //       }
+//     };
+//     const checkPersonId = () => {
+//       const enteredId = prompt('הקלד מספר זהות של האדם שברצונך למחוק:');
+//       if (enteredId === id) {
+//         handleDelete();
+//       } else if (enteredId !== null) {
+//         alert('מספר זהות שגוי, אנא נסה שוב...');
+//       }
+//       setPromptShown(true);
+//     };
+//     if (!promptShown) {
+//       checkPersonId();
 //     }
-//   };
+//   }, [promptShown, id, onDeleteSuccess]);
 //   return (
-//     <div>
-//       <h2>Delete Assistant:</h2>
-//       <button onClick={deleteAssistant}>Delete Assistant</button>
-//     </div>
+//     <>
+//     <br/>
+//     <br/>
+//     <br/>
+//      <div>
+//         {loading ? (
+//           <p>מבצע מחיקה...</p>
+//         ) : deletedPerson ? (
+//           <div>
+//             <center>
+//             <Container >
+//               <Card style={deleteCard}>
+//                 <Card.Body>
+//                   <center style={redColor}>
+//                   <h3>{deletedPerson.firstName} {deletedPerson.lastName} </h3>
+//                   <h4 style={redColor}>נמחק/ה בהצלחה</h4>
+//                   </center>
+//                   </Card.Body>
+//               </Card>
+//             </Container>
+//             <br/>
+//             <br/>
+//             <br/>
+//             <Button  variant="outline-danger" onClick={() => navigate('/assistant_details')}>חזרה</Button>
+//             </center>
+//           </div>
+//         ) : (
+//           <>
+//           </>
+//         )}
+//       </div>
+//     </>
 //   );
 // };
-// export default DeleteAssistantComponent;
+// export default DeleteAssist;
 "use strict";
