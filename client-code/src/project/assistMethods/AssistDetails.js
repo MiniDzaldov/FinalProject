@@ -16,9 +16,8 @@ const AssistsDetailsFetch = () => {
   const [assists, setAssists] = useState([]);
   const [openCardId, setOpenCardId] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
-  const [deleteId, setDeleteId] = useState(null);
-  const [updateId, setUpdateId] = useState(null);
   const [deleteSuccessMessage, setDeleteSuccessMessage] = useState(null);
+  const [deleteId, setDeleteId] = useState(null);
 
   const fetchAssists = async () => {
     try {
@@ -47,7 +46,7 @@ const AssistsDetailsFetch = () => {
   };
 
   const handleUpdateClick = (id) => {
-    setUpdateId(id);
+    navigate(`/update_assist/${id}`);
   };
 
   const handleDeleteSuccess = () => {
@@ -82,7 +81,6 @@ const AssistsDetailsFetch = () => {
                     <h6><i style={blackColor} className="bi bi-envelope"><EmailIcon /></i> {user.email}</h6>
                     <div style={displayFlex}>
                       {deleteId === user.id && <DeleteAssist onDeleteSuccess={handleDeleteSuccess} />}
-                      {updateId === user.id && <UpdateAssist id={user.id} />}
                       <button style={trashSize} onClick={() => handleDeleteClick(user.id)}><i className="bi bi-trash"><TrashIcon /></i></button>
                       <button style={editSize} onClick={() => handleUpdateClick(user.id)}><i className="bi bi-pen"><EditIcon /></i></button>
                     </div>

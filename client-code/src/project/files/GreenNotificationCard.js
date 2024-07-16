@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 
 const GreenNotificationCard = ({ onClose, text }) => {
     return (
+        <>
         <div style={notificationCard}>
             <div style={cardContent1}>
                 <h3 style={greenColor}>{text}</h3>
@@ -11,6 +12,12 @@ const GreenNotificationCard = ({ onClose, text }) => {
                 <Button variant="outline-success" onClick={onClose}>סגירה</Button>
             </div>
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        </>
     );
 };
 

@@ -75,7 +75,7 @@ const UpdateAssist = () => {
 
       const response = await axios.put(`http://localhost:5089/api/assists/${formData.id}`, dataToSend);
       console.log('Data updated successfully', response.data);
-      setUpdateSuccess(true); // Set update success to true
+      setUpdateSuccess(true);
     } catch (error) {
       console.error('Error updating data', error);
       setError('Error updating data');
@@ -93,6 +93,9 @@ const UpdateAssist = () => {
     }
   }, [updateSuccess]);
 
+  if (loading) return <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>;
+  if (error) return <p>{error}</p>;
+
   return (
     <>
       <center>
@@ -101,8 +104,6 @@ const UpdateAssist = () => {
             <Col md={8}>
               <div className="border border-danger p-4 rounded">
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                  <Row className="mb-3">
-                  </Row>
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="formBasicLastName">
                       <Form.Control type="text" placeholder="שם משפחה" style={centeredInputStyle}

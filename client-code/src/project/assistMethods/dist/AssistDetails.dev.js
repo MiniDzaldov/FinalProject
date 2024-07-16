@@ -5,11 +5,11 @@
 // import GetAssistsById from './GetAssistsById';
 // import DeleteAssist from './DeleteAssist';
 // import UpdateAssist from './UpdateAssist';
-// import { blackColor, cardContainer, cardContent, trashSize, redColor, displayCardsStyle, displayFlex } from '../style/Styles';
 // import EmailIcon from '../style/EmailIcon';
 // import PhoneIcon from '../style/PhoneIcon';
 // import TrashIcon from '../style/TrashIcon';
 // import EditIcon from '../style/EditIcon';
+// import { blackColor, cardContainer, cardContent, trashSize, editSize, redColor, displayCardsStyle, displayFlex } from '../style/Styles';
 // const AssistsDetailsFetch = () => {
 //   const navigate = useNavigate();
 //   const [assists, setAssists] = useState([]);
@@ -17,7 +17,7 @@
 //   const [searchResult, setSearchResult] = useState(null);
 //   const [deleteId, setDeleteId] = useState(null);
 //   const [updateId, setUpdateId] = useState(null);
-//   const [deleteSuccessMessage, setDeleteSuccessMessage] = useState(null); 
+//   const [deleteSuccessMessage, setDeleteSuccessMessage] = useState(null);
 //   const fetchAssists = async () => {
 //     try {
 //       const response = await axios.get('http://localhost:5089/api/Assists');
@@ -33,13 +33,18 @@
 //     setOpenCardId(prevId => (prevId === id ? null : id));
 //   };
 //   const handleDeleteClick = (id) => {
-//     setDeleteId(id);
+//     const enteredId = prompt('הקלד מספר זהות של האדם שברצונך למחוק:');
+//     if (enteredId === id.toString()) {
+//       navigate(`/delete_assist/${id}`);
+//     } else if (enteredId !== null) {
+//       alert('מספר זהות שגוי, אנא נסה שוב...');
+//     }
 //   };
 //   const handleUpdateClick = (id) => {
 //     setUpdateId(id);
 //   };
 //   const handleDeleteSuccess = () => {
-//     fetchAssists(); 
+//     fetchAssists();
 //     setDeleteSuccessMessage('נמחק בהצלחה');
 //   };
 //   return (
@@ -69,9 +74,10 @@
 //                     <div style={displayFlex}>
 //                       {deleteId === user.id && <DeleteAssist onDeleteSuccess={handleDeleteSuccess} />}
 //                       {updateId === user.id && <UpdateAssist id={user.id} />}
-//                       <button style={trashSize} onClick={() => navigate(`/delete_assist/${user.id}`)}><i className="bi bi-trash"><TrashIcon /></i></button>
-//                       <button style={trashSize} onClick={() => navigate(`/update_assist/${user.id}`)}><i className="bi bi-pen"><EditIcon /></i></button>
+//                       <button style={trashSize} onClick={() => handleDeleteClick(user.id)}><i className="bi bi-trash"><TrashIcon /></i></button>
+//                       <button style={editSize} onClick={() => handleUpdateClick(user.id)}><i className="bi bi-pen"><EditIcon /></i></button>
 //                     </div>
+//                     <br/>
 //                   </Card.Text>
 //                 </div>
 //               </Collapse>
@@ -82,17 +88,16 @@
 //           </Card>
 //         ))}
 //       </div>
-//       {/* הודעת מחיקה בהצלחה */}
 //       {deleteSuccessMessage &&
 //         <Alert variant="success">
 //           <Alert.Heading>הפעולה בוצעה בהצלחה!</Alert.Heading>
 //           <p>{deleteSuccessMessage}</p>
 //         </Alert>
 //       }
-//       <br></br>
-//       <br></br>
-//       <br></br>
-//       <br></br>
+//       <br />
+//       <br />
+//       <br />
+//       <br />
 //     </>
 //   );
 // };

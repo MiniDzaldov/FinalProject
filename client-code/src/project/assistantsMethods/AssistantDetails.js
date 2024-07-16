@@ -46,7 +46,7 @@ const AssistantDetailsFetch = () => {
   };
 
   const handleUpdateClick = (id) => {
-    setUpdateId(id);
+    navigate(`/update_assistant/${id}`);
   };
 
   return (
@@ -80,7 +80,6 @@ const AssistantDetailsFetch = () => {
                     <br/> 
                   </Card.Text>
                 </div>
-                
               </Collapse>
               <Button variant="outline-success" onClick={() => toggleDetails(user.id)}>
                 {openCardId === user.id ? 'הסתר פרטים': 'לפרטים נוספים'}

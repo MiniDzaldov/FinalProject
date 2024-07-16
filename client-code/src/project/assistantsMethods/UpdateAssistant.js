@@ -45,7 +45,6 @@ const UpdateAssistant = () => {
         setValue("aptNumber", assistantData.addressCodeNavigation.aptNumber);
         setValue("zipCode", assistantData.addressCodeNavigation.zipCode);
         setLoading(false);
-        setLoading(false);
       } catch (error) {
         console.error('Error fetching data', error);
         setError('Error fetching data');
@@ -204,13 +203,12 @@ const UpdateAssistant = () => {
         </Container>
       </center>
 
-
       {showNotification && <GreenNotificationCard text="פרטייך התעדכנו בהצלחה" onClose={handleCloseNotification} />}
       <br/>
-<br/>
-<br/>
-<br/>
-<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </>
   );
 };
